@@ -5,7 +5,8 @@
 	main = $('#ASPAmain');
 
 	//load scripts
-	//$('<script />', {src: 'https://raw.github.com/adussaq/ASPA2/master/bootstrap.min.js'}).appendTo(main);
+	// $('<script />', {src: 'https://raw.github.com/adussaq/ASPA2/master/js/bootstrap.min.js'}).appendTo(main);
+	// $('<link />', {rel: 'stylesheet', src: 'https://raw.github.com/adussaq/ASPA2/master/css/bootstrap.min.js'}).appendTo(main);
 
 
 	//Make tabs
