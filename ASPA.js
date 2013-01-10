@@ -5,7 +5,7 @@
 	main = $('#ASPAmain');
 
 	//load scripts
-	$('<script />', src: 'https://raw.github.com/adussaq/ASPA2/master/bootstrap.min.js').appendTo(main);
+	$('<script />', {src: 'https://raw.github.com/adussaq/ASPA2/master/bootstrap.min.js'}).appendTo(main);
 
 
 	console.log('Hello from github');
