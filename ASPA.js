@@ -1,7 +1,7 @@
 /*global console, $ */
 (function () {
 	'use strict';
-	var main;
+	var main, tabClick;
 	main = $('#ASPAmain');
 
 	//load scripts
