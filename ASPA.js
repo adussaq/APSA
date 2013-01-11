@@ -9,9 +9,10 @@
 		evt.preventDefault();
 		text = $($(this).parent().children('div')[0]);
 		if (text.is(":visible")) {
-			$('.hide').hide('slow', function () {});
+			text.hide('slow');
 		} else {
-			$('.hide').hide({duration: 'slow', complete: function () { text.show('slow', function () {}); }});
+			$('.hide').hide('slow');
+			text.show('slow');
 		}
 	};
 
