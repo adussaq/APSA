@@ -99,7 +99,7 @@
 					text.show('slow');
 				}
 			});
-			$('<img />', {style: "height:" + 702 / scale + "px;width:" + "height:" + 540 / scale + "px;text-align: center;", src: 'https://raw.github.com/adussaq/ASPA2/master/thisIsMeImages/' + thisIsMeObj[i].images[0]}).appendTo('#slideContent' + i);
+			$('<img />', {style: "height:" + 702 / scale + "px;width:" + "height:" + 540 / scale + "px;display: block;margin-left: auto;margin-right: auto", src: 'https://raw.github.com/adussaq/ASPA2/master/thisIsMeImages/' + thisIsMeObj[i].images[0]}).appendTo('#slideContent' + i);
 
 		}
 		//Hide everything that was made...
