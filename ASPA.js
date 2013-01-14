@@ -31,10 +31,10 @@
 						'<b>Treasurer:</b> Alice Weaver<br />' +
 						'<b>Webmaster:</b> Alex Dussaq<br />' +
 						'<b>SOM Representative:</b> Meredith Hubbard<br />' +
-						'<b>Faculty Advisor:</b> Dr. Robin Lorenz<br /></div>'}).appendTo(main);
+						'<b>Faculty Advisor:</b> Dr. Robin Lorenz<br /><br /></div>'}).appendTo(main);
 
-	$('<div />', {html: '<a href="#" id="tab3">Important Links</a><div class= "hide"><a href="http://www.physicianscientists.org">ASPA National Chapter</a></div>'}).appendTo(main);
-	$('<div />', {html: '<a href="#" id="tab4">Contact Us</a><div class= "hide">In development</div>'}).appendTo(main);
+	$('<div />', {html: '<a href="#" id="tab3">Important Links</a><div class= "hide"><a href="http://www.physicianscientists.org">ASPA National Chapter</a><br /><br /></div>'}).appendTo(main);
+	$('<div />', {html: '<a href="#" id="tab4">Contact Us</a><div class= "hide">In development<br /><br /></div>'}).appendTo(main);
 
 
 	$('.hide').hide();
