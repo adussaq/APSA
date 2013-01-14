@@ -110,7 +110,7 @@
 
 			//Add the images for this person, hiding all but the first one...
 			for (j = 0; j < thisIsMeObj[i].images.length; j += 1) {
-				$('<img />', {'class': 'slideIMG', style: "display:block;position:relative;width:" + 702 / scale + "px;", src: 'https://raw.github.com/adussaq/ASPA2/master/thisIsMeImages/' + thisIsMeObj[i].images[j]}).click(j === thisIsMeObj[i].images.length - 1 ? slideClickLast : slideClick).appendTo('#slideContent' + i);
+				$('<img />', {'class': 'slideIMG', style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", src: 'https://raw.github.com/adussaq/ASPA2/master/thisIsMeImages/' + thisIsMeObj[i].images[j]}).click(j === thisIsMeObj[i].images.length - 1 ? slideClickLast : slideClick).appendTo('#slideContent' + i);
 			}
 
 		}
