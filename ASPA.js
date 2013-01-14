@@ -67,7 +67,7 @@
 	(function () {
 		var i, j, scale;
 
-		scale = 2.5;
+		scale = 2;
 		//Sort this is me array
 		thisIsMeObj = thisIsMeObj.sort(function (a, b) {
 			var aSurname, bSurname;
