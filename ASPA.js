@@ -65,13 +65,27 @@
 
 	//Actually create the this is me section
 	(function () {
-		var i, j, scale, thisIsMe, slideClickLast, slideClick;
+		var i, j, scale, thisIsMeClick, slideClickLast, slideClick;
 
-		slideClick = function () {
+		slideClick = function (evt) {
+			evt.preventDefault();
 			$(this).hide('slow');
 		};
-		slideClickLast = function () {
+		slideClickLast = function (evt) {
+			evt.preventDefault();
 			$('.slideIMG').show('slow');
+		};
+		thisIsMeClick = function (evt) {
+			var text, clicker;
+			evt.preventDefault();
+
+			text = $($(this).parent().children('div')[0]);
+			if (text.is(":visible")) {
+				text.hide('slow');
+			} else {
+				$('.slide').hide('slow');
+				text.show('slow');
+			}
 		};
 
 		scale = 2;
@@ -93,24 +107,14 @@
 		//Now that it is sorted, add the actual data
 		for (i = 0; i < thisIsMeObj.length; i += 1) {
 			//make the html
-			$('<div />', {html: "&nbsp;&nbsp;<b>" + thisIsMeObj[i].name + "</b>, " + thisIsMeObj[i].year + ' <a href=# id=slides_' + i + '> This is Me</a><div class="slide" style="' + "width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto" id="slideContent' + i + '"></div>'}).appendTo(thisIsMeDiv);
+			$('<div />', {html: "&nbsp;&nbsp;<b>" + thisIsMeObj[i].name + "</b>, " + thisIsMeObj[i].year + ' <a href=# id=slides_' + i + '> This is Me</a><div class="slide" style="border:2px solid black;' + "width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto" id="slideContent' + i + '"></div>'}).appendTo(thisIsMeDiv);
 
 			//give the hide button something to do.
-			$('#slides_' + i).click(function (evt) {
-				var text;
-				evt.preventDefault();
-				text = $($(this).parent().children('div')[0]);
-				if (text.is(":visible")) {
-					text.hide('slow');
-				} else {
-					$('.slide').hide('slow');
-					text.show('slow');
-				}
-			});
+			$('#slides_' + i).click(thisIsMeClick);
 
 			//Add the images for this person, hiding all but the first one...
 			for (j = 0; j < thisIsMeObj[i].images.length; j += 1) {
-				$('<img />', {'class': 'slideIMG', style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", src: 'https://raw.github.com/adussaq/ASPA2/master/thisIsMeImages/' + thisIsMeObj[i].images[j]}).click(j === thisIsMeObj[i].images.length - 1 ? slideClickLast : slideClick).appendTo('#slideContent' + i);
+				$('<img />', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", src: 'https://raw.github.com/adussaq/ASPA2/master/thisIsMeImages/' + thisIsMeObj[i].images[j]}).click(j === thisIsMeObj[i].images.length - 1 ? slideClickLast : slideClick).appendTo('#slideContent' + i);
 			}
 
 		}
