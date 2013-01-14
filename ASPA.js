@@ -37,7 +37,7 @@
 
 	//Create this is me/membership section
 	$('<div />', {html: '<a href="#" id="tab3">Membership</a><div class= "hide">' +
-		'&nbsp;&nbsp;This is not an exaughtive list, instead a list of members who wanted us to know "This is me."<div id=thisIsMe></div>'}).appendTo(main);
+		'&nbsp;&nbsp;This is not an exaughtive list, instead a list of members who wanted us to know "This is me."<div id=thisIsMe></div><div><br /><br /></div>'}).appendTo(main);
 	//Important Links
 	$('<div />', {html: '<a href="#" id="tab4">Important Links</a><div class= "hide">&nbsp;&nbsp;<a href="http://www.physicianscientists.org">ASPA National Chapter</a><br /><br /></div>'}).appendTo(main);
 	//Contact Us
@@ -78,6 +78,9 @@
 			} else {
 				return -1;
 			}
+
+		//Now that it is sorted, add the actual data
+
 		});
 		console.log(thisIsMeObj);
 	}());
