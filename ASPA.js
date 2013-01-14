@@ -71,7 +71,7 @@
 			bSurname = b.name.split(/\s+/).pop();
 			if (aSurname > bSurname) {
 				return 1;
-			} else if (bSurname < aSurname) {
+			} else if (aSurname < bSurname) {
 				return -1;
 			} else if (a.name > b.name) {
 				return 1;
