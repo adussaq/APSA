@@ -86,7 +86,7 @@
 		//Now that it is sorted, add the actual data
 		for (i = 0; i < thisIsMeObj.length; i += 1) {
 			//make the html
-			$('<div />', {html: "&nbsp;&nbsp;<b>" + thisIsMeObj[i].name + "</b>, " + thisIsMeObj[i].year + ' <a href=# id=slides_' + i + '> This is Me</a><div class="slide" style="' + "width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow-y: hidden;overflow-x: hidden;display: block;margin-left: auto;boarder:5px solid black;margin-right: auto" id="slideContent' + i + '"></div>'}).appendTo(thisIsMeDiv);
+			$('<div />', {html: "&nbsp;&nbsp;<b>" + thisIsMeObj[i].name + "</b>, " + thisIsMeObj[i].year + ' <a href=# id=slides_' + i + '> This is Me</a><div class="slide" style="border:5px solid black;' + "width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto" id="slideContent' + i + '"></div>'}).appendTo(thisIsMeDiv);
 
 			//give the hide button something to do.
 			$('#slides_' + i).click(function (evt) {
