@@ -56,7 +56,7 @@
 	thisIsMeDiv = $('#thisIsMe');
 
 	//Add people to this is me
-	thisIsMeObj.push({name: 'Jennifer Stanley', year: 'MSTP GS2', images: ['JStanley_20130109.jpg_1', 'JStanley_20130109_2.jpg']});
+	thisIsMeObj.push({name: 'Jennifer Stanley', year: 'MSTP GS2', images: ['JStanley_20130109_1.jpg', 'JStanley_20130109_2.jpg']});
 	thisIsMeObj.push({name: 'Alice Weaver', year: 'MSTP MS2', images: ['AWeaver_20130109_1.jpg', 'AWeaver_20130109_2.jpg']});
 	thisIsMeObj.push({name: 'Mika Gunzman Karlsson', year: 'MSTP GS2', images: ['MGKarlsson_20130109_1.jpg', 'MGKarlsson_20130109_2.jpg']});
 	thisIsMeObj.push({name: 'Meredith Hubbard', year: 'MS1', images: ['MHubbard_20130109_1.jpg', 'MHubbard_20130109_2.jpg', 'MHubbard_20130109_3.jpg', 'MHubbard_20130109_4.jpg']});
