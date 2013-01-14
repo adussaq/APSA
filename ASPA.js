@@ -64,7 +64,9 @@
 
 	//Actually create the this is me section
 	(function () {
-		var i;
+		var i, j, scale;
+
+		scale = 2;
 		//Sort this is me array
 		thisIsMeObj = thisIsMeObj.sort(function (a, b) {
 			var aSurname, bSurname;
@@ -97,8 +99,7 @@
 					text.show('slow');
 				}
 			});
-
-			$('<img />', {src: 'https://raw.github.com/adussaq/ASPA2/master/thisIsMeImages/' + thisIsMeObj[i].images[0]}).appendTo('#slideContent' + i);
+			$('<img />', {style: "height:" + 702 / scale + "px;width:" + "height:" + 540 / scale + "px", src: 'https://raw.github.com/adussaq/ASPA2/master/thisIsMeImages/' + thisIsMeObj[i].images[0]}).appendTo('#slideContent' + i);
 
 		}
 		//Hide everything that was made...
