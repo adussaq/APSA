@@ -86,7 +86,7 @@
 		//Now that it is sorted, add the actual data
 		for (i = 0; i < thisIsMeObj.length; i += 1) {
 			//make the html
-			$('<div />', {html: "&nbsp;&nbsp;<b>" + thisIsMeObj[i].name + "</b>, " + thisIsMeObj[i].year + ' <a href=# id=slides_' + i + '> This is Me</a><div class="slide" style=' + "height:" + 702 / scale + "px;width:" + 540 / scale + 'px;overflow-y: hidden;overflow-x: hidden;;display: block;margin-left: auto;margin-right: auto" id="slideContent' + i + '"></div>'}).appendTo(thisIsMeDiv);
+			$('<div />', {html: "&nbsp;&nbsp;<b>" + thisIsMeObj[i].name + "</b>, " + thisIsMeObj[i].year + ' <a href=# id=slides_' + i + '> This is Me</a><div class="slide" style=' + "width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow-y: hidden;overflow-x: hidden;;display: block;margin-left: auto;margin-right: auto" id="slideContent' + i + '"></div>'}).appendTo(thisIsMeDiv);
 
 			//give the hide button something to do.
 			$('#slides_' + i).click(function (evt) {
@@ -103,7 +103,7 @@
 
 			//Add the images for this person, hiding all but the first one...
 			for (j = 0; j < thisIsMeObj[i].images.length; j += 1) {
-				$('<img />', {style: "display:inline;height:" + 702 / scale + "px;width:" + 540 / scale + "px;", src: 'https://raw.github.com/adussaq/ASPA2/master/thisIsMeImages/' + thisIsMeObj[i].images[j]}).click(function (evt) {
+				$('<img />', {style: "display:inline;", src: 'https://raw.github.com/adussaq/ASPA2/master/thisIsMeImages/' + thisIsMeObj[i].images[j]}).click(function (evt) {
 					$(this).hide('slow');
 				}).appendTo('#slideContent' + i);
 			}
