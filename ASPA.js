@@ -4,6 +4,13 @@
 	var main, tabClick, thisIsMeDiv, thisIsMeObj;
 	thisIsMeObj = [];
 	main = $('#ASPAmain');
+
+	//CSS
+	$('<style />', {type: 'text/css', media: 'screen', text: '.slides_container {width:470px;display:none;}.slides_container div {width:470px;height:170px;display:block;}.pagination {list-style:none;margin:0;padding:0;}.pagination .current a {color:red;}' }).appendTo(main);
+
+	//scripts
+	$('<script />', {src : "slides.min.jquery.js"}).appendTo(main);
+
 	console.log('Hello from github');
 	tabClick = function (evt) {
 		var text;
