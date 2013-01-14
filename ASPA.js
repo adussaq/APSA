@@ -37,7 +37,7 @@
 
 	//Create this is me/membership section
 	$('<div />', {html: '<a href="#" id="tab3">Membership</a><div class= "hide">' +
-		'&nbsp;&nbsp;This is not an exaughtive list, instead a list of members who wanted us to know "This is me."<div id=thisIsMe></div><div><br /><br /></div>'}).appendTo(main);
+		'&nbsp;&nbsp;This is not an exaughtive list, instead a list of members who wanted us to know "This is me."<br /><div id=thisIsMe></div><div><br /></div>'}).appendTo(main);
 	//Important Links
 	$('<div />', {html: '<a href="#" id="tab4">Important Links</a><div class= "hide">&nbsp;&nbsp;<a href="http://www.physicianscientists.org">ASPA National Chapter</a><br /><br /></div>'}).appendTo(main);
 	//Contact Us
@@ -82,7 +82,10 @@
 		});
 		//Now that it is sorted, add the actual data
 		for (i = 0; i < thisIsMeObj.length; i += 1) {
-			$('<div />', {id: "p_" + i, html: "<b>" + thisIsMeObj[i].name + "</b>, " + thisIsMeObj[i].year + ' <a href=# id=slides_' + i + '> This is Me</a><div class="slide">This Will be slides</div>'}).appendTo(thisIsMeDiv);
+			//make the html
+			$('&nbsp;&nbsp;<div />', {html: "<b>" + thisIsMeObj[i].name + "</b>, " + thisIsMeObj[i].year + ' <a href=# id=slides_' + i + '> This is Me</a><div class="slide" id="slideContent"' + i + '>This will be slides</div>'}).appendTo(thisIsMeDiv);
+
+			//give the hide button something to do.
 			$('#slides_' + i).click(function (evt) {
 				var text;
 				evt.preventDefault();
@@ -94,7 +97,11 @@
 					text.show('slow');
 				}
 			});
+
+			//Add images...
+
 		}
+		//Hide everything that was made...
 		$('.slide').hide();
 	}());
 }());
