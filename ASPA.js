@@ -4,13 +4,6 @@
 	var main, tabClick, thisIsMeDiv, thisIsMeObj;
 	thisIsMeObj = [];
 	main = $('#ASPAmain');
-
-	//CSS
-	$('<style />', {type: 'text/css', media: 'screen', text: '.slides_container {width:470px;display:none;}.slides_container div {width:470px;height:170px;display:block;}.pagination {list-style:none;margin:0;padding:0;}.pagination .current a {color:red;}' }).appendTo(main);
-
-	//scripts
-	$('<script />', {src : "https://raw.github.com/adussaq/ASPA2/master/slides.min.jquery.js"}).appendTo(main);
-
 	console.log('Hello from github');
 	tabClick = function (evt) {
 		var text;
@@ -44,8 +37,7 @@
 
 	//Create this is me/membership section
 	$('<div />', {html: '<a href="#" id="tab3">Membership</a><div class= "hide">' +
-		'&nbsp;&nbsp;This is not an exaughtive list, instead a list of members who wanted us to know "This is me."<div id=thisIsMe><div id="slides"><div class="slides_container"><div><h1>Slide 1</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div><div><h1>Slide 2</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div><div><h1>Slide 3</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div><div><h1>Slide 4</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div></div></div></div><div><br /><br /></div>'}).appendTo(main);
-	
+		'&nbsp;&nbsp;This is not an exaughtive list, instead a list of members who wanted us to know "This is me."<div id=thisIsMe></div><div><br /><br /></div>'}).appendTo(main);
 	//Important Links
 	$('<div />', {html: '<a href="#" id="tab4">Important Links</a><div class= "hide">&nbsp;&nbsp;<a href="http://www.physicianscientists.org">ASPA National Chapter</a><br /><br /></div>'}).appendTo(main);
 	//Contact Us
