@@ -64,6 +64,7 @@
 
 	//Actually create the this is me section
 	(function () {
+		var i;
 		//Sort this is me array
 		thisIsMeObj = thisIsMeObj.sort(function (a, b) {
 			var aSurname, bSurname;
@@ -78,10 +79,34 @@
 			} else {
 				return -1;
 			}
-
-		//Now that it is sorted, add the actual data
-
 		});
-		console.log(thisIsMeObj);
+		//Now that it is sorted, add the actual data
+		for (i = 0; i < thisIsMeObj.length; i += 1) {
+			$('<div />', {id: "p_" + i, html: "<b>" + thisIsMeObj[i].name + "</b>, " + thisIsMeObj[i].year + ' <a href=# id=slides_' + i + '> This is Me</a><div class=slide>This Will be slides</div>'}).appendTo(thisIsMeDiv);
+			$('#slides' + i).click(function (evt) {
+				var text;
+				evt.preventDefault();
+				text = $($(this).parent().children('div')[0]);
+				if (text.is(":visible")) {
+					text.hide('slow');
+				} else {
+					$('.slide').hide('slow');
+					text.show('slow');
+				}
+			});
+		}
 	}());
 }());
+
+
+
+
+
+
+
+
+
+
+
+
+
