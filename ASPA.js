@@ -44,7 +44,8 @@
 
 	//Create this is me/membership section
 	$('<div />', {html: '<a href="#" id="tab3">Membership</a><div class= "hide">' +
-		'&nbsp;&nbsp;This is not an exaughtive list, instead a list of members who wanted us to know "This is me."<div id=thisIsMe></div><div><br /><br /></div>'}).appendTo(main);
+		'&nbsp;&nbsp;This is not an exaughtive list, instead a list of members who wanted us to know "This is me."<div id=thisIsMe><div id="slides"><div class="slides_container"><div><h1>Slide 1</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div><div><h1>Slide 2</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div><div><h1>Slide 3</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div><div><h1>Slide 4</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div></div></div></div><div><br /><br /></div>'}).appendTo(main);
+	
 	//Important Links
 	$('<div />', {html: '<a href="#" id="tab4">Important Links</a><div class= "hide">&nbsp;&nbsp;<a href="http://www.physicianscientists.org">ASPA National Chapter</a><br /><br /></div>'}).appendTo(main);
 	//Contact Us
