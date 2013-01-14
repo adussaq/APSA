@@ -25,16 +25,16 @@
 						'<br /><br /><a href="https://github.com/adussaq/ASPA2/raw/master/APSAConstitution_2013_01_10.pdf">Download Constitution</a><br /><br /></div>'}).appendTo(main);
 
 	$('<div />', {html: '<a href="#" id="tab2">Officers</a><div class= "hide">' +
-						'<b>President:</b> Travis Hull<br />' +
-						'<b>Vice President:</b> Jennifer Stanley<br />' +
-						'<b>Secretary:</b> Stephanie Robert<br />' +
-						'<b>Treasurer:</b> Alice Weaver<br />' +
-						'<b>Webmaster:</b> Alex Dussaq<br />' +
-						'<b>SOM Representative:</b> Meredith Hubbard<br />' +
-						'<b>Faculty Advisor:</b> Dr. Robin Lorenz<br /><br /></div>'}).appendTo(main);
+						'&nbsp;&nbsp;<b>President:</b> Travis Hull<br />' +
+						'&nbsp;&nbsp;<b>Vice President:</b> Jennifer Stanley<br />' +
+						'&nbsp;&nbsp;<b>Secretary:</b> Stephanie Robert<br />' +
+						'&nbsp;&nbsp;<b>Treasurer:</b> Alice Weaver<br />' +
+						'&nbsp;&nbsp;<b>Webmaster:</b> Alex Dussaq<br />' +
+						'&nbsp;&nbsp;<b>SOM Representative:</b> Meredith Hubbard<br />' +
+						'&nbsp;&nbsp;<b>Faculty Advisor:</b> Dr. Robin Lorenz<br /><br /></div>'}).appendTo(main);
 
-	$('<div />', {html: '<a href="#" id="tab3">Important Links</a><div class= "hide"><a href="http://www.physicianscientists.org">ASPA National Chapter</a><br /><br /></div>'}).appendTo(main);
-	$('<div />', {html: '<a href="#" id="tab4">Contact Us</a><div class= "hide">In development<br /><br /></div>'}).appendTo(main);
+	$('<div />', {html: '<a href="#" id="tab3">Important Links</a><div class= "hide">&nbsp;&nbsp;<a href="http://www.physicianscientists.org">ASPA National Chapter</a><br /><br /></div>'}).appendTo(main);
+	$('<div />', {html: '<a href="#" id="tab4">Contact Us</a><div class= "hide">&nbsp;&nbsp;In development<br /><br /></div>'}).appendTo(main);
 
 
 	$('.hide').hide();
