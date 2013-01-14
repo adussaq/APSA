@@ -40,8 +40,10 @@
 		'&nbsp;&nbsp;This is not an exhaustive list, instead a list of members who wanted us to know "This is me."<br /><br /><div id=thisIsMe></div><div><br /></div>'}).appendTo(main);
 	//Important Links
 	$('<div />', {html: '<a href="#" id="tab4">Important Links</a><div class= "hide">&nbsp;&nbsp;<a href="http://www.physicianscientists.org">ASPA National Chapter</a><br /><br /></div>'}).appendTo(main);
+	//Important Dates
+	$('<div />', {html: '<a href="#" id="tab5">Important Links</a><div class= "hide" style="margin-left:10px"><b>January 22nd at 3pm</b> - Radiation Oncology break-out session with Drs. Eddy Yang, MD PhD and Alex Whitley, MD PhD. Email Contact: <a href="mailto:jenn87@uab.edu">Jennifer Stanley</a> for more information. (Limited to 10 people in attendence).<br /><br /></div>'}).appendTo(main);
 	//Contact Us
-	$('<div />', {html: '<a href="#" id="tab5">Contact Us</a><div class= "hide">&nbsp;&nbsp;In development<br /><br /></div>'}).appendTo(main);
+	$('<div />', {html: '<a href="#" id="tab6">Contact Us</a><div class= "hide">&nbsp;&nbsp;In development<br /><br /></div>'}).appendTo(main);
 
 
 	//Add some javascript properties to above tabs
