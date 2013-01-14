@@ -71,7 +71,7 @@
 			$(this).hide('slow');
 		};
 		slideClickLast = function () {
-			$('#slideIMG').show('slow');
+			$('.slideIMG').show('slow');
 		};
 
 		scale = 2;
