@@ -35,8 +35,8 @@
 						'&nbsp;&nbsp;<b>SOM Representative:</b> Meredith Hubbard<br />' +
 						'&nbsp;&nbsp;<b>Faculty Advisor:</b> Dr. Robin Lorenz<br /><br /></div>'}).appendTo(main);
 
-	//Create this is me/membership section
-	$('<div />', {html: '<a href="#" id="tab3">Membership</a><div class= "hide">' +
+	//Create this is membership section
+	$('<div />', {html: '<a href="#" id="tab3">Members</a><div class= "hide">' +
 		'&nbsp;&nbsp;This is not an exhaustive list, instead a list of members who wanted us to know "This is me."<br /><br /><div id=thisIsMe></div><div><br /></div>'}).appendTo(main);
 	//Important Links
 	$('<div />', {html: '<a href="#" id="tab4">Important Links</a><div class= "hide">&nbsp;&nbsp;<a href="http://www.physicianscientists.org">ASPA National Chapter</a><br /><br /></div>'}).appendTo(main);
