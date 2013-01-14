@@ -99,7 +99,11 @@
 					text.show('slow');
 				}
 			});
-			$('<img />', {style: "height:" + 702 / scale + "px;width:" + "height:" + 540 / scale + "px;display: block;margin-left: auto;margin-right: auto", src: 'https://raw.github.com/adussaq/ASPA2/master/thisIsMeImages/' + thisIsMeObj[i].images[0]}).appendTo('#slideContent' + i);
+
+			//Add the images for this person, hiding all but the first one...
+			for (j = 0; j < thisIsMeObj[i].images; j += 1) {
+				$('<img />', {style: "height:" + 702 / scale + "px;width:" + "height:" + 540 / scale + "px;display: block;margin-left: auto;margin-right: auto", src: 'https://raw.github.com/adussaq/ASPA2/master/thisIsMeImages/' + thisIsMeObj[i].images[j]}).appendTo('#slideContent' + i);
+			}
 
 		}
 		//Hide everything that was made...
