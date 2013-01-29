@@ -27,9 +27,9 @@
 						'<br /><br /><a href="https://github.com/adussaq/ASPA2/raw/master/APSAConstitution_2013_01_10.pdf">Download Constitution</a><br /><br /></div>'}).appendTo(main);
 	//Officers
 	$('<div />', {html: '<a href="#" id="tab2">Officers</a><div class= "hide" style="margin-left:10px"><table><tr>' +
-						'<td><b>President:</b> Travis Hull<br />' +
+						'<td><img src="https://github.com/adussaq/ASPA2/raw/master/officerImages/Hull_Travis.JPG"></img><b>President:</b> Travis Hull<br />' +
 						'<td><b>Vice President:</b> Jennifer Stanley</td>' +
-						'<td><b>Secretary:</b> Stephanie Robert<</td>' +
+						'<td><b>Secretary:</b> Stephanie Robert</td>' +
 						'<td><b>Treasurer:</b> Alice Weaver</td></tr><tr>' +
 						'<td><b>Webmaster:</b> Alex Dussaq</td>' +
 						'<td><b>SOM Representative:</b> Meredith Hubbard</td>' +
