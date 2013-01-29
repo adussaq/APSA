@@ -27,13 +27,13 @@
 						'<br /><br /><a href="https://github.com/adussaq/ASPA2/raw/master/APSAConstitution_2013_01_10.pdf">Download Constitution</a><br /><br /></div>'}).appendTo(main);
 	//Officers
 	$('<div />', {html: '<a href="#" id="tab2">Officers</a><div class= "hide" style="margin-left:10px"><table><tr>' +
-						'<td><img style="width:140px;" src="https://github.com/adussaq/ASPA2/raw/master/officerImages/Hull_Travis.JPG"></img><br /><b>President:</b> Travis Hull<br />' +
-						'<td><img style="width:140px;" src="https://github.com/adussaq/ASPA2/raw/master/officerImages/Stanley_Jennifer.JPG"></img><br /><b>Vice President:</b> Jennifer Stanley</td>' +
-						'<td><img style="width:140px;" src="https://github.com/adussaq/ASPA2/raw/master/officerImages/Robert_Stephanie.JPG"></img><br /><b>Secretary:</b> Stephanie Robert</td>' +
-						'<td><img style="width:140px;" src="https://github.com/adussaq/ASPA2/raw/master/officerImages/Weaver_Alice.JPG"></img><br /><b>Treasurer:</b> Alice Weaver</td></tr><tr>' +
-						'<td><img style="width:140px;" src="https://github.com/adussaq/ASPA2/raw/master/officerImages/Dussaq_Alex.JPG"></img><br /><b>Webmaster:</b> Alex Dussaq</td>' +
+						'<td align=center><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Hull_Travis.jpg"></img><br /><b>President:</b> Travis Hull<br />' +
+						'<td><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Stanley_Jennifer.jpg"></img><br /><b>Vice President:</b> Jennifer Stanley</td>' +
+						'<td><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Robert_Stephanie.jpg"></img><br /><b>Secretary:</b> Stephanie Robert</td>' +
+						'<td><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Weaver_Alice.jpg">jpg</img><br /><b>Treasurer:</b> Alice Weaver</td></tr><tr>' +
+						'<td><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Dussaq_Alex.jpg"></img><br /><b>Webmaster:</b> Alex Dussaq</td>' +
 						'<td><b>SOM Representative:</b> Meredith Hubbard</td>' +
-						'<td><img style="height:150px;width:140px;" src="https://github.com/adussaq/ASPA2/raw/master/officerImages/Lorenz_Robin.JPG"></img><br /><b>Faculty Advisor:</b> Dr. Robin Lorenz</td></tr></table></div>'}).appendTo(main);
+						'<td><img style="height:150px;width:140px;" src="https://github.com/adussaq/ASPA2/raw/master/officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor:</b> Dr. Robin Lorenz</td></tr></table></div>'}).appendTo(main);
 
 	//Create this is membership section
 	$('<div />', {html: '<a href="#" id="tab3">Members</a><div class= "hide" style="margin-left:10px">' +
