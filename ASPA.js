@@ -27,7 +27,7 @@
 						'<br /><br /><a href="https://github.com/adussaq/ASPA2/raw/master/APSAConstitution_2013_01_10.pdf">Download Constitution</a><br /><br /></div>'}).appendTo(main);
 	//Officers
 	$('<div />', {html: '<a href="#" id="tab2">Officers</a><div class= "hide" style="margin-left:10px"><table><tr>' +
-						'<td align=center><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Hull_Travis.jpg"></img><br /><b>President</b><br />Travis Hull<br />' +
+						'<td align=center><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Hull_Travis.jpg"></img><br /><b>President</b><br />Travis Hull</td>' +
 						'<td><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Stanley_Jennifer.jpg"></img><br /><b>Vice President</b><br />Jennifer Stanley</td>' +
 						'<td><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Robert_Stephanie.jpg"></img><br /><b>Secretary</b><br />Stephanie Robert</td>' +
 						'<td><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Weaver_Alice.jpg"></img><br /><b>Treasurer</b><br />Alice Weaver</td></tr><tr>' +
