@@ -26,14 +26,14 @@
 						'<br />&nbsp;&nbsp;The UAB MSTP was interested in forming an APSA chapter because the organization has the potential to strengthen our MSTP, to establish a forum for networking with research-oriented SOM students, and to provide additional resources for career development. Excitingly, our chapter already has over 40 members! Our chapter meets monthly, and meetings consist of research presentations and the planning of future APSA-sponsored events tailored to the needs of our members. Most importantly, our organization is meant to be a resource for our members, so please let us know if you have any ideas for APSA-sponsored events in the future! We believe that our UAB APSA chapter will be an extremely valuable organization for our members and our MSTP, so please consider joining!' +
 						'<br /><br /><a href="https://github.com/adussaq/ASPA2/raw/master/APSAConstitution_2013_01_10.pdf">Download Constitution</a><br /><br /></div>'}).appendTo(main);
 	//Officers
-	$('<div />', {html: '<a href="#" id="tab2">Officers</a><div class= "hide" style="margin-left:10px">' +
-						'<b>President:</b> Travis Hull<br />' +
-						'<b>Vice President:</b> Jennifer Stanley<br />' +
-						'<b>Secretary:</b> Stephanie Robert<br />' +
-						'<b>Treasurer:</b> Alice Weaver<br />' +
-						'<b>Webmaster:</b> Alex Dussaq<br />' +
-						'<b>SOM Representative:</b> Meredith Hubbard<br />' +
-						'<b>Faculty Advisor:</b> Dr. Robin Lorenz<br /><br /></div>'}).appendTo(main);
+	$('<div />', {html: '<a href="#" id="tab2">Officers</a><div class= "hide" style="margin-left:10px"><table><tr>' +
+						'<td><b>President:</b> Travis Hull<br />' +
+						'<td><b>Vice President:</b> Jennifer Stanley</td>' +
+						'<td><b>Secretary:</b> Stephanie Robert<</td>' +
+						'<td><b>Treasurer:</b> Alice Weaver</td></tr><tr>' +
+						'<td><b>Webmaster:</b> Alex Dussaq</td>' +
+						'<td><b>SOM Representative:</b> Meredith Hubbard</td>' +
+						'<td><b>Faculty Advisor:</b> Dr. Robin Lorenz</td></tr></table></div>'}).appendTo(main);
 
 	//Create this is membership section
 	$('<div />', {html: '<a href="#" id="tab3">Members</a><div class= "hide" style="margin-left:10px">' +
