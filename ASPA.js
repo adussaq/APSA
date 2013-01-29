@@ -33,7 +33,7 @@
 						'<td style="text-align:center;"><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Weaver_Alice.jpg"></img><br /><b>Treasurer</b><br />Alice Weaver</td></tr><tr>' +
 						'<td style="text-align:center;"><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Dussaq_Alex.jpg"></img><br /><b>Webmaster</b><br />Alex Dussaq</td>' +
 						'<td style="text-align:center;"><img style="width:140px;height:160px;"></img><br /><b>SOM Representative</b><br />Meredith Hubbard</td>' +
-						'<td style="text-align:center;"><img style="width:140px;" src="https://github.com/adussaq/ASPA2/raw/master/officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td></tr></table></div>'}).appendTo(main);
+						'<td style="text-align:center;"><img style="width:140px;" src="https://github.com/adussaq/ASPA2/raw/master/officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td></tr></table></div><br />'}).appendTo(main);
 
 	//Create this is membership section
 	$('<div />', {html: '<a href="#" id="tab3">Members</a><div class= "hide" style="margin-left:10px">' +
