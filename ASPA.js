@@ -36,7 +36,7 @@
 						'<b>Faculty Advisor:</b> Dr. Robin Lorenz<br /><br /></div>'}).appendTo(main);
 
 	//Create this is membership section
-	$('<div />', {style: "margin-left:10px", html: '<a href="#" id="tab3">Members</a><div class= "hide">' +
+	$('<div />', {style: "margin-left:30px", html: '<a href="#" id="tab3">Members</a><div class= "hide">' +
 		'&nbsp;&nbsp;This is not an exhaustive list, instead a list of members who wanted us to know "This is me."<br /><br /><div id=thisIsMe></div><div><br /></div>'}).appendTo(main);
 	//Important Links
 	$('<div />', {style: "margin-left:10px", html: '<a href="#" id="tab4">Important Links</a><div class= "hide"><a href="http://www.physicianscientists.org">ASPA National Chapter</a><br />' +
