@@ -32,7 +32,7 @@
 						'<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Robert_Stephanie.jpg"></img><br /><b>Secretary</b><br />Stephanie Robert</td>' +
 						'<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Weaver_Alice.jpg"></img><br /><b>Treasurer</b><br />Alice Weaver</td></tr><tr>' +
 						'<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://raw.github.com/adussaq/ASPA2/master/officerImages/Dussaq_Alex.jpg"></img><br /><b>Webmaster</b><br />Alex Dussaq</td>' +
-						'<td style="text-align:center;width:150px;"><img style="width:140px;height:160px;"></img><br /><b>SOM Representative</b><br />Meredith Hubbard</td>' +
+						'<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://github.com/adussaq/ASPA2/raw/master/officerImages/Hubbard_Meredith.png"></img><br /><b>SOM Representative</b><br />Meredith Hubbard</td>' +
 						'<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://github.com/adussaq/ASPA2/raw/master/officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td></tr></table></div><br />'}).appendTo(main);
 
 	//Create this is membership section
