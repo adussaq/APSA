@@ -7,6 +7,7 @@
 
 	//Add important dates
 	importantDates.push({date: 'March 2 2013 19:30:00', location: '<a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3577+Cliff+Road+South,+Birmingham,+AL">3577 Cliff Road South</a>', description: 'APSA Potluck'});
+	importantDates.push({date: 'February 13 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
 	importantDates.push({date: 'April 10 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
 	importantDates.push({date: 'April 11 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'Women In Sceince Panel'});
 
@@ -83,7 +84,9 @@
 	//add dates
 	for (i = 0; i < importantDates.length; i += 1) {
 		fDate = new Date(importantDates[i].date);
-		$('<div />', {html: "<b>" + fDate.toDateString() +  " " + fDate.toLocaleTimeString().replace(/(:00)+\s/, " ") + "</b> - " + importantDates[i].description + " at " + importantDates[i].location}).appendTo(dates);
+		if (fDate > new Date()) {
+			$('<div />', {html: "<b>" + fDate.toDateString() +  " " + fDate.toLocaleTimeString().replace(/(:00)+\s/, " ") + "</b> - " + importantDates[i].description + " at " + importantDates[i].location}).appendTo(dates);
+		}
 	}
 
 	//Contact Us
