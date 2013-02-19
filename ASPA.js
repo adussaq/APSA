@@ -82,7 +82,7 @@
 	//add dates
 	for (i = 0; i < importantDates.length; i += 1) {
 		fDate = new Date(importantDates[i].date);
-		$('<div />', {html: "<b>" + fDate.toDateString() +  " " + fDate.toLocaleTimeString().replace(/(:00)+\s/, " ") + "</b> - " + importantDates.description + " at " + importantDates.location});
+		$('<div />', {html: "<b>" + fDate.toDateString() +  " " + fDate.toLocaleTimeString().replace(/(:00)+\s/, " ") + "</b> - " + importantDates.description + " at " + importantDates.location}).appendTo(dates);
 	}
 
 	//Contact Us
