@@ -67,7 +67,8 @@
 	$('<div />', {html: '<a href="#" id="tab4">Important Links</a><div class= "hide" style="margin-left:10px"><a href="http://www.physicianscientists.org">ASPA National Chapter</a><br />' +
 						'Image courtesy of <a href="http://genomicscience.energy.gov">U.S. Department of Energy Genomic Science program</a><br /><br /></div>'}).appendTo(main);
 	//Important Dates
-	dates = $('<div />', {html: '<a href="#" id="tab5">Important Dates</a><div class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
+	$('<div />', {html: '<a href="#" id="tab5">Important Dates</a><div id="importantDates" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
+	dates = ('#importantDates');
 	//sort
 	importantDates = importantDates.sort(function (a, b) {
 		var aDate, bDate;
