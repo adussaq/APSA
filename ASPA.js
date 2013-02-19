@@ -43,7 +43,9 @@
 						'Image courtesy of <a href="http://genomicscience.energy.gov">U.S. Department of Energy Genomic Science program</a><br /><br /></div>'}).appendTo(main);
 	//Important Dates
 	$('<div />', {html: '<a href="#" id="tab5">Important Dates</a><div class= "hide" style="margin-left:10px">' +
-						'<b>Febuary 13th at 5pm</b> - Monthly Meeting, Shelby Biomedical Building, room 105.<br /><br /></div>'}).appendTo(main);
+						'<b>April 10th at 5pm</b> - Monthly Meeting, Shelby Biomedical Building, room 105.<br /><br /></div>' +
+						'<b>March 2nd at ?pm</b> - APSA potluck, Shelby Biomedical Building, room 105.<br /><br /></div>' +
+						" "}).appendTo(main);
 	//Contact Us
 	$('<div />', {html: '<a href="#" id="tab6">Contact Us</a><div class= "hide" style="margin-left:10px">In development<br /><br /></div>'}).appendTo(main);
 
