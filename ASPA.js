@@ -1,10 +1,35 @@
 /*global console, $ */
 (function () {
 	'use strict';
-	var main, tabClick, thisIsMeDiv, thisIsMeObj;
+	var main, tabClick, thisIsMeDiv, thisIsMeObj, importantDates, i, dates, fDate;
 	thisIsMeObj = [];
+	importantDates = [];
+
+	//Add important dates
+	importantDates.push({date: 'March 2 2013', location: '<a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3577+Cliff+Road+South,+Birmingham,+AL">3577 Cliff Road South</a>', description: 'APSA Potluck'});
+	importantDates.push({date: 'April 10 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
+	importantDates.push({date: 'April 11 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'Women In Sceince Panel'});
+
+	//Add people to this is me
+	thisIsMeObj.push({name: 'Jennifer Stanley', year: 'MSTP GS2', images: ['JStanley_20130109_1.jpg', 'JStanley_20130109_2.jpg']});
+	thisIsMeObj.push({name: 'Alice Weaver', year: 'MSTP MS2', images: ['AWeaver_20130109_1.jpg', 'AWeaver_20130109_2.jpg']});
+	thisIsMeObj.push({name: 'Mika Gunzman Karlsson', year: 'MSTP GS2', images: ['MGKarlsson_20130109_1.jpg', 'MGKarlsson_20130109_2.jpg']});
+	thisIsMeObj.push({name: 'Meredith Hubbard', year: 'MS1', images: ['MHubbard_20130109_1.jpg', 'MHubbard_20130109_2.jpg']});
+	thisIsMeObj.push({name: 'Travis Hull', year: 'MSTP GS2', images: ['THull_20130109_1.jpg', 'THull_20130109_2.jpg']});
+	thisIsMeObj.push({name: 'Josh Cohen', year: 'MSTP MS2', images: ['JCohen_20130109_1.jpg', 'JCohen_20130109_2.jpg']});
+	thisIsMeObj.push({name: 'Alex Dussaq', year: 'MSTP GS1', images: ['dussaq_alex_20130213_1.jpg', 'dussaq_alex_20130213_2.jpg']});
+	thisIsMeObj.push({name: 'Robin Lorenz', year: 'Advisor', images: ['lorenz_robin_20130213_1.jpg', 'lorenz_robin_20130213_2.jpg']});
+	thisIsMeObj.push({name: 'Jarrod Meadows', year: 'MSTP GS2', images: ['meadows_jarrod_20130213_1.jpg', 'meadows_jarrod_20130213_2.jpg']});
+	thisIsMeObj.push({name: 'Lakisha Moore', year: 'MS1', images: ['moore_lakisha_20130213_1.jpg', 'moore_lakisha_20130213_2.jpg']});
+
+	//Add imporatant links
+
+
+
+
+	//actually start making the page
 	main = $('#ASPAmain');
-	console.log('Hello from github');
+	console.log('Hello from github, source code avaliable at: https://github.com/adussaq/ASPA2');
 	tabClick = function (evt) {
 		var text;
 		evt.preventDefault();
@@ -42,10 +67,24 @@
 	$('<div />', {html: '<a href="#" id="tab4">Important Links</a><div class= "hide" style="margin-left:10px"><a href="http://www.physicianscientists.org">ASPA National Chapter</a><br />' +
 						'Image courtesy of <a href="http://genomicscience.energy.gov">U.S. Department of Energy Genomic Science program</a><br /><br /></div>'}).appendTo(main);
 	//Important Dates
-	$('<div />', {html: '<a href="#" id="tab5">Important Dates</a><div class= "hide" style="margin-left:10px">' +
-						'<b>March 2nd at ?pm</b> - APSA potluck, Shelby Biomedical Building, room 105.<br />' +
-						'<b>April 10th at 5pm</b> - Monthly Meeting, Shelby Biomedical Building, room 105.<br />' +
-						"<br /></div>"}).appendTo(main);
+	dates = $('<div />', {html: '<a href="#" id="tab5">Important Dates</a><div class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
+	//sort
+	importantDates = importantDates.sort(function (a, b) {
+		var aDate, bDate;
+		aDate = new Date(a);
+		bDate = new Date(b);
+		if (aDate > bDate) {
+			return 1;
+		} else {
+			return -1;
+		}
+	});
+	//add dates
+	for (i = 0; i < importantDates.length; i += 1) {
+		fDate = new Date(importantDates[i].date);
+		$('<div />', {html: "<b>" + fDate.toDateString() +  " " + fDate.toLocaleTimeString().replace(/(:00)+\s/, " ") + "</b> - " + importantDates.description + " at " + importantDates.location});
+	}
+
 	//Contact Us
 	$('<div />', {html: '<a href="#" id="tab6">Contact Us</a><div class= "hide" style="margin-left:10px">In development<br /><br /></div>'}).appendTo(main);
 
@@ -61,20 +100,6 @@
 
 	//create this is me section
 	thisIsMeDiv = $('#thisIsMe');
-
-	//Add people to this is me
-	thisIsMeObj.push({name: 'Jennifer Stanley', year: 'MSTP GS2', images: ['JStanley_20130109_1.jpg', 'JStanley_20130109_2.jpg']});
-	thisIsMeObj.push({name: 'Alice Weaver', year: 'MSTP MS2', images: ['AWeaver_20130109_1.jpg', 'AWeaver_20130109_2.jpg']});
-	thisIsMeObj.push({name: 'Mika Gunzman Karlsson', year: 'MSTP GS2', images: ['MGKarlsson_20130109_1.jpg', 'MGKarlsson_20130109_2.jpg']});
-	thisIsMeObj.push({name: 'Meredith Hubbard', year: 'MS1', images: ['MHubbard_20130109_1.jpg', 'MHubbard_20130109_2.jpg']});
-	thisIsMeObj.push({name: 'Travis Hull', year: 'MSTP GS2', images: ['THull_20130109_1.jpg', 'THull_20130109_2.jpg']});
-	thisIsMeObj.push({name: 'Josh Cohen', year: 'MSTP MS2', images: ['JCohen_20130109_1.jpg', 'JCohen_20130109_2.jpg']});
-	thisIsMeObj.push({name: 'Alex Dussaq', year: 'MSTP GS1', images: ['dussaq_alex_20130213_1.jpg', 'dussaq_alex_20130213_2.jpg']});
-	thisIsMeObj.push({name: 'Robin Lorenz', year: 'Advisor', images: ['lorenz_robin_20130213_1.jpg', 'lorenz_robin_20130213_2.jpg']});
-	thisIsMeObj.push({name: 'Jarrod Meadows', year: 'MSTP GS2', images: ['meadows_jarrod_20130213_1.jpg', 'meadows_jarrod_20130213_2.jpg']});
-	thisIsMeObj.push({name: 'Lakisha Moore', year: 'MS1', images: ['moore_lakisha_20130213_1.jpg', 'moore_lakisha_20130213_2.jpg']});
-
-
 
 	//Actually create the this is me section
 	(function () {
