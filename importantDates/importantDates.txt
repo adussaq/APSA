@@ -16,6 +16,6 @@
 		{"date": 'March 2 2013 19:30:00', "location": '<a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3508+Cliff+Road+South,+Birmingham,+AL">3508 Cliff Road South</a>', description: 'APSA Potluck'},
 		{"date": 'February 13 2013 17:00:00', "location": 'Shelby Biomedical Building, room 105', "description": 'APSA Monthly Meeting'},
 		{"date": 'April 10 2013 17:00:00', "location": 'Shelby Biomedical Building, room 105', "description": 'APSA Monthly Meeting'},
-		{"date": 'April 11 2013 17:00:00', "location": 'Shelby Biomedical Building, room 105', "description": 'Women In Sceince Panel'}
+		{"date": 'April 11 2013 17:00:00', "location": 'Shelby Biomedical Building, room 105', "description": 'Women In Sceince Panel'},
 		{"date": 'May 8 2013 17:00:00', "location": 'Shelby Biomedical Building, room 105', "description": 'ASPA Monthly Meeting'}
 	];
