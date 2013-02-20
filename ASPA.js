@@ -73,8 +73,6 @@
 	//Important Dates - create the section
 	$('<div />', {html: '<a href="#" id="tab5">Important Dates</a><div id="importantDates" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
 
-
-
 	//Contact Us
 	$('<div />', {html: '<a href="#" id="tab6">Contact Us</a><div class= "hide" style="margin-left:10px">In development<br /><br /></div>'}).appendTo(main);
 
@@ -110,7 +108,7 @@
 		for (i = 0; i < importantDates.length; i += 1) {
 			fDate = new Date(importantDates[i].date);
 			//change compare to 4 hours past the event time
-			fDate2 = fDate();
+			fDate2 = fDate;
 			fDate2.setHours(fDate2.getHours() + 4);
 			if (fDate2 > new Date()) {
 				$('<div />', {html: "<b>" + fDate.toDateString() +  " " + fDate.toLocaleTimeString().replace(/(:00)+\s/, " ") + "</b> - " + importantDates[i].description + " at " + importantDates[i].location}).appendTo(dates);
