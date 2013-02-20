@@ -1,14 +1,11 @@
 /*global console, $ */
+var tester;
 (function () {
 	'use strict';
 	var main, tabClick, thisIsMeObj, importantDates;
 	thisIsMeObj = [];
 	importantDates = [];
 
-	//Add important dates
-		//Structure:
-		//	[{date:..., location:..., description:...},
-		//	{...},...];
 	importantDates.push({date: 'March 2 2013 19:30:00', location: '<a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3508+Cliff+Road+South,+Birmingham,+AL">3508 Cliff Road South</a>', description: 'APSA Potluck'});
 	importantDates.push({date: 'February 13 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
 	importantDates.push({date: 'April 10 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
@@ -26,8 +23,12 @@
 	thisIsMeObj.push({name: 'Jarrod Meadows', year: 'MSTP GS2', images: ['meadows_jarrod_20130213_1.jpg', 'meadows_jarrod_20130213_2.jpg']});
 	thisIsMeObj.push({name: 'Lakisha Moore', year: 'MS1', images: ['moore_lakisha_20130213_1.jpg', 'moore_lakisha_20130213_2.jpg']});
 
-	//Add imporatant links
+	//Get important Dates
+	$.get('https://dl.dropbox.com/s/ieg9ojlx9bd4ty0/importantDates.txt?token_hash=AAEUeummbnWllNSLz4VrNBk4FqF7TqIfaeeG0RaV2XdUXA&dl=1&' + Math.round(Math.rand() * 1000), function (x) {
+		tester = x;
+	});
 
+	//Add imporatant links
 
 
 

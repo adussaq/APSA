@@ -1,0 +1,20 @@
+//Add important dates
+	//Structure:
+	//	[
+	//		{date:..., location:..., description:...},
+	//		{...},
+	//		...
+	//	];
+
+//Make sure every line ends with a comma (,) and has {} around it.
+//Dates MUST format like this: MONTH DAY YEAR HOUR(24hr time):MINUTE:SECOND, see examples
+
+//Fill in here, first two lines are examples, no need to delete, they will not show up.
+	[
+		{"date": "Decemeber 31 1999 23:59:59", "location": "New York City", "description": "Come watch the ball drop"},
+		{"date": "September 17 1787 14:00:00", "location": "State House (Independence Hall) in Philadelphia", "description": "Come see the signing of the constitution"},
+		{"date": 'March 2 2013 19:30:00', "location": '<a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3508+Cliff+Road+South,+Birmingham,+AL">3508 Cliff Road South</a>', description: 'APSA Potluck'},
+		{"date": 'February 13 2013 17:00:00', "location": 'Shelby Biomedical Building, room 105', "description": 'APSA Monthly Meeting'},
+		{"date": 'April 10 2013 17:00:00', "location": 'Shelby Biomedical Building, room 105', "description": 'APSA Monthly Meeting'},
+		{"date": 'April 11 2013 17:00:00', "location": 'Shelby Biomedical Building, room 105', "description": 'Women In Sceince Panel'}
+	];
