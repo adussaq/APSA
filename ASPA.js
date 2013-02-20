@@ -1,15 +1,15 @@
 /*global console, $ */
-var tester;
+var getImportantDates;
 (function () {
 	'use strict';
 	var main, tabClick, thisIsMeObj, importantDates;
 	thisIsMeObj = [];
 	importantDates = [];
 
-	importantDates.push({date: 'March 2 2013 19:30:00', location: '<a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3508+Cliff+Road+South,+Birmingham,+AL">3508 Cliff Road South</a>', description: 'APSA Potluck'});
-	importantDates.push({date: 'February 13 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
-	importantDates.push({date: 'April 10 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
-	importantDates.push({date: 'April 11 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'Women In Sceince Panel'});
+	// importantDates.push({date: 'March 2 2013 19:30:00', location: '<a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3508+Cliff+Road+South,+Birmingham,+AL">3508 Cliff Road South</a>', description: 'APSA Potluck'});
+	// importantDates.push({date: 'February 13 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
+	// importantDates.push({date: 'April 10 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
+	// importantDates.push({date: 'April 11 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'Women In Sceince Panel'});
 
 	//Add people to this is me
 	thisIsMeObj.push({name: 'Jennifer Stanley', year: 'MSTP GS2', images: ['JStanley_20130109_1.jpg', 'JStanley_20130109_2.jpg']});
@@ -24,9 +24,10 @@ var tester;
 	thisIsMeObj.push({name: 'Lakisha Moore', year: 'MS1', images: ['moore_lakisha_20130213_1.jpg', 'moore_lakisha_20130213_2.jpg']});
 
 	//Get important Dates
-	$.get('https://dl-web.dropbox.com/get/scripts/importantDates.txt?w=AAABLqroJNcHOlQIuUFuXj-ItFDwXXyZl08HGvPZh0ckbw' + Math.round(Math.random() * 1000), function (x) {
-		tester = x;
-	});
+	getImportantDates = function (x) {
+		importantDates = x;
+	};
+	$('<script />', {src: 'https://script.google.com/macros/s/AKfycbyF18goLeKWjSBvZbr-myWuXhCsQnhSYJCE-Ha8dwwQtVsLpaFC/exec?url="https://dl-web.dropbox.com/get/02-gitHub/ASPA/importantDates.txt?w=AAAB8i1KH3w8kLOp0ckfmajxkYATpCP8K1cnvI2FHZ80Sw"&prefix=getImportantDates'}).appendTo(document);
 
 	//Add imporatant links
 
