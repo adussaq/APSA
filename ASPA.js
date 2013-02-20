@@ -25,7 +25,7 @@ var getImportantDates, importantDates;
 
 	//Get important Dates
 	getImportantDates = function (x) {
-		importantDates.push(x);
+		importantDates = x;
 		runProgram();
 	};
 	$('<script />', {src: 'https://script.google.com/macros/s/AKfycbyF18goLeKWjSBvZbr-myWuXhCsQnhSYJCE-Ha8dwwQtVsLpaFC/exec?url="https://dl-web.dropbox.com/get/02-gitHub/ASPA/importantDates.txt?w=AAAB8i1KH3w8kLOp0ckfmajxkYATpCP8K1cnvI2FHZ80Sw"&prefix=getImportantDates'}).appendTo(document);
