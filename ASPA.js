@@ -24,7 +24,7 @@ var tester;
 	thisIsMeObj.push({name: 'Lakisha Moore', year: 'MS1', images: ['moore_lakisha_20130213_1.jpg', 'moore_lakisha_20130213_2.jpg']});
 
 	//Get important Dates
-	$.get('https://dl.dropbox.com/s/ieg9ojlx9bd4ty0/importantDates.txt?token_hash=AAEUeummbnWllNSLz4VrNBk4FqF7TqIfaeeG0RaV2XdUXA&dl=1&' + Math.round(Math.random() * 1000), function (x) {
+	$.get('https://dl-web.dropbox.com/get/scripts/importantDates.txt?w=AAABLqroJNcHOlQIuUFuXj-ItFDwXXyZl08HGvPZh0ckbw' + Math.round(Math.random() * 1000), function (x) {
 		tester = x;
 	});
 
