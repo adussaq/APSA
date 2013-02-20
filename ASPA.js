@@ -1,8 +1,8 @@
 /*global console, $ */
-var getImportantDates;
+var getImportantDates, importantDates;
 (function () {
 	'use strict';
-	var main, tabClick, thisIsMeObj, importantDates;
+	var main, tabClick, thisIsMeObj, runProgram;
 	thisIsMeObj = [];
 	importantDates = [];
 
@@ -25,7 +25,8 @@ var getImportantDates;
 
 	//Get important Dates
 	getImportantDates = function (x) {
-		importantDates = x;
+		importantDates.push(x);
+		runProgram();
 	};
 	$('<script />', {src: 'https://script.google.com/macros/s/AKfycbyF18goLeKWjSBvZbr-myWuXhCsQnhSYJCE-Ha8dwwQtVsLpaFC/exec?url="https://dl-web.dropbox.com/get/02-gitHub/ASPA/importantDates.txt?w=AAAB8i1KH3w8kLOp0ckfmajxkYATpCP8K1cnvI2FHZ80Sw"&prefix=getImportantDates'}).appendTo(document);
 
@@ -34,6 +35,7 @@ var getImportantDates;
 
 
 	//actually start making the page, this section creates the interface
+	runProgram = function (){
 	main = $('#ASPAmain');
 	console.log('Hello from github, source code avaliable at: https://github.com/adussaq/ASPA2');
 	tabClick = function (evt) {
@@ -177,7 +179,7 @@ var getImportantDates;
 		}
 		//Hide everything that was made...
 		$('.slide').hide();
-	}());
+	}());}
 }());
 
 
