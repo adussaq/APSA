@@ -1,12 +1,15 @@
 /*global console, $ */
 (function () {
 	'use strict';
-	var main, tabClick, thisIsMeDiv, thisIsMeObj, importantDates, i, dates, fDate;
+	var main, tabClick, thisIsMeObj, importantDates;
 	thisIsMeObj = [];
 	importantDates = [];
 
 	//Add important dates
-	importantDates.push({date: 'March 2 2013 19:30:00', location: '<a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3577+Cliff+Road+South,+Birmingham,+AL">3577 Cliff Road South</a>', description: 'APSA Potluck'});
+		//Structure:
+		//	[{date:..., location:..., description:...},
+		//	{...},...];
+	importantDates.push({date: 'March 2 2013 19:30:00', location: '<a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3508+Cliff+Road+South,+Birmingham,+AL">3508 Cliff Road South</a>', description: 'APSA Potluck'});
 	importantDates.push({date: 'February 13 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
 	importantDates.push({date: 'April 10 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
 	importantDates.push({date: 'April 11 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'Women In Sceince Panel'});
@@ -28,7 +31,7 @@
 
 
 
-	//actually start making the page
+	//actually start making the page, this section creates the interface
 	main = $('#ASPAmain');
 	console.log('Hello from github, source code avaliable at: https://github.com/adussaq/ASPA2');
 	tabClick = function (evt) {
@@ -67,27 +70,10 @@
 	//Important Links
 	$('<div />', {html: '<a href="#" id="tab4">Important Links</a><div class= "hide" style="margin-left:10px"><a href="http://www.physicianscientists.org">ASPA National Chapter</a><br />' +
 						'Image courtesy of <a href="http://genomicscience.energy.gov">U.S. Department of Energy Genomic Science program</a><br /><br /></div>'}).appendTo(main);
-	//Important Dates
+	//Important Dates - create the section
 	$('<div />', {html: '<a href="#" id="tab5">Important Dates</a><div id="importantDates" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
-	dates = ('#importantDates');
-	//sort
-	importantDates = importantDates.sort(function (a, b) {
-		var aDate, bDate;
-		aDate = new Date(a);
-		bDate = new Date(b);
-		if (aDate > bDate) {
-			return 1;
-		} else {
-			return -1;
-		}
-	});
-	//add dates
-	for (i = 0; i < importantDates.length; i += 1) {
-		fDate = new Date(importantDates[i].date);
-		if (fDate > new Date()) {
-			$('<div />', {html: "<b>" + fDate.toDateString() +  " " + fDate.toLocaleTimeString().replace(/(:00)+\s/, " ") + "</b> - " + importantDates[i].description + " at " + importantDates[i].location}).appendTo(dates);
-		}
-	}
+
+
 
 	//Contact Us
 	$('<div />', {html: '<a href="#" id="tab6">Contact Us</a><div class= "hide" style="margin-left:10px">In development<br /><br /></div>'}).appendTo(main);
@@ -102,13 +88,42 @@
 	$('#tab5').click(tabClick);
 	$('#tab6').click(tabClick);
 
-	//create this is me section
-	thisIsMeDiv = $('#thisIsMe');
+	//Actually add the important dates
+	(function () {
+		var fDate, fDate2, i, dates;
+		//sort
+		importantDates = importantDates.sort(function (a, b) {
+			var aDate, bDate;
+			aDate = new Date(a);
+			bDate = new Date(b);
+			if (aDate > bDate) {
+				return 1;
+			} else {
+				return -1;
+			}
+		});
+
+		//get element
+		dates = ('#importantDates');
+
+		//add dates
+		for (i = 0; i < importantDates.length; i += 1) {
+			fDate = new Date(importantDates[i].date);
+			//change compare to 4 hours past the event time
+			fDate2 = fDate();
+			fDate2.setHours(fDate2.getHours() + 4);
+			if (fDate2 > new Date()) {
+				$('<div />', {html: "<b>" + fDate.toDateString() +  " " + fDate.toLocaleTimeString().replace(/(:00)+\s/, " ") + "</b> - " + importantDates[i].description + " at " + importantDates[i].location}).appendTo(dates);
+			}
+		}
+	}());
+
 
 	//Actually create the this is me section
 	(function () {
-		var i, j, scale, thisIsMeClick, slideClickLast, slideClick;
+		var i, j, scale, thisIsMeClick, slideClickLast, slideClick, thisIsMeDiv;
 
+		thisIsMeDiv = $('#thisIsMe');
 		slideClick = function (evt) {
 			evt.preventDefault();
 			$(this).hide('slow');
