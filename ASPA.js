@@ -28,7 +28,7 @@ var getImportantDates, importantDates;
 		importantDates = x;
 		runProgram();
 	};
-	$('<script />', {src: 'https://script.google.com/macros/s/AKfycbyF18goLeKWjSBvZbr-myWuXhCsQnhSYJCE-Ha8dwwQtVsLpaFC/exec?url="https://dl-web.dropbox.com/get/02-gitHub/ASPA/importantDates.txt?w=AAAB8i1KH3w8kLOp0ckfmajxkYATpCP8K1cnvI2FHZ80Sw&'+ Math.round(Math.random()*1000) + '"&prefix=getImportantDates'}).appendTo(document);
+	$('<script />', {src: 'https://script.google.com/macros/s/AKfycbyF18goLeKWjSBvZbr-myWuXhCsQnhSYJCE-Ha8dwwQtVsLpaFC/exec?url="https://dl-web.dropbox.com/get/02-gitHub/ASPA/importantDates.txt?w=AAAB8i1KH3w8kLOp0ckfmajxkYATpCP8K1cnvI2FHZ80Sw&'+Math.round(Math.random()*1000))+'"&prefix=getImportantDates'}).appendTo(document);
 
 	//Add imporatant links
 
