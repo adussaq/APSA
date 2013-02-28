@@ -113,7 +113,7 @@ var getImportantDates, importantDates;
 		for (i = 0; i < importantDates.length; i += 1) {
 			fDate = new Date(importantDates[i].date);
 			//change compare to 4 hours past the event time
-			fDate2 = fDate;
+			fDate2 = new Date(importantDates[i].date);
 			fDate2.setHours(fDate2.getHours() + 4);
 			if (fDate2 > new Date()) {
 				$('<div />', {html: "<b>" + fDate.toDateString() +  " " + fDate.toLocaleTimeString().replace(/(:00)+\s/, " ") + "</b> - " + importantDates[i].description + " at " + importantDates[i].location}).appendTo(dates);
