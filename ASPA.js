@@ -1,8 +1,9 @@
-/*global console, $ */
+/*global console, $, jQuery */
 var getImportantDates, importantDates;
 (function () {
 	'use strict';
-	var main, tabClick, thisIsMeObj, runProgram, url, script, random;
+	var main, tabClick, thisIsMeObj, runProgram, url, script, random, $;
+	$ = jQuery;
 	thisIsMeObj = [];
 	importantDates = [];
 	main = $('#ASPAmain');
