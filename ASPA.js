@@ -27,8 +27,8 @@ var getImportantDates, importantDates;
 	thisIsMeObj.push({name: 'Lakisha Moore', year: 'MS1', images: ['moore_lakisha_20130213_1.jpg', 'moore_lakisha_20130213_2.jpg']});
 
 	//create and add pictures to events section
-	events.push({image: "", caption: "Women in Medicine: Our Panel Members and student organizers. From left to right: Dr. Roslyn Mannon, Jennifer Stanley, Dr. Jayne Ness, Dr. Kristin Riley, Dr. Robin Lorenz, Kelsey Patterson (Jayleen Grams, not pictured)"});
-	events.push({image: "", caption: "Women in Medicine Panel"});
+	events.push({image: "wim1.JPG", caption: "Women in Medicine: Our Panel Members and student organizers. From left to right: Dr. Roslyn Mannon, Jennifer Stanley, Dr. Jayne Ness, Dr. Kristin Riley, Dr. Robin Lorenz, Kelsey Patterson (Jayleen Grams, not pictured)"});
+	events.push({image: "wim2.JPG", caption: "Women in Medicine Panel"});
 
 
 	script = 'https://script.google.com/macros/s/AKfycbyF18goLeKWjSBvZbr-myWuXhCsQnhSYJCE-Ha8dwwQtVsLpaFC/exec';
