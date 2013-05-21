@@ -25,6 +25,9 @@ var getImportantDates, importantDates;
 	thisIsMeObj.push({name: 'Robin Lorenz', year: 'Advisor', images: ['lorenz_robin_20130213_1.jpg', 'lorenz_robin_20130213_2.jpg']});
 	thisIsMeObj.push({name: 'Jarrod Meadows', year: 'MSTP GS2', images: ['meadows_jarrod_20130213_1.jpg', 'meadows_jarrod_20130213_2.jpg']});
 	thisIsMeObj.push({name: 'Lakisha Moore', year: 'MS1', images: ['moore_lakisha_20130213_1.jpg', 'moore_lakisha_20130213_2.jpg']});
+	thisIsMeObj.push({name: 'Quinn Dunlap', year: 'MS3', images: ['Quinn_Dunlap_1.jpg', 'Quinn_Dunlap_2.jpg', 'Quinn_Dunlap_3.jpg']});
+	thisIsMeObj.push({name: 'Stephanie Robert', year: 'MSTP GS2', images: ['Stephanie_Robert_1.jpg', 'Stephanie_Robert_2.jpg']});
+	thisIsMeObj.push({name: 'Kelsey Patterson', year: 'MS3', images: ['Kelsey_Paternson.jpg']});
 
 	//create and add pictures to events section
 	events.push({image: "wim1.JPG", caption: "<b>Women in Medicine Panel:</b> Our Panel Members and student organizers. From left to right: Dr. Roslyn Mannon, Jennifer Stanley, Dr. Jayne Ness, Dr. Kristin Riley, Dr. Robin Lorenz, Kelsey Patterson (Dr. Jayleen Grams, not pictured)"});
