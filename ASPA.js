@@ -155,9 +155,9 @@ var getImportantDates, importantDates;
 
 		//Add the images for this person, hiding all but the first one...
 		for (j = 0; j < events.length; j += 1) {
-			$('<div />', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', id: "temp"}).click(j === events.length - 1 ? slideClickLast : slideClick).appendTo('#eventPicHolder');
-			$('<img />', {src: 'https://raw.github.com/adussaq/ASPA2/master/eventsImages/' + events[j].image, style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;"}).appendTo('#temp');
-			$('<div />', {html: events[j].caption}).appendTo('#temp');
+			temp = $('<div />', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.'}).click(j === events.length - 1 ? slideClickLast : slideClick).appendTo('#eventPicHolder');
+			$('<img />', {src: 'https://raw.github.com/adussaq/ASPA2/master/eventsImages/' + events[j].image, style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;"}).appendTo(temp);
+			$('<div />', {html: events[j].caption}).appendTo(temp);
 		}
 	}());
 
