@@ -33,16 +33,6 @@ var getImportantDates, importantDates;
 	events.push({image: "wim1.JPG", caption: "<b>Women in Medicine Panel:</b> Our Panel Members and student organizers. From left to right: Dr. Roslyn Mannon, Jennifer Stanley, Dr. Jayne Ness, Dr. Kristin Riley, Dr. Robin Lorenz, Kelsey Patterson (Dr. Jayleen Grams, not pictured)"});
 	events.push({image: "wim2.JPG", caption: "<b>Women in Medicine Panel</b>"});
 
-
-	script = 'https://script.google.com/macros/s/AKfycbyF18goLeKWjSBvZbr-myWuXhCsQnhSYJCE-Ha8dwwQtVsLpaFC/exec';
-
-	//Get important Dates
-	getImportantDates = function (x) {
-		importantDates = x;
-		runProgram();
-	};
-	$('<script />', {src: script + '?prefix=getImportantDates'}).appendTo(main);
-
 	//Add imporatant links
 
 
@@ -109,34 +99,43 @@ var getImportantDates, importantDates;
 	$('#tab7').click(tabClick);
 
 	//Actually add the important dates
-	runProgram = function () {
-		var fDate, fDate2, i, dates;
-		//sort
-		importantDates = importantDates.sort(function (a, b) {
-			var aDate, bDate;
-			aDate = new Date(a);
-			bDate = new Date(b);
-			if (aDate > bDate) {
-				return 1;
-			} else {
-				return -1;
+	(function () {
+		jQuery.getJSON('https://www.googleapis.com/calendar/v3/calendars/0t6p55ncjk6k3gaaghjbdf5ft4%40group.calendar.google.com/events?key=AIzaSyC4e7o6-EOQFe9FXdVLHRk__DAaz_MBooU', function (result) {
+			var fDate, fDate2, i, dates, ev, importantDates;
+			importantDates = []
+			for (ev in result.items) {
+				if (result.items.hasOwnProperty(ev)) {
+					importantDates.push({date: ev.start.dateTime, description: ev.summary});
+				}
+			}
+
+			//sort
+			importantDates = importantDates.sort(function (a, b) {
+				var aDate, bDate;
+				aDate = new Date(a);
+				bDate = new Date(b);
+				if (aDate > bDate) {
+					return 1;
+				} else {
+					return -1;
+				}
+			});
+
+			//get element
+			dates = ('#importantDates');
+
+			//add dates
+			for (i = 0; i < importantDates.length; i += 1) {
+				fDate = new Date(importantDates[i].date);
+				//change compare to 4 hours past the event time
+				fDate2 = new Date(importantDates[i].date);
+				fDate2.setHours(fDate2.getHours() + 4);
+				if (fDate2 > new Date()) {
+					$('<div />', {html: "<b>" + fDate.toDateString() +  " " + fDate.toLocaleTimeString().replace(/(:00)+\s/, " ") + "</b> - " + importantDates[i].description + " at " + importantDates[i].location}).appendTo(dates);
+				}
 			}
 		});
-
-		//get element
-		dates = ('#importantDates');
-
-		//add dates
-		for (i = 0; i < importantDates.length; i += 1) {
-			fDate = new Date(importantDates[i].date);
-			//change compare to 4 hours past the event time
-			fDate2 = new Date(importantDates[i].date);
-			fDate2.setHours(fDate2.getHours() + 4);
-			if (fDate2 > new Date()) {
-				$('<div />', {html: "<b>" + fDate.toDateString() +  " " + fDate.toLocaleTimeString().replace(/(:00)+\s/, " ") + "</b> - " + importantDates[i].description + " at " + importantDates[i].location}).appendTo(dates);
-			}
-		}
-	};
+	}());		
 
 	//Add the pictures for the events section
 	(function () {
