@@ -27,8 +27,8 @@ var getImportantDates, importantDates;
 	thisIsMeObj.push({name: 'Lakisha Moore', year: 'MS1', images: ['moore_lakisha_20130213_1.jpg', 'moore_lakisha_20130213_2.jpg']});
 
 	//create and add pictures to events section
-	events.push({image: "wim1.JPG", caption: "Women in Medicine: Our Panel Members and student organizers. From left to right: Dr. Roslyn Mannon, Jennifer Stanley, Dr. Jayne Ness, Dr. Kristin Riley, Dr. Robin Lorenz, Kelsey Patterson (Jayleen Grams, not pictured)"});
-	events.push({image: "wim2.JPG", caption: "Women in Medicine Panel"});
+	events.push({image: "wim1.JPG", caption: "<b>Women in Medicine Panel:</b> Our Panel Members and student organizers. From left to right: Dr. Roslyn Mannon, Jennifer Stanley, Dr. Jayne Ness, Dr. Kristin Riley, Dr. Robin Lorenz, Kelsey Patterson (Jayleen Grams, not pictured)"});
+	events.push({image: "wim2.JPG", caption: "<b>Women in Medicine Panel</b>"});
 
 
 	script = 'https://script.google.com/macros/s/AKfycbyF18goLeKWjSBvZbr-myWuXhCsQnhSYJCE-Ha8dwwQtVsLpaFC/exec';
@@ -152,7 +152,7 @@ var getImportantDates, importantDates;
 		};
 
 		//make the html holder
-		$('<div />', {html: 'Images<div style="border:2px solid black;' + "width:" + 702 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto;" id="eventPicHolder"></div>'}).appendTo(eventDiv);
+		$('<div />', {html: '<b>Images</b><div style="border:2px solid black;' + "width:" + 702 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto;" id="eventPicHolder"></div>'}).appendTo(eventDiv);
 
 
 		//Add the images for this person, hiding all but the first one...
@@ -160,7 +160,7 @@ var getImportantDates, importantDates;
 			temp = $('<div />', {'class': 'eventIMG', alt: '#', title: 'Click for next slide.', id: 'slide' + j}).click(j === events.length - 1 ? slideClickLast : slideClick).appendTo('#eventPicHolder');
 			temp.data('ind', j);
 			$('<img />', {src: 'https://raw.github.com/adussaq/ASPA2/master/eventsImages/' + events[j].image, style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;"}).appendTo(temp);
-			$('<div />', {html: events[j].caption}).appendTo(temp);
+			$('<div />', {html: events[j].caption, style: '"text-align: center;"'}).appendTo(temp);
 		}
 
 		//Initiate slides
