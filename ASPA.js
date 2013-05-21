@@ -95,7 +95,7 @@ var getImportantDates, importantDates;
 	$('<div />', {html: '<a href="#" id="tab6">Important Dates</a><div id="importantDates" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
 
 	//Contact Us
-	$('<div />', {html: '<a href="#" id="tab7">Contact Us</a><div class= "hide" style="margin-left:10px">In development<br /><br /></div>'}).appendTo(main);
+	$('<div />', {html: '<a href="#" id="tab7">Contact Us</a><div class= "hide" style="margin-left:10px"><a src="mailto:UAB.APSA@gmail.com"></a><br /><br /></div>'}).appendTo(main);
 
 
 	//Add some javascript properties to above tabs
