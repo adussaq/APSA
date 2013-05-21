@@ -143,7 +143,7 @@ var getImportantDates, importantDates;
 		slideClick = function (evt) {
 			evt.preventDefault();
 			$(this).hide('slow');
-			$("#slide" + $(this).data()).show('slow');
+			$("#slide" + $(this).data('ind')).show('slow');
 		};
 		slideClickLast = function (evt) {
 			evt.preventDefault();
@@ -157,7 +157,8 @@ var getImportantDates, importantDates;
 
 		//Add the images for this person, hiding all but the first one...
 		for (j = 0; j < events.length; j += 1) {
-			temp = $('<div />', {'class': 'eventIMG', alt: '#', title: 'Click for next slide.', id: 'slide' + j, data: j}).click(j === events.length - 1 ? slideClickLast : slideClick).appendTo('#eventPicHolder');
+			temp = $('<div />', {'class': 'eventIMG', alt: '#', title: 'Click for next slide.', id: 'slide' + j}).click(j === events.length - 1 ? slideClickLast : slideClick).appendTo('#eventPicHolder');
+			temp.data('ind', j);
 			$('<img />', {src: 'https://raw.github.com/adussaq/ASPA2/master/eventsImages/' + events[j].image, style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;"}).appendTo(temp);
 			$('<div />', {html: events[j].caption}).appendTo(temp);
 		}
