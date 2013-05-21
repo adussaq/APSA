@@ -160,7 +160,7 @@ var getImportantDates, importantDates;
 			temp = $('<div />', {'class': 'eventIMG', alt: '#', title: 'Click for next slide.', id: 'slide' + j}).click(j === events.length - 1 ? slideClickLast : slideClick).appendTo('#eventPicHolder');
 			temp.data('ind', j);
 			$('<img />', {src: 'https://raw.github.com/adussaq/ASPA2/master/eventsImages/' + events[j].image, style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;"}).appendTo(temp);
-			$('<div />', {html: events[j].caption, style: '"text-align: center;"'}).appendTo(temp);
+			$('<div />', {html: events[j].caption, style: 'text-align: center;'}).appendTo(temp);
 		}
 
 		//Initiate slides
