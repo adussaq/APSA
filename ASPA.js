@@ -162,7 +162,9 @@ var getImportantDates, importantDates;
 			$('<div />', {html: events[j].caption}).appendTo(temp);
 		}
 
-		slideClickLast();
+		//Initiate slides
+		$('.eventIMG').hide();
+		$('#slide0').show();
 
 	}());
 
