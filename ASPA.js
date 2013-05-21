@@ -2,10 +2,11 @@
 var getImportantDates, importantDates;
 (function () {
 	'use strict';
-	var main, tabClick, thisIsMeObj, runProgram, url, script, random, $;
+	var events, main, tabClick, thisIsMeObj, runProgram, url, script, random, $;
 	$ = jQuery;
 	thisIsMeObj = [];
 	importantDates = [];
+	events = [];
 	main = $('#ASPAmain');
 
 	// importantDates.push({date: 'March 2 2013 19:30:00', location: '<a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3508+Cliff+Road+South,+Birmingham,+AL">3508 Cliff Road South</a>', description: 'APSA Potluck'});
@@ -24,6 +25,11 @@ var getImportantDates, importantDates;
 	thisIsMeObj.push({name: 'Robin Lorenz', year: 'Advisor', images: ['lorenz_robin_20130213_1.jpg', 'lorenz_robin_20130213_2.jpg']});
 	thisIsMeObj.push({name: 'Jarrod Meadows', year: 'MSTP GS2', images: ['meadows_jarrod_20130213_1.jpg', 'meadows_jarrod_20130213_2.jpg']});
 	thisIsMeObj.push({name: 'Lakisha Moore', year: 'MS1', images: ['moore_lakisha_20130213_1.jpg', 'moore_lakisha_20130213_2.jpg']});
+
+	//create and add pictures to events section
+	events.push({image: "", caption: "Women in Medicine: Our Panel Members and student organizers. From left to right: Dr. Roslyn Mannon, Jennifer Stanley, Dr. Jayne Ness, Dr. Kristin Riley, Dr. Robin Lorenz, Kelsey Patterson (Jayleen Grams, not pictured)"});
+	events.push({image: "", caption: "Women in Medicine Panel"});
+
 
 	script = 'https://script.google.com/macros/s/AKfycbyF18goLeKWjSBvZbr-myWuXhCsQnhSYJCE-Ha8dwwQtVsLpaFC/exec';
 
@@ -76,7 +82,7 @@ var getImportantDates, importantDates;
 
 	//Events section
 	$('<div />', {html: '<a href="#" id="tab4">Events</a><div class= "hide" style="margin-left:10px">' +
-		'In addition to monthly meetings the UAB APSA participates in a number of activities. In spring 2013 we helped teach science labs at Parker High School, held a radiation oncology break away session and a women\'s in medicine and research panel.' +
+		'In addition to monthly meetings the UAB APSA participates in a number of activities. In spring 2013 we helped teach science labs at Parker High School, held a radiation oncology break away session and a women\'s in medicine and research panel. ' +
 		'The coming semester we plan on holding a psychiatry break away session and a panel of the physician scientist husbands of our women\'s panel.<br /><br /><div id=eventPictures></div><div><br /></div>'}).appendTo(main);
 
 	//Important Links
@@ -128,6 +134,32 @@ var getImportantDates, importantDates;
 			}
 		}
 	};
+
+	//Add the pictures for the events section
+	(function () {
+		var eventDiv, scale, slideClick, slideClickLast, j, temp;
+		eventDiv = $('#Events');
+		scale = 2;
+		slideClick = function (evt) {
+			evt.preventDefault();
+			$(this).hide('slow');
+		};
+		slideClickLast = function (evt) {
+			evt.preventDefault();
+			$('.slideIMG').show('slow');
+		};
+
+		//make the html holder
+		$('<div />', {html: 'Images<div class="slide" style="border:2px solid black;' + "width:" + 702 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto id="eventPicHolder></div>'}).appendTo(eventDiv);
+
+
+		//Add the images for this person, hiding all but the first one...
+		for (j = 0; j < events.length; j += 1) {
+			temp = $('<div />', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;"}).click(j === events.length - 1 ? slideClickLast : slideClick).appendTo('#eventPicHolder');
+			$('<img />', {src: 'https://raw.github.com/adussaq/ASPA2/master/eventsImages/' + events[j].image, style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;"}).appendTo(temp);
+			$('<div />', {html: events[j].caption}).appendTo(temp);
+		}
+	}());
 
 
 	//Actually create the this is me section
