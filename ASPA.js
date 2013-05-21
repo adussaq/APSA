@@ -103,8 +103,8 @@ var getImportantDates, importantDates;
 		jQuery.getJSON('https://www.googleapis.com/calendar/v3/calendars/0t6p55ncjk6k3gaaghjbdf5ft4%40group.calendar.google.com/events?key=AIzaSyC4e7o6-EOQFe9FXdVLHRk__DAaz_MBooU', function (result) {
 			var fDate, fDate2, i, dates, ev, importantDates, j;
 			importantDates = [];
-			for (j = 0; j < result.item.length; j += 1) {
-				importantDates.push({date: result.item[j].start.dateTime, description: result.item[j].summary});
+			for (j = 0; j < result.items.length; j += 1) {
+				importantDates.push({date: result.items[j].start.dateTime, description: result.items[j].summary});
 			}
 			console.log(importantDates);
 			//sort
