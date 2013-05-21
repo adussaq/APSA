@@ -138,7 +138,7 @@ var getImportantDates, importantDates;
 	//Add the pictures for the events section
 	(function () {
 		var eventDiv, scale, slideClick, slideClickLast, j, temp;
-		eventDiv = $('#Events');
+		eventDiv = $('#eventPictures');
 		scale = 2;
 		slideClick = function (evt) {
 			evt.preventDefault();
