@@ -143,7 +143,7 @@ var getImportantDates, importantDates;
 		slideClick = function (evt) {
 			evt.preventDefault();
 			$(this).hide('slow');
-			$("#slide" + $(this).data('ind')+1).show();
+			$("#slide" + ($(this).data('ind')+1)).show();
 		};
 		slideClickLast = function (evt) {
 			evt.preventDefault();
