@@ -150,7 +150,7 @@ var getImportantDates, importantDates;
 		};
 
 		//make the html holder
-		$('<div />', {html: 'Images<div class="slide" style="border:2px solid black;' + "width:" + 702 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto id="eventPicHolder></div>'}).appendTo(eventDiv);
+		$('<div />', {html: 'Images<div class="slide" style="border:2px solid black;' + "width:" + 702 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto id="eventPicHolder"></div>'}).appendTo(eventDiv);
 
 
 		//Add the images for this person, hiding all but the first one...
