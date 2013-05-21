@@ -146,16 +146,16 @@ var getImportantDates, importantDates;
 		};
 		slideClickLast = function (evt) {
 			evt.preventDefault();
-			$('.slideIMG').show('slow');
+			$('.eventIMG').show('slow');
 		};
 
 		//make the html holder
-		$('<div />', {html: 'Images<div class="slide" style="border:2px solid black;' + "width:" + 702 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto;" id="eventPicHolder"></div>'}).appendTo(eventDiv);
+		$('<div />', {html: 'Images<div style="border:2px solid black;' + "width:" + 702 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto;" id="eventPicHolder"></div>'}).appendTo(eventDiv);
 
 
 		//Add the images for this person, hiding all but the first one...
 		for (j = 0; j < events.length; j += 1) {
-			temp = $('<div />', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.'}).click(j === events.length - 1 ? slideClickLast : slideClick).appendTo('#eventPicHolder');
+			temp = $('<div />', {'class': 'eventIMG', alt: '#', title: 'Click for next slide.'}).click(j === events.length - 1 ? slideClickLast : slideClick).appendTo('#eventPicHolder');
 			$('<img />', {src: 'https://raw.github.com/adussaq/ASPA2/master/eventsImages/' + events[j].image, style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;"}).appendTo(temp);
 			$('<div />', {html: events[j].caption}).appendTo(temp);
 		}
