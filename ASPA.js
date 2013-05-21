@@ -107,7 +107,7 @@ var getImportantDates, importantDates;
 				importantDates.push({date: result.item[j].start.dateTime, description: result.item[j].summary});
 				}
 			}
-
+			console.log(importantDates);
 			//sort
 			importantDates = importantDates.sort(function (a, b) {
 				var aDate, bDate;
