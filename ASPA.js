@@ -104,7 +104,7 @@ var getImportantDates, importantDates;
 			var fDate, fDate2, i, dates, ev, importantDates, j;
 			importantDates = [];
 			for (j = 0; j < result.items.length; j += 1) {
-				importantDates.push({date: result.items[j].start.dateTime, description: result.items[j].summary, location: result.items[j].summary !== undefined ? result.items[j].summary : 'TBA' });
+				importantDates.push({date: result.items[j].start.dateTime, description: result.items[j].summary, location: result.items[j].location !== undefined ? result.items[j].location : 'TBA' });
 			}
 			//sort
 			importantDates = importantDates.sort(function (a, b) {
