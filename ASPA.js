@@ -39,8 +39,8 @@ var getImportantDates, importantDates;
     //create and add pictures to events section
     events.push({image: "wim1.JPG", caption: "<b>Women in Medicine Panel:</b> Our Panel Members and student organizers. From left to right: Dr. Roslyn Mannon, Jennifer Stanley, Dr. Jayne Ness, Dr. Kristin Riley, Dr. Robin Lorenz, Kelsey Patterson (Dr. Jayleen Grams, not pictured)"});
     events.push({image: "wim2.JPG", caption: "<b>Women in Medicine Panel</b>"});
-    events.push(image: "mm1.jpg", caption: "<b>Monthly Meeting 6/18/2013</b> Jennifer Stanley presents her research.")
-    events.push(image: "mm2.jpg", caption: "<b>Monthly Meeting 6/18/2013</b> Jennifer Stanley presents her research.")
+    events.push({image: "mm1.jpg", caption: "<b>Monthly Meeting 6/18/2013</b> Jennifer Stanley presents her research."})
+    events.push({image: "mm2.jpg", caption: "<b>Monthly Meeting 6/18/2013</b> Jennifer Stanley presents her research."})
 
     //Add imporatant links
 
