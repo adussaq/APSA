@@ -15,23 +15,32 @@ var getImportantDates, importantDates;
     // importantDates.push({date: 'April 11 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'Women In Sceince Panel'});
 
     //Add people to this is me
-    thisIsMeObj.push({name: 'Jennifer Stanley', year: 'MSTP GS2', images: ['JStanley_20130109_1.jpg', 'JStanley_20130109_2.jpg']});
-    thisIsMeObj.push({name: 'Alice Weaver', year: 'MSTP MS2', images: ['AWeaver_20130109_1.jpg', 'AWeaver_20130109_2.jpg']});
-    thisIsMeObj.push({name: 'Mika Gunzman Karlsson', year: 'MSTP GS2', images: ['MGKarlsson_20130109_1.jpg', 'MGKarlsson_20130109_2.jpg']});
-    thisIsMeObj.push({name: 'Meredith Hubbard', year: 'MS1', images: ['MHubbard_20130109_1.jpg', 'MHubbard_20130109_2.jpg']});
-    thisIsMeObj.push({name: 'Travis Hull', year: 'MSTP GS2', images: ['THull_20130109_1.jpg', 'THull_20130109_2.jpg']});
-    thisIsMeObj.push({name: 'Josh Cohen', year: 'MSTP MS2', images: ['JCohen_20130109_1.jpg', 'JCohen_20130109_2.jpg']});
-    thisIsMeObj.push({name: 'Alex Dussaq', year: 'MSTP GS1', images: ['dussaq_alex_20130213_1.jpg', 'dussaq_alex_20130213_2.jpg']});
+    thisIsMeObj.push({name: 'Jennifer Stanley', year: 'MSTP GS3', images: ['JStanley_20130109_1.jpg', 'JStanley_20130109_2.jpg']});
+    thisIsMeObj.push({name: 'Alice Weaver', year: 'MSTP GS1', images: ['AWeaver_20130109_1.jpg', 'AWeaver_20130109_2.jpg']});
+    thisIsMeObj.push({name: 'Mika Gunzman Karlsson', year: 'MSTP GS3', images: ['MGKarlsson_20130109_1.jpg', 'MGKarlsson_20130109_2.jpg']});
+    thisIsMeObj.push({name: 'Meredith Hubbard', year: 'MS2', images: ['MHubbard_20130109_1.jpg', 'MHubbard_20130109_2.jpg']});
+    thisIsMeObj.push({name: 'Travis Hull', year: 'MSTP GS3', images: ['THull_20130109_1.jpg', 'THull_20130109_2.jpg']});
+    thisIsMeObj.push({name: 'Josh Cohen', year: 'MSTP GS1', images: ['JCohen_20130109_1.jpg', 'JCohen_20130109_2.jpg']});
+    thisIsMeObj.push({name: 'Alex Dussaq', year: 'MSTP MS2', images: ['dussaq_alex_20130213_1.jpg', 'dussaq_alex_20130213_2.jpg']});
     thisIsMeObj.push({name: 'Robin Lorenz', year: 'Advisor', images: ['lorenz_robin_20130213_1.jpg', 'lorenz_robin_20130213_2.jpg']});
-    thisIsMeObj.push({name: 'Jarrod Meadows', year: 'MSTP GS2', images: ['meadows_jarrod_20130213_1.jpg', 'meadows_jarrod_20130213_2.jpg']});
-    thisIsMeObj.push({name: 'Lakisha Moore', year: 'MS1', images: ['moore_lakisha_20130213_1.jpg', 'moore_lakisha_20130213_2.jpg']});
+    thisIsMeObj.push({name: 'Jarrod Meadows', year: 'MSTP GS3', images: ['meadows_jarrod_20130213_1.jpg', 'meadows_jarrod_20130213_2.jpg']});
+    thisIsMeObj.push({name: 'Lakisha Moore', year: 'MS2', images: ['moore_lakisha_20130213_1.jpg', 'moore_lakisha_20130213_2.jpg']});
     thisIsMeObj.push({name: 'Quinn Dunlap', year: 'MS3', images: ['Quinn_Dunlap_1.jpg', 'Quinn_Dunlap_2.jpg', 'Quinn_Dunlap_3.jpg']});
-    thisIsMeObj.push({name: 'Stephanie Robert', year: 'MSTP GS2', images: ['Stephanie_Robert_1.jpg', 'Stephanie_Robert_2.jpg']});
-    thisIsMeObj.push({name: 'Kelsey Patterson', year: 'MS3', images: ['Kelsey_Paternson.jpg']});
+    thisIsMeObj.push({name: 'Stephanie Robert', year: 'MSTP GS3', images: ['Stephanie_Robert_1.jpg', 'Stephanie_Robert_2.jpg']});
+    thisIsMeObj.push({name: 'Kelsey Patterson', year: 'MSTP MS2', images: ['Kelsey_Paternson.jpg']});
+    thisIsMeObj.push({name: 'Stephan Gragg', year: 'MSTP MS1', images: ['Gragg_Stephan_1.jpg', 'Gragg_Stephan_2.jpg']});
+    thisIsMeObj.push({name: 'Muhan Hu', year: 'MSTP MS1', images: ['Hu_muhan_1.jpg', 'Hu_muhan_2.jpg']});
+    thisIsMeObj.push({name: 'Tim Kennell', year: 'MSTP MS1', images: ['Kennel_tim_2.jpg', 'Kennell_tim_1.jpg']});
+    thisIsMeObj.push({name: 'Jeremie Lever', year: 'MSTP MS1', images: ['Lever_Jeremie_1.jpg', 'Lever_Jeremie_2.jpg']});
+    thisIsMeObj.push({name: 'Tyler McCaw', year: 'MSTP MS1', images: ['McCaw_tyler_1.jpg', 'McCaw_tyler_2.jpg']});
+    thisIsMeObj.push({name: 'Mark Pepsin', year: 'MSTP MS1', images: ['Pepsin_Mark_1.jpg', 'Pepsin_Mark_2.jpg']});
+
 
     //create and add pictures to events section
     events.push({image: "wim1.JPG", caption: "<b>Women in Medicine Panel:</b> Our Panel Members and student organizers. From left to right: Dr. Roslyn Mannon, Jennifer Stanley, Dr. Jayne Ness, Dr. Kristin Riley, Dr. Robin Lorenz, Kelsey Patterson (Dr. Jayleen Grams, not pictured)"});
     events.push({image: "wim2.JPG", caption: "<b>Women in Medicine Panel</b>"});
+    events.push(image: "mm1.jpg", caption: "<b>Monthly Meeting 6/18/2013</b> Jennifer Stanley presents her research.")
+    events.push(image: "mm2.jpg", caption: "<b>Monthly Meeting 6/18/2013</b> Jennifer Stanley presents her research.")
 
     //Add imporatant links
 
