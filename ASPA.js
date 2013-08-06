@@ -76,7 +76,9 @@ var getImportantDates, importantDates;
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Weaver_Alice.jpg"></img><br /><b>Treasurer</b><br />Alice Weaver</td></tr><tr>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Dussaq_Alex.jpg"></img><br /><b>Webmaster</b><br />Alex Dussaq</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Hubbard_Meredith.png"></img><br /><b>SOM Representative</b><br />Meredith Hubbard</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td></tr></table></div><br />'}).appendTo(main);
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td></tr>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Redmond_Nicole.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Nicole Redmond</td></tr>' +
+                        '</table></div><br />'}).appendTo(main);
 
     //Create this is membership section
     $('<div />', {html: '<a href="#" id="tab3">Members</a><div class= "hide" style="margin-left:10px">' +
