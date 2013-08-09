@@ -73,11 +73,13 @@ var getImportantDates, importantDates;
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Hull_Travis.jpg"></img><br /><b>President</b><br />Travis Hull</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Stanley_Jennifer.jpg"></img><br /><b>Vice President</b><br />Jennifer Stanley</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Robert_Stephanie.jpg"></img><br /><b>Secretary</b><br />Stephanie Robert</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Weaver_Alice.jpg"></img><br /><b>Treasurer</b><br />Alice Weaver</td></tr><tr>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Weaver_Alice.jpg"></img><br /><b>Treasurer</b><br />Alice Weaver</td>' +
+                        '</tr><tr>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Dussaq_Alex.jpg"></img><br /><b>Webmaster</b><br />Alex Dussaq</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Hubbard_Meredith.png"></img><br /><b>SOM Representative</b><br />Meredith Hubbard</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Redmond_Nicole.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Nicole Redmond</td></tr>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Redmond_Nicole.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Nicole Redmond</td>' +
+                        '</tr>' +
                         '</table></div><br />'}).appendTo(main);
 
     //Create this is membership section
