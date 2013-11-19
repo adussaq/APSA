@@ -94,8 +94,8 @@ var getImportantDates, importantDates;
     //Important Links
     $('<div />', {html: '<a href="#" id="tab5">Important Links</a><div class= "hide" style="margin-left:10px"><a href="http://www.physicianscientists.org">ASPA National Chapter</a><br />' +
                         'Image courtesy of <a href="http://genomicscience.energy.gov">U.S. Department of Energy Genomic Science program</a><br />' +
-                        '<a href = "https://docs.google.com/spreadsheet/ccc?key=0AgdB5oEiQBYWdGhFeDBZY0NvTEpPUk9fR01GTEVQREE">Google Doc for Parker High School Outreach</a>'
-                        '<br /><br /></div>'}).appendTo(main);
+                        '<a href = "https://docs.google.com/spreadsheet/ccc?key=0AgdB5oEiQBYWdGhFeDBZY0NvTEpPUk9fR01GTEVQREE">Google Doc for Parker High School Outreach</a><br />' +
+                        '<br /></div>'}).appendTo(main);
     //Important Dates - create the section
     $('<div />', {html: '<a href="#" id="tab6">Important Dates</a><div id="importantDates" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
 
