@@ -67,18 +67,18 @@ var getImportantDates, importantDates;
                         '&nbsp;&nbsp;The MSTP is excited to announce the formation of an American Physician Scientists Association (APSA) chapter at UAB! The goals of our APSA chapter are multifaceted, as we aim to address the unique challenges that face physician-scientists during their training and career. Among other things, we will provide members with opportunities for informal networking with UAB faculty, organize career development and volunteering events, and provide a formal organization through which UAB’s future physician-scientists can have an active voice both nationally and among UAB’s scientific community.' +
                         '<br />&nbsp;&nbsp;APSA is a national organization that was formed by MD/PhD students to address the needs and unique challenges faced by physician-scientists during their training. The national APSA chapter is run entirely by MD/PhD students from institutions across the country.  The organization advocates for policy changes essential to the continued success of physician-scientists, and the NCI’s recent establishment of an F30 for MD/PhD students is an example of APSA’s influence and frequent success. The association also sponsors events such as conferences and webinars that are developed specifically for aspiring-physician scientists. For more information, please visit the national chapter’s website (<a href=http://www.physicianscientists.org>http://www.physicianscientists.org</a>), which contains useful resources, including forums to network with established physician-scientists from around the country and to get specialty-specific mentorship.' +
                         '<br />&nbsp;&nbsp;The UAB MSTP was interested in forming an APSA chapter because the organization has the potential to strengthen our MSTP, to establish a forum for networking with research-oriented SOM students, and to provide additional resources for career development. Excitingly, our chapter already has over 40 members! Our chapter meets monthly, and meetings consist of research presentations and the planning of future APSA-sponsored events tailored to the needs of our members. Most importantly, our organization is meant to be a resource for our members, so please let us know if you have any ideas for APSA-sponsored events in the future! We believe that our UAB APSA chapter will be an extremely valuable organization for our members and our MSTP, so please consider joining!' +
-                        '<br /><br /><a href="http://uab-apsa.googlecode.com/git/APSAConstitution_2013_01_10.pdf">Download Constitution</a><br /><br /></div>'}).appendTo(main);
+                        '<br /><br /><a href="https://uab-apsa.googlecode.com/git/APSAConstitution_2013_01_10.pdf">Download Constitution</a><br /><br /></div>'}).appendTo(main);
     //Officers
     $('<div />', {html: '<a href="#" id="tab2">Officers</a><div class= "hide" style="margin-left:10px"><table><tr>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Hull_Travis.jpg"></img><br /><b>President</b><br />Travis Hull</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Stanley_Jennifer.jpg"></img><br /><b>Vice President</b><br />Jennifer Stanley</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Robert_Stephanie.jpg"></img><br /><b>Secretary</b><br />Stephanie Robert</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Weaver_Alice.jpg"></img><br /><b>Treasurer</b><br />Alice Weaver</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Hull_Travis.jpg"></img><br /><b>President</b><br />Travis Hull</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Stanley_Jennifer.jpg"></img><br /><b>Vice President</b><br />Jennifer Stanley</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Robert_Stephanie.jpg"></img><br /><b>Secretary</b><br />Stephanie Robert</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Weaver_Alice.jpg"></img><br /><b>Treasurer</b><br />Alice Weaver</td>' +
                         '</tr><tr>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Dussaq_Alex.jpg"></img><br /><b>Webmaster</b><br />Alex Dussaq</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Hubbard_Meredith.png"></img><br /><b>SOM Representative</b><br />Meredith Hubbard</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="http://uab-apsa.googlecode.com/git/officerImages/Redmond_Nicole.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Nicole Redmond</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Dussaq_Alex.jpg"></img><br /><b>Webmaster</b><br />Alex Dussaq</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Hubbard_Meredith.png"></img><br /><b>SOM Representative</b><br />Meredith Hubbard</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Redmond_Nicole.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Nicole Redmond</td>' +
                         '</tr>' +
                         '</table></div><br />'}).appendTo(main);
 
@@ -172,7 +172,7 @@ var getImportantDates, importantDates;
         for (j = 0; j < events.length; j += 1) {
             temp = $('<div />', {'class': 'eventIMG', alt: '#', title: 'Click for next slide.', id: 'slide' + j}).click(j === events.length - 1 ? slideClickLast : slideClick).appendTo('#eventPicHolder');
             temp.data('ind', j);
-            $('<img />', {src: 'http://uab-apsa.googlecode.com/git/eventsImages/' + events[j].image, style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;"}).appendTo(temp);
+            $('<img />', {src: 'https://uab-apsa.googlecode.com/git/eventsImages/' + events[j].image, style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;"}).appendTo(temp);
             $('<div />', {html: events[j].caption, style: 'text-align: center;'}).appendTo(temp);
         }
 
@@ -236,7 +236,7 @@ var getImportantDates, importantDates;
 
             //Add the images for this person, hiding all but the first one...
             for (j = 0; j < thisIsMeObj[i].images.length; j += 1) {
-                $('<img />', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", src: 'http://uab-apsa.googlecode.com/git/thisIsMeImages/' + thisIsMeObj[i].images[j]}).click(j === thisIsMeObj[i].images.length - 1 ? slideClickLast : slideClick).appendTo('#slideContent' + i);
+                $('<img />', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", src: 'https://uab-apsa.googlecode.com/git/thisIsMeImages/' + thisIsMeObj[i].images[j]}).click(j === thisIsMeObj[i].images.length - 1 ? slideClickLast : slideClick).appendTo('#slideContent' + i);
             }
 
         }
