@@ -1,5 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
+console.log("v2.0.1");
 //Tracking
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -148,7 +149,7 @@ var getImportantDates, importantDates;
         };
 
         updateRoster = function (rost) {
-            var div;
+            var div, i, table, trow;
 
             //sort roster
             rost = rost.sort(function (a, b) {
@@ -167,7 +168,14 @@ var getImportantDates, importantDates;
                 return -1;
             });
             div = $('#thisIsMe');
-            
+            div.html("");
+            table = $('<table>').appendTo(div);
+            for (i = 0; i < rost.length; i += 1) {
+                if(! i%2) {
+                    trow = $('<tr>').appendTo(table);
+                }
+                $('<td>', {text: rost[i].name + " " +rost[i].program}).appendTo(trow);
+            }
         };
 
 
