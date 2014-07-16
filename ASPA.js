@@ -171,7 +171,7 @@ var getImportantDates, importantDates;
             div.html("");
             table = $('<table>').appendTo(div);
             for (i = 0; i < rost.length; i += 1) {
-                if(! i%2) {
+                if(! (i%2)) {
                     trow = $('<tr>').appendTo(table);
                 }
                 $('<td>', {text: rost[i].name + " " +rost[i].program}).appendTo(trow);
