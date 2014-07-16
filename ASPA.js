@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.0.4");
+console.log("v2.0.5");
 //Tracking
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -134,7 +134,7 @@ var getImportantDates, importantDates;
 
     //Update with new data
     updateChanges = function () {
-        var webData, editAllSections, updateRoster, sortByLastName, getThisIsMeImages, url;
+        var webData, editAllSections, updateRoster, sortByLastName, getThisIsMeImages, url, thisIsMeClick, slideClick, slideClickLast;
         url = 'https://3fb447c8ea45275c3e71dc49d678c53d6b103efb.googledrive.com/host/0BwdB5oEiQBYWZFk2ZkRNM1d3ZXc/';
         jQuery.get(url + '?' + (Math.random()).toString().replace('0.',''), function (x) {
             eval("webData = " + x);
@@ -168,7 +168,7 @@ var getImportantDates, importantDates;
                     indText.html(indText.html() + ", " + rost[i].office);
                 }
                 if (rost[i].hasOwnProperty('thisIsMe')) {
-                    indText.append(getThisIsMeImages(rost.name, rost.thisIsMe));
+                    indText.append(getThisIsMeImages(rost[i].name, rost[i].thisIsMe));
                 }
                 $('<td>', {style:"width:50%", html: indText}).appendTo(trow);
             }
@@ -182,14 +182,37 @@ var getImportantDates, importantDates;
     getThisIsMeImages = function (name, number) {
         var i, ret;
         var imageBase = url+"thisIsMeImages"+"/"+encodeURIComponent(name)+"/Slide";
-        ret = $('<span>');
+        ret = $('<a>', {href:"#", text:"This is me"}).append($('<div>', {class: slide, style: "border:2px solid black;' + "width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto", id:'slideContent'})).click(thisIsMeClick);
 
+        <div class="slide" style=
         console.log(imageBase);
         for (i = 1; i <= number; i += 1) {
-            $('<img>', {src: imageBase + i + '.jpg'}).appendTo(ret);
+            $('<img>', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", src: imageBase + i + '.jpg'}).click(i === number ? slideClickLast : slideClick).appendTo(ret);
         }
         return ret;
-    }
+    };
+
+    thisIsMeClick = function (evt) {
+            var text;
+            evt.preventDefault();
+
+            text = $($(this).parent().children('div')[0]);
+            if (text.is(":visible")) {
+                text.hide('slow');
+            } else {
+                $('.slide').hide('slow');
+                text.show('slow');
+            }
+        };
+
+    slideClick = function (evt) {
+            evt.preventDefault();
+            $(this).hide('slow');
+        };
+    slideClickLast = function (evt) {
+            evt.preventDefault();
+            $('.slideIMG').show('slow');
+        };
 
     sortByLastName = function (a, b) {
         var aSurname, bSurname;
