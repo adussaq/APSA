@@ -130,6 +130,22 @@ var getImportantDates, importantDates;
     $('#tab7').click(tabClick);
     $('#tab8').click(tabClick);
 
+
+    //Update with new data
+    updateChanges = function () {
+        var webData, editAllSections;
+        jQuery.get('https://3fb447c8ea45275c3e71dc49d678c53d6b103efb.googledrive.com/host/0BwdB5oEiQBYWZFk2ZkRNM1d3ZXc/', function (x) {
+            eval("webData = "+x);
+            editAllSections();
+        });
+        editAllSections = function () {
+            console.log(webData);
+        }
+    };
+
+
+
+
     //Actually add the important dates
     (function () {
         jQuery.getJSON('https://www.googleapis.com/calendar/v3/calendars/0t6p55ncjk6k3gaaghjbdf5ft4%40group.calendar.google.com/events?key=AIzaSyC4e7o6-EOQFe9FXdVLHRk__DAaz_MBooU', function (result) {
