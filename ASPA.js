@@ -183,7 +183,7 @@ var getImportantDates, importantDates;
         var i, ret;
         var imageBase = url+"thisIsMeImages"+"/"+encodeURIComponent(name)+"/Slide";
         ret = $('<a>', {href:"#", text:"This is me"}).click(thisIsMeClick);
-        ret = $('<div>', {class: slide, style: "border:2px solid black;width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto', id:'slideContent'})).appendTo(ret);
+        ret = $('<div>', {class: slide, style: "border:2px solid black;width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto', id:'slideContent'}).appendTo(ret);
 
         console.log(imageBase);
         for (i = 1; i <= number; i += 1) {
