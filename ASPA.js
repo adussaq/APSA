@@ -181,7 +181,7 @@ var getImportantDates, importantDates;
     //Sub functions
     getThisIsMeImages = function (name, number) {
         var i, ret;
-        var imageBase = url+"thisIsMeImages"+"/"encodeURIComponent(name)+"/Slide";
+        var imageBase = url+"thisIsMeImages"+"/"+encodeURIComponent(name)+"/Slide";
         ret = $('<span>');
 
         console.log(imageBase);
