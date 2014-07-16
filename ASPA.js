@@ -133,14 +133,48 @@ var getImportantDates, importantDates;
 
     //Update with new data
     updateChanges = function () {
-        var webData, editAllSections;
-        jQuery.get('https://3fb447c8ea45275c3e71dc49d678c53d6b103efb.googledrive.com/host/0BwdB5oEiQBYWZFk2ZkRNM1d3ZXc/', function (x) {
+        var webData, editAllSections, updateRoster;
+        jQuery.get('https://3fb447c8ea45275c3e71dc49d678c53d6b103efb.googledrive.com/host/0BwdB5oEiQBYWZFk2ZkRNM1d3ZXc/&' + Math.random(), function (x) {
             eval("webData = "+x);
             editAllSections();
         });
         editAllSections = function () {
+            var i;
             console.log(webData);
-        }
+
+            //update Roster
+            updateRoster(webData.roster);
+            
+        };
+
+        updateRoster = function (rost) {
+            var div;
+
+            //sort roster
+            rost = rost.sort(function (a, b) {
+                var aSurname, bSurname;
+                aSurname = a.name.split(/\s+/).pop();
+                bSurname = b.name.split(/\s+/).pop();
+                if (aSurname > bSurname) {
+                    return 1;
+                }
+                if (aSurname < bSurname) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return -1;
+            });
+            div = $('#thisIsMe');
+            
+        };
+
+
+
+
+
+
     };
 
 
