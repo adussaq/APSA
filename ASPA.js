@@ -134,7 +134,7 @@ var getImportantDates, importantDates;
     //Update with new data
     updateChanges = function () {
         var webData, editAllSections, updateRoster;
-        jQuery.get('https://3fb447c8ea45275c3e71dc49d678c53d6b103efb.googledrive.com/host/0BwdB5oEiQBYWZFk2ZkRNM1d3ZXc/&' + (Math.random()).toString().replace('0.',''), function (x) {
+        jQuery.get('https://3fb447c8ea45275c3e71dc49d678c53d6b103efb.googledrive.com/host/0BwdB5oEiQBYWZFk2ZkRNM1d3ZXc/?' + (Math.random()).toString().replace('0.',''), function (x) {
             eval("webData = "+x);
             editAllSections();
         });
