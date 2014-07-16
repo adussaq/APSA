@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.0.6");
+console.log("v2.0.8");
 //Tracking
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -183,7 +183,8 @@ var getImportantDates, importantDates;
         var i, ret, div, scale;
         var imageBase = url+"thisIsMeImages"+"/"+encodeURIComponent(name)+"/Slide";
         scale = 2;
-        ret = $('<a>', {href:"#", text:"This is me"}).click(thisIsMeClick);
+        ret = $('<span>', {text', '});
+        $('<a>', {href:"#", text:"This is me"}).click(thisIsMeClick).appendTo(ret);
         div = $('<div>', {class: "slide", style: "border:2px solid black;width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto', id:'slideContent'}).appendTo(ret);
 
         console.log(imageBase);
