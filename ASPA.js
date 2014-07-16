@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.0.3");
+console.log("v2.0.4");
 //Tracking
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -134,9 +134,10 @@ var getImportantDates, importantDates;
 
     //Update with new data
     updateChanges = function () {
-        var webData, editAllSections, updateRoster;
-        jQuery.get('https://3fb447c8ea45275c3e71dc49d678c53d6b103efb.googledrive.com/host/0BwdB5oEiQBYWZFk2ZkRNM1d3ZXc/?' + (Math.random()).toString().replace('0.',''), function (x) {
-            eval("webData = "+x);
+        var webData, editAllSections, updateRoster, sortByLastName, getThisIsMeImages, url;
+        url = 'https://3fb447c8ea45275c3e71dc49d678c53d6b103efb.googledrive.com/host/0BwdB5oEiQBYWZFk2ZkRNM1d3ZXc/';
+        jQuery.get(url + '?' + (Math.random()).toString().replace('0.',''), function (x) {
+            eval("webData = " + x);
             editAllSections();
         });
         editAllSections = function () {
@@ -149,24 +150,12 @@ var getImportantDates, importantDates;
         };
 
         updateRoster = function (rost) {
-            var div, i, table, trow;
+            var div, i, table, trow, indText;
 
             //sort roster
-            rost = rost.sort(function (a, b) {
-                var aSurname, bSurname;
-                aSurname = a.name.split(/\s+/).pop();
-                bSurname = b.name.split(/\s+/).pop();
-                if (aSurname > bSurname) {
-                    return 1;
-                }
-                if (aSurname < bSurname) {
-                    return -1;
-                }
-                if (a.name > b.name) {
-                    return 1;
-                }
-                return -1;
-            });
+            rost = rost.sort(sortByLastName);
+
+            //Populate the div
             div = $('#thisIsMe');
             div.html("");
             table = $('<table>', {style:"width:100%"}).appendTo(div);
@@ -174,13 +163,49 @@ var getImportantDates, importantDates;
                 if(! (i%2)) {
                     trow = $('<tr>', {style:"width:100%"}).appendTo(table);
                 }
-                $('<td>', {style:"width:50%", html: "<b>"+ rost[i].name + "<\b> " +rost[i].program}).appendTo(trow);
+                indText = $('<span>', {html: "<b>"+ rost[i].name + "</b> " +rost[i].program}); 
+                if (rost[i].hasOwnProperty("office")) {
+                    indText.html(indText.html() + ", " + rost[i].office);
+                }
+                if (rost[i].hasOwnProperty('thisIsMe')) {
+                    indText.append(getThisIsMeImages(rost.name, rost.thisIsMe));
+                }
+                $('<td>', {style:"width:50%", html: indText}).appendTo(trow);
             }
         };
 
 
 
 
+
+    //Sub functions
+    getThisIsMeImages = function (name, number) {
+        var i, ret;
+        var imageBase = url+"thisIsMeImages"+"/"encodeURIComponent(name)+"/Slide";
+        ret = $('<span>');
+
+        console.log(imageBase);
+        for (i = 1; i <= number; i += 1) {
+            $('<img>', {src: imageBase + i + '.jpg'}).appendTo(ret);
+        }
+        return ret;
+    }
+
+    sortByLastName = function (a, b) {
+        var aSurname, bSurname;
+        aSurname = a.name.split(/\s+/).pop();
+        bSurname = b.name.split(/\s+/).pop();
+        if (aSurname > bSurname) {
+            return 1;
+        }
+        if (aSurname < bSurname) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return -1;
+    }
 
 
     };
