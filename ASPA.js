@@ -182,9 +182,9 @@ var getImportantDates, importantDates;
     getThisIsMeImages = function (name, number) {
         var i, ret;
         var imageBase = url+"thisIsMeImages"+"/"+encodeURIComponent(name)+"/Slide";
-        ret = $('<a>', {href:"#", text:"This is me"}).append($('<div>', {class: slide, style: "border:2px solid black;' + "width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto", id:'slideContent'})).click(thisIsMeClick);
+        ret = $('<a>', {href:"#", text:"This is me"}).click(thisIsMeClick);
+        ret = $('<div>', {class: slide, style: "border:2px solid black;width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto', id:'slideContent'})).appendTo(ret);
 
-        <div class="slide" style=
         console.log(imageBase);
         for (i = 1; i <= number; i += 1) {
             $('<img>', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", src: imageBase + i + '.jpg'}).click(i === number ? slideClickLast : slideClick).appendTo(ret);
@@ -359,7 +359,10 @@ var getImportantDates, importantDates;
 
             //Add the images for this person, hiding all but the first one...
             for (j = 0; j < thisIsMeObj[i].images.length; j += 1) {
-                $('<img />', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", src: 'https://uab-apsa.googlecode.com/git/thisIsMeImages/' + thisIsMeObj[i].images[j]}).click(j === thisIsMeObj[i].images.length - 1 ? slideClickLast : slideClick).appendTo('#slideContent' + i);
+                $('<img />', {'class': 'slideIMG', 
+                                alt: '#', title: 'Click for next slide.', 
+                                style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", 
+                                src: 'https://uab-apsa.googlecode.com/git/thisIsMeImages/' + thisIsMeObj[i].images[j]}).click(j === thisIsMeObj[i].images.length - 1 ? slideClickLast : slideClick).appendTo('#slideContent' + i);
             }
 
         }
