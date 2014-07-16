@@ -99,22 +99,25 @@ var getImportantDates, importantDates;
     $('<div />', {html: '<a href="#" id="tab3">Members</a><div class= "hide" style="margin-left:10px">' +
         'This is not an exhaustive list, instead a list of members who wanted us to know "This is me."<br /><br /><div id=thisIsMe></div><div><br /></div>'}).appendTo(main);
 
+    //Important Dates - create the section
+    $('<div />', {html: '<a href="#" id="tab6">Important Dates</a><div id="importantDates" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
+
+    //Research Opportunities -create the section
+    $('<div />', {html: '<a href="#" id="tab8">Research Opportunities</a><div id="researchOps" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
+
     //Events section
-    $('<div />', {html: '<a href="#" id="tab4">Events</a><div class= "hide" style="margin-left:10px">' +
+    $('<div />', {html: '<a href="#" id="tab4">Past Events</a><div class= "hide" style="margin-left:10px">' +
         'In addition to monthly meetings the UAB APSA participates in a number of activities. In spring 2013 we helped teach science labs at Parker High School, held a radiation oncology break away session and a women\'s in medicine and research panel. ' +
         'The coming semester we plan on holding a psychiatry break away session and a panel of the physician scientist husbands of our women\'s panel.<br /><br /><div id=eventPictures></div><div><br /></div>'}).appendTo(main);
+    
+    //Contact Us
+    $('<div />', {html: '<a href="#" id="tab7">Contact Us</a><div class= "hide" style="margin-left:10px"><a  href="mailto:UAB.APSA@gmail.com">UAB.APSA@gmail.com</a><br /><br /></div>'}).appendTo(main);
 
     //Important Links
     $('<div />', {html: '<a href="#" id="tab5">Important Links</a><div class= "hide" style="margin-left:10px"><a href="http://www.physicianscientists.org">ASPA National Chapter</a><br />' +
                         'Image courtesy of <a href="http://genomicscience.energy.gov">U.S. Department of Energy Genomic Science program</a><br />' +
                         '<a href = "https://docs.google.com/spreadsheet/ccc?key=0AgdB5oEiQBYWdGhFeDBZY0NvTEpPUk9fR01GTEVQREE">Google Doc for Parker High School Outreach</a><br />' +
                         '<br /></div>'}).appendTo(main);
-    //Important Dates - create the section
-    $('<div />', {html: '<a href="#" id="tab6">Important Dates</a><div id="importantDates" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
-
-    //Contact Us
-    $('<div />', {html: '<a href="#" id="tab7">Contact Us</a><div class= "hide" style="margin-left:10px"><a  href="mailto:UAB.APSA@gmail.com">UAB.APSA@gmail.com</a><br /><br /></div>'}).appendTo(main);
-
 
     //Add some javascript properties to above tabs
     $('.hide').hide();
@@ -125,6 +128,7 @@ var getImportantDates, importantDates;
     $('#tab5').click(tabClick);
     $('#tab6').click(tabClick);
     $('#tab7').click(tabClick);
+    $('#tab8').click(tabClick);
 
     //Actually add the important dates
     (function () {
