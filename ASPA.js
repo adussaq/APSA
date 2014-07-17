@@ -2,7 +2,7 @@
 var updateChanges;
 console.log("v2.1.1");
 //Tracking
-
+/*
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -10,7 +10,7 @@ console.log("v2.1.1");
 
   ga('create', 'UA-48393146-1', 'uab-apsa.googlecode.com');
   ga('send', 'pageview');
-
+*/
 var getImportantDates, importantDates;
 (function () {
     'use strict';
@@ -213,7 +213,12 @@ var getImportantDates, importantDates;
 
                 //Now that the semester is build add events, ignore pictures for now
                 $('<tr>', {style: "width:100%;padding:5px;"}).append(
-                    $('<td>', {style: "width:25%;padding:5px;", text: (new Date(events[i].date)).toDateString()})
+                    $('<td>', { text:
+                        events[i].endDate ?
+                                $('<td>', {style: "width:25%;padding:5px;", text: (new Date(events[i].date)).toDateString() + " - " + (new Date(events[i].endDate)).toDateString() })
+                        :
+                                $('<td>', {style: "width:25%;padding:5px;", text: (new Date(events[i].date)).toDateString()})
+                        })
                 ).append(evData).appendTo(semester);
             }
             div.append($('<br>'));
