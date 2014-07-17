@@ -134,7 +134,8 @@ var getImportantDates, importantDates;
 
     //Update with new data
     updateChanges = function () {
-        var webData, editAllSections, updateRoster, sortByLastName, getThisIsMeImages, url, thisIsMeClick, slideClick, slideClickLast;
+        var webData, editAllSections, updateRoster, sortByLastName, getThisIsMeImages, url, thisIsMeClick, slideClick, slideClickLast,
+            updateDates;
         url = 'https://3fb447c8ea45275c3e71dc49d678c53d6b103efb.googledrive.com/host/0BwdB5oEiQBYWZFk2ZkRNM1d3ZXc/';
         jQuery.get(url + '?' + (Math.random()).toString().replace('0.',''), function (x) {
             eval("webData = " + x);
@@ -146,6 +147,16 @@ var getImportantDates, importantDates;
 
             //update Roster
             updateRoster(webData.roster);
+
+            //update important dates
+            updateDates(webData.importantDates);
+
+            //update past events
+
+            //update research at uab table
+
+            //Hide all divs
+            $('.hide').hide();
             
         };
 
@@ -172,7 +183,35 @@ var getImportantDates, importantDates;
                 }
                 $('<td>', {style:"width:50%", html: indText}).appendTo(trow);
             }
+            //Hide everything
+            $('.slide').hide();
         };
+
+        updateDates = function (dates) {
+            //variables
+            var div, i;
+
+            //sort dates
+            dates = dates.sort(function (a,b) {
+                if (new Date(a.date) >= new Date(b.date)) {
+                    return 1;
+                }
+                return -1;
+            });
+
+            //update actual elements
+            div = $('#importantDates');
+            div.text("");
+
+            for (i = 0; i < dates.length; i += 1) {
+                $('<tr>').append(
+                    $('<td>', {text: dates[i].name})
+                ).append(
+                    $('<td>', {html: new Date(dates[i].date).toLocaleString() + '<br />' + date[i].location + date[i].description ? "<br />" + date[i].description : "" })
+                ).appendTo(div);
+            }            
+
+        }
 
 
 
@@ -186,8 +225,6 @@ var getImportantDates, importantDates;
         ret = $('<span>', {text: ', '});
         $('<a>', {href:"#", text:"This is me"}).click(thisIsMeClick).appendTo(ret);
         div = $('<div>', {class: "slide", style: "border:2px solid black;width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto', id:'slideContent'}).appendTo(ret);
-
-        console.log(imageBase);
         for (i = 1; i <= number; i += 1) {
             $('<img>', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", src: imageBase + i + '.jpg'}).click(i === number ? slideClickLast : slideClick).appendTo(div);
         }
