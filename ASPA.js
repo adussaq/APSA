@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.0.20");
+console.log("v2.0.21");
 //Tracking
 ///*
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -288,10 +288,9 @@ var getImportantDates, importantDates;
             imageArr = imageArr.map(function(x){return x.replace(/^\s*|\s*$/g, "")});
             ret = $('<div>', {html: '<br />'});
             $('<a>', {href: "#", text: "Event Images"}).click(thisIsMeClick).appendTo(ret);
-            div = $('<div>', {'class': "slide", style: "border:2px solid black;" + "height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto;display: inline-block;', id: 'slideContent'}).appendTo(ret);
+            div = $('<div>', {'class': "slide", style: "border:2px solid black;" + "height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto;display: inline-block;', id: 'slideContent', html: "<br />"}).appendTo(ret);
             for (i = 0; i < imageArr.length; i += 1) {
-                console.log(imageBase + imageArr[i]);
-                $('<img>', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;height:" + 540 / scale + 'px;', src: imageBase + encodeURIComponent(imageArr[i])}).click(i === imageArr.length - 1 ? slideClickLast : slideClick).appendTo(div);
+                $('<img>', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "margin-left: auto;margin-right: auto;display:block;position:relative;height:" + 540 / scale + 'px;', src: imageBase + encodeURIComponent(imageArr[i])}).click(i === imageArr.length - 1 ? slideClickLast : slideClick).appendTo(div);
             }
             return ret;
         };
