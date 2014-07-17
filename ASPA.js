@@ -216,7 +216,7 @@ var getImportantDates, importantDates;
                     $('<td>', {style: "width:25%;padding:5px;", text: (new Date(events[i].date)).toDateString()})
                 ).append(evData).appendTo(semester);
             }
-
+            div.append($('<br>'));
 
             $('.slide').hide();
             $('.semester').hide();
