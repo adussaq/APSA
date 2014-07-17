@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.0.9");
+console.log("v2.0.10");
 //Tracking
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -202,15 +202,15 @@ var getImportantDates, importantDates;
             //update actual elements
             div = $('#importantDates');
             div.text("");
+            div = $('<table>').appendTo(div);
 
             for (i = 0; i < dates.length; i += 1) {
                 $('<tr>').append(
-                    $('<td>', {text: dates[i].name})
+                    $('<td>', {style: "width:25%;padding:5px;", text: (new Date(dates[i].date)).toLocaleString()})
                 ).append(
-                    $('<td>', {html: new Date(dates[i].date).toLocaleString() + '<br />' + dates[i].location + dates[i].description ? "<br />" + dates[i].description : "" })
+                    $('<td>', {style: "padding:5px;", html: "<b>" + dates[i].name + '</b><br />' + dates[i].location + (dates[i].description ? "<br />" + dates[i].description : "") })
                 ).appendTo(div);
-            }            
-
+            } 
         }
 
 
