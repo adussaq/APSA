@@ -14,49 +14,12 @@ console.log("v2.0.21");
 var getImportantDates, importantDates;
 (function () {
     'use strict';
-    var events, main, tabClick, thisIsMeObj, $;
+    var events, main, tabClick, $;
     $ = jQuery;
     thisIsMeObj = [];
     importantDates = [];
     events = [];
     main = $('#ASPAmain');
-
-    // importantDates.push({date: 'March 2 2013 19:30:00', location: '<a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3508+Cliff+Road+South,+Birmingham,+AL">3508 Cliff Road South</a>', description: 'APSA Potluck'});
-    // importantDates.push({date: 'February 13 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
-    // importantDates.push({date: 'April 10 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'APSA Monthly Meeting'});
-    // importantDates.push({date: 'April 11 2013 17:00:00', location: 'Shelby Biomedical Building, room 105', description: 'Women In Sceince Panel'});
-
-    //Add people to this is me
-    thisIsMeObj.push({name: 'Jennifer Stanley', year: 'MSTP GS3', images: ['JStanley_20130109_1.jpg', 'JStanley_20130109_2.jpg']});
-    thisIsMeObj.push({name: 'Alice Weaver', year: 'MSTP GS1', images: ['AWeaver_20130109_1.jpg', 'AWeaver_20130109_2.jpg']});
-    thisIsMeObj.push({name: 'Mika Gunzman Karlsson', year: 'MSTP GS3', images: ['MGKarlsson_20130109_1.jpg', 'MGKarlsson_20130109_2.jpg']});
-    thisIsMeObj.push({name: 'Meredith Hubbard', year: 'MS2', images: ['MHubbard_20130109_1.jpg', 'MHubbard_20130109_2.jpg']});
-    thisIsMeObj.push({name: 'Travis Hull', year: 'MSTP GS3', images: ['THull_20130109_1.jpg', 'THull_20130109_2.jpg']});
-    thisIsMeObj.push({name: 'Josh Cohen', year: 'MSTP GS1', images: ['JCohen_20130109_1.jpg', 'JCohen_20130109_2.jpg']});
-    thisIsMeObj.push({name: 'Alex Dussaq', year: 'MSTP MS2', images: ['dussaq_alex_20130213_1.jpg', 'dussaq_alex_20130213_2.jpg']});
-    thisIsMeObj.push({name: 'Robin Lorenz', year: 'Advisor', images: ['lorenz_robin_20130213_1.jpg', 'lorenz_robin_20130213_2.jpg']});
-    thisIsMeObj.push({name: 'Jarrod Meadows', year: 'MSTP GS3', images: ['meadows_jarrod_20130213_1.jpg', 'meadows_jarrod_20130213_2.jpg']});
-    thisIsMeObj.push({name: 'Lakisha Moore', year: 'MS2', images: ['moore_lakisha_20130213_1.jpg', 'moore_lakisha_20130213_2.jpg']});
-    thisIsMeObj.push({name: 'Quinn Dunlap', year: 'MS3', images: ['Quinn_Dunlap_1.jpg', 'Quinn_Dunlap_2.jpg', 'Quinn_Dunlap_3.jpg']});
-    thisIsMeObj.push({name: 'Stephanie Robert', year: 'MSTP GS3', images: ['Stephanie_Robert_1.jpg', 'Stephanie_Robert_2.jpg']});
-    thisIsMeObj.push({name: 'Kelsey Patterson', year: 'MSTP MS2', images: ['Kelsey_Paternson.jpg']});
-    thisIsMeObj.push({name: 'Stephan Gragg', year: 'MSTP MS1', images: ['Gragg_Stephan_1.jpg', 'Gragg_Stephan_2.jpg']});
-    thisIsMeObj.push({name: 'Muhan Hu', year: 'MSTP MS1', images: ['Hu_muhan_1.jpg', 'Hu_muhan_2.jpg']});
-    thisIsMeObj.push({name: 'Tim Kennell', year: 'MSTP MS1', images: ['Kennel_tim_2.jpg', 'Kennell_tim_1.jpg']});
-    thisIsMeObj.push({name: 'Jeremie Lever', year: 'MSTP MS1', images: ['Lever_Jeremie_1.jpg', 'Lever_Jeremie_2.jpg']});
-    thisIsMeObj.push({name: 'Tyler McCaw', year: 'MSTP MS1', images: ['McCaw_tyler_1.jpg', 'McCaw_tyler_2.jpg']});
-    thisIsMeObj.push({name: 'Mark Pepsin', year: 'MSTP MS1', images: ['Pepsin_Mark_1.jpg', 'Pepsin_Mark_2.jpg']});
-
-
-    //create and add pictures to events section
-    events.push({image: "wim1.JPG", caption: "<b>Women in Medicine Panel:</b> Our Panel Members and student organizers. From left to right: Dr. Roslyn Mannon, Jennifer Stanley, Dr. Jayne Ness, Dr. Kristin Riley, Dr. Robin Lorenz, Kelsey Patterson (Dr. Jayleen Grams, not pictured)"});
-    events.push({image: "wim2.JPG", caption: "<b>Women in Medicine Panel</b>"});
-    events.push({image: "mm1.JPG", caption: "<b>Monthly Meeting 6/18/2013</b> Jennifer Stanley presents her research."});
-    events.push({image: "mm2.JPG", caption: "<b>Monthly Meeting 6/18/2013</b> Jennifer Stanley presents her research."});
-
-    //Add imporatant links
-
-
 
     //actually start making the page, this section creates the interface
     console.log('Hello from googlecode, source code avaliable at: https://code.google.com/p/uab-apsa/');
@@ -98,19 +61,16 @@ var getImportantDates, importantDates;
                         '</table></div><br />'}).appendTo(main);
 
     //Create this is membership section
-    $('<div />', {html: '<a href="#" id="tab3">Members</a><div class= "hide" style="margin-left:10px">' +
-        'This is not an exhaustive list, instead a list of members who wanted us to know "This is me."<br /><br /><div id=thisIsMe></div><div><br /></div>'}).appendTo(main);
+    $('<div />', {html: '<a href="#" id="tab3">Members</a><div class= "hide" style="margin-left:10px"><div id=thisIsMe></div><div><br /></div>'}).appendTo(main);
 
     //Important Dates - create the section
     $('<div />', {html: '<a href="#" id="tab6">Important Dates</a><div id="importantDates" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
 
     //Research Opportunities -create the section
-    $('<div />', {html: '<a href="#" id="tab8">Research Opportunities</a><div id="researchOps" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
+    $('<div />', {html: '<a href="#" id="tab8">Research Opportunities</a><div id="researchOps" class= "hide" style="margin-left:10px">Coming Soon!</div><br />'}).appendTo(main);
 
     //Events section
-    $('<div />', {html: '<a href="#" id="tab4">Past Events</a><div id=pastEvents class= "hide" style="margin-left:10px">' +
-        'In addition to monthly meetings the UAB APSA participates in a number of activities. In spring 2013 we helped teach science labs at Parker High School, held a radiation oncology break away session and a women\'s in medicine and research panel. ' +
-        'The coming semester we plan on holding a psychiatry break away session and a panel of the physician scientist husbands of our women\'s panel.<br /><br /><div id=eventPictures></div><div><br /></div>'}).appendTo(main);
+    $('<div />', {html: '<a href="#" id="tab4">Past Events</a><div id=pastEvents class= "hide" style="margin-left:10px"></div>'}).appendTo(main);
 
     //Contact Us
     $('<div />', {html: '<a href="#" id="tab7">Contact Us</a><div class= "hide" style="margin-left:10px"><a  href="mailto:UAB.APSA@gmail.com">UAB.APSA@gmail.com</a><br /><br /></div>'}).appendTo(main);
@@ -346,142 +306,7 @@ var getImportantDates, importantDates;
         };
     };
 
-
-
-
-    //Actually add the important dates
-    (function () {
-        jQuery.getJSON('https://www.googleapis.com/calendar/v3/calendars/0t6p55ncjk6k3gaaghjbdf5ft4%40group.calendar.google.com/events?key=AIzaSyC4e7o6-EOQFe9FXdVLHRk__DAaz_MBooU', function (result) {
-            var fDate, fDate2, i, dates, importantDates, j;
-            importantDates = [];
-            for (j = 0; j < result.items.length; j += 1) {
-                importantDates.push({date: result.items[j].start.dateTime, description: result.items[j].summary, location: result.items[j].location !== undefined ? result.items[j].location : 'TBA' });
-            }
-            //sort
-            importantDates = importantDates.sort(function (a, b) {
-                var aDate, bDate;
-                aDate = new Date(a);
-                bDate = new Date(b);
-                if (aDate > bDate) {
-                    return 1;
-                }
-                return -1;
-            });
-
-            //get element
-            dates = ('#importantDates');
-
-            //add dates
-            for (i = 0; i < importantDates.length; i += 1) {
-                fDate = new Date(importantDates[i].date);
-                //change compare to 4 hours past the event time
-                fDate2 = new Date(importantDates[i].date);
-                fDate2.setHours(fDate2.getHours() + 4);
-                if (fDate2 > new Date()) {
-                    $('<div />', {html: "<b>" + fDate.toDateString() +  " " + fDate.toLocaleTimeString().replace(/(:00)+\s/, " ") + "</b> - " + importantDates[i].description + " at " + importantDates[i].location}).appendTo(dates);
-                }
-            }
-        });
-    }());
-
-    //Add the pictures for the events section
-    (function () {
-        var eventDiv, scale, slideClick, slideClickLast, j, temp;
-        eventDiv = $('#eventPictures');
-        scale = 2;
-        slideClick = function (evt) {
-            evt.preventDefault();
-            $(this).hide('slow');
-            $("#slide" + ($(this).data('ind') + 1)).show('slow');
-        };
-        slideClickLast = function (evt) {
-            evt.preventDefault();
-            $(this).hide('slow');
-            $('#slide0').show('slow');
-        };
-
-        //make the html holder
-        $('<div />', {html: '<div style="text-align: center;"><b>Images</b><br />Click for next image. </div><div style="border:2px solid black;' + "width:" + 702 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto;" id="eventPicHolder"></div>'}).appendTo(eventDiv);
-
-
-        //Add the images for this person, hiding all but the first one...
-        for (j = 0; j < events.length; j += 1) {
-            temp = $('<div />', {'class': 'eventIMG', alt: '#', title: 'Click for next slide.', id: 'slide' + j}).click(j === events.length - 1 ? slideClickLast : slideClick).appendTo('#eventPicHolder');
-            temp.data('ind', j);
-            $('<img />', {src: 'https://uab-apsa.googlecode.com/git/eventsImages/' + events[j].image, style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;"}).appendTo(temp);
-            $('<div />', {html: events[j].caption, style: 'text-align: center;'}).appendTo(temp);
-        }
-
-        //Initiate slides
-        $('.eventIMG').hide();
-        $('#slide0').show();
-
-    }());
-
-
-    //Actually create the this is me section
-    (function () {
-        var i, j, scale, thisIsMeClick, slideClickLast, slideClick, thisIsMeDiv;
-
-        thisIsMeDiv = $('#thisIsMe');
-        slideClick = function (evt) {
-            evt.preventDefault();
-            $(this).hide('slow');
-        };
-        slideClickLast = function (evt) {
-            evt.preventDefault();
-            $('.slideIMG').show('slow');
-        };
-        thisIsMeClick = function (evt) {
-            var text;
-            evt.preventDefault();
-
-            text = $($(this).parent().children('div')[0]);
-            if (text.is(":visible")) {
-                text.hide('slow');
-            } else {
-                $('.slide').hide('slow');
-                text.show('slow');
-            }
-        };
-
-        scale = 2;
-        //Sort this is me array
-        thisIsMeObj = thisIsMeObj.sort(function (a, b) {
-            var aSurname, bSurname;
-            aSurname = a.name.split(/\s+/).pop();
-            bSurname = b.name.split(/\s+/).pop();
-            if (aSurname > bSurname) {
-                return 1;
-            }
-            if (aSurname < bSurname) {
-                return -1;
-            }
-            if (a.name > b.name) {
-                return 1;
-            }
-            return -1;
-        });
-        //Now that it is sorted, add the actual data
-        for (i = 0; i < thisIsMeObj.length; i += 1) {
-            //make the html
-            $('<div />', {html: "<b>" + thisIsMeObj[i].name + "</b>, " + thisIsMeObj[i].year + ' <a href=# id=slides_' + i + '> This is Me</a><div class="slide" style="border:2px solid black;' + "width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto" id="slideContent' + i + '"></div>'}).appendTo(thisIsMeDiv);
-
-            //give the hide button something to do.
-            $('#slides_' + i).click(thisIsMeClick);
-
-            //Add the images for this person, hiding all but the first one...
-            for (j = 0; j < thisIsMeObj[i].images.length; j += 1) {
-                $('<img />', {'class': 'slideIMG',
-                                alt: '#', title: 'Click for next slide.',
-                                style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;",
-                                src: 'https://uab-apsa.googlecode.com/git/thisIsMeImages/' + thisIsMeObj[i].images[j]}).click(j === thisIsMeObj[i].images.length - 1 ? slideClickLast : slideClick).appendTo('#slideContent' + i);
-            }
-
-        }
-        //Hide everything that was made...
-        $('.slide').hide();
-    }());
+    updateChanges();
 }());
 
 
