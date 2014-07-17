@@ -230,9 +230,9 @@ var getImportantDates, importantDates;
             scale = 2;
             ret = $('<span>', {text: ', '});
             $('<a>', {href: "#", text: "This is me"}).click(thisIsMeClick).appendTo(ret);
-            div = $('<div>', {'class': "slide", style: "border:2px solid black;width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto', id: 'slideContent'}).appendTo(ret);
+            div = $('<div>', {'class': "slide", style: "border:2px solid black;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto', id: 'slideContent'}).appendTo(ret);
             for (i = 1; i <= number; i += 1) {
-                $('<img>', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", src: imageBase + i + '.jpg'}).click(i === number ? slideClickLast : slideClick).appendTo(div);
+                $('<img>', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;height:" + 540 / scale + 'px;', src: imageBase + i + '.jpg'}).click(i === number ? slideClickLast : slideClick).appendTo(div);
             }
             return ret;
         };
