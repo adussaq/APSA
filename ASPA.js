@@ -286,7 +286,7 @@ var getImportantDates, importantDates;
             var imageArr = images.split(';');
             if (!imageArr.length) {imageArr[0] = images}
             imageArr = imageArr.map(function(x){return x.replace(/^\s*|\s*$/g, "")});
-            ret = $('<div>', {html: '<br />'});
+            ret = $('<div>');
             $('<a>', {href: "#", text: "Event Images"}).click(thisIsMeClick).appendTo(ret);
             div = $('<div>', {'class': "slide", style: "border:2px solid black;" + "height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto;display:block;', id: 'slideContent'}).appendTo(ret);
             for (i = 0; i < imageArr.length; i += 1) {
