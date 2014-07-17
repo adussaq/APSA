@@ -2,7 +2,7 @@
 var updateChanges;
 console.log("v2.1.0");
 //Tracking
-///*
+
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -10,15 +10,12 @@ console.log("v2.1.0");
 
   ga('create', 'UA-48393146-1', 'uab-apsa.googlecode.com');
   ga('send', 'pageview');
-//*/
+
 var getImportantDates, importantDates;
 (function () {
     'use strict';
-    var events, main, tabClick, $;
+    var main, tabClick, $;
     $ = jQuery;
-    thisIsMeObj = [];
-    importantDates = [];
-    events = [];
     main = $('#ASPAmain');
 
     //actually start making the page, this section creates the interface
@@ -203,12 +200,12 @@ var getImportantDates, importantDates;
                 }
                 evData = '<b>' + events[i].name + '</b>';
                 if (events[i].type) {
-                    evData += "<br />This event focused on " + events[i].type + "."
+                    evData += "<br />This event focused on " + events[i].type + ".";
                 }
                 if (events[i].leaders) {
-                    evData += "<br />This event was led by " + events[i].leaders + "."
+                    evData += "<br />This event was led by " + events[i].leaders + ".";
                 }
-                evData = $('<td>', {style: "width:75%;padding:5px;", html: evData})
+                evData = $('<td>', {style: "width:75%;padding:5px;", html: evData});
                 if (events[i].images) {
                     imgHolder = getEventImages(events[i].images);
                     evData.append(imgHolder);
@@ -241,11 +238,11 @@ var getImportantDates, importantDates;
         };
 
         getEventImages = function (images) {
-            var i, ret, div, scale, imageBase = url + "images" + "/";
+            var i, ret, div, scale, imageBase = url + "images" + "/", imageArr;
             scale = 2;
-            var imageArr = images.split(';');
-            if (!imageArr.length) {imageArr[0] = images}
-            imageArr = imageArr.map(function(x){return x.replace(/^\s*|\s*$/g, "")});
+            imageArr = images.split(';');
+            if (!imageArr.length) {imageArr[0] = images; }
+            imageArr = imageArr.map(function(x) {return x.replace(/^\s*|\s*$/g, ""); });
             ret = $('<div>');
             $('<a>', {href: "#", text: "Event Images"}).click(thisIsMeClick).appendTo(ret);
             div = $('<div>', {'class': "slide", style: "border:2px solid black;" + "height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto;display:block;', id: 'slideContent'}).appendTo(ret);
