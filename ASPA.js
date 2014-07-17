@@ -309,7 +309,6 @@ var getImportantDates, importantDates;
         semesterClick = function (evt) {
             var text;
             evt.preventDefault();
-            consle.log('semesterClick');
             text = $($(this).parent().children('div')[0]);
             if (text.is(":visible")) {
                 text.hide('slow');
