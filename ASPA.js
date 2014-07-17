@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.0.11");
+console.log("v2.0.12");
 //Tracking
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -83,7 +83,7 @@ var getImportantDates, importantDates;
     //Officers
     $('<div />', {html: '<a href="#" id="tab2">Officers</a><div class= "hide" style="margin-left:10px"><table><tr>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Weaver_Alice.jpg"></img><br /><b>President</b><br />Alice Weaver</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/     "></img><br /><b>Vice President</b><br />Tylery McCaw</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/     "></img><br /><b>Vice President</b><br />Tyler McCaw</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/     "></img><br /><b>Secretary</b><br />Muhan Hu</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/     "></img><br /><b>Treasurer</b><br />Nick Eustace</td>' +
                         '</tr><tr>' +
@@ -107,7 +107,7 @@ var getImportantDates, importantDates;
     $('<div />', {html: '<a href="#" id="tab8">Research Opportunities</a><div id="researchOps" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
 
     //Events section
-    $('<div />', {html: '<a href="#" id="tab4">Past Events</a><div class= "hide" style="margin-left:10px">' +
+    $('<div />', {html: '<a href="#" id="tab4">Past Events</a><div id=pastEvents class= "hide" style="margin-left:10px">' +
         'In addition to monthly meetings the UAB APSA participates in a number of activities. In spring 2013 we helped teach science labs at Parker High School, held a radiation oncology break away session and a women\'s in medicine and research panel. ' +
         'The coming semester we plan on holding a psychiatry break away session and a panel of the physician scientist husbands of our women\'s panel.<br /><br /><div id=eventPictures></div><div><br /></div>'}).appendTo(main);
     
@@ -134,8 +134,8 @@ var getImportantDates, importantDates;
 
     //Update with new data
     updateChanges = function () {
-        var webData, editAllSections, updateRoster, sortByLastName, getThisIsMeImages, url, thisIsMeClick, slideClick, slideClickLast,
-            updateDates;
+        var webData, editAllSections, updateRoster, sortByLastName, semesterClick, getThisIsMeImages, url, thisIsMeClick, slideClick, slideClickLast,
+            updateDates, updatePastEvents;
         url = 'https://3fb447c8ea45275c3e71dc49d678c53d6b103efb.googledrive.com/host/0BwdB5oEiQBYWZFk2ZkRNM1d3ZXc/';
         jQuery.get(url + '?' + (Math.random()).toString().replace('0.',''), function (x) {
             eval("webData = " + x);
@@ -152,6 +152,7 @@ var getImportantDates, importantDates;
             updateDates(webData.importantDates);
 
             //update past events
+            updatePastEvents(webData.pastEvents);
 
             //update research at uab table
 
@@ -215,27 +216,58 @@ var getImportantDates, importantDates;
                     $('<td>', {style: "padding:5px;", html: "<b>" + dates[i].name + '</b><br />' + dates[i].location + (dates[i].description ? "<br />" + dates[i].description : "") })
                 ).appendTo(div);
             } 
-        }
+        };
+
+        updatePastEvents = function (events) {
+            //Sort by date
+            var semester, i, semStr = "", div;
+            events = events.sort(function (a,b) {
+                if (new Date(a.date) >= new Date(b.date)) {
+                    return 1;
+                }
+                return -1;
+            });
+            div = $('#pastEvents');
+            //Start creating list of events, tab
+            for (i = 0; i < events.length; i += 1) {
+                if (events[i].semester != semStr) {
+                    //<a href="#" id="tab5">Important Links</a><div class= "hide" style="margin-left:10px">
+                    semester = $('<table>', {class:'semester', style:'margin-left:10px'}).appendTo(
+                        $('<div>').append(
+                            $('<a>', {href:'#'}).click(semesterClick)
+                        ).appendTo(div)
+                    );
+                }
+                //Now that the semester is build add events, ignore pictures for now
+                $('<tr>', {style: "width:100%;padding:5px;"}).append(
+                    $('<td>', {style: "width:25%;padding:5px;", text: (new Date(events[i].date)).toDateString()})
+                ).append(
+                    $('<td>', {style: "width:75%;padding:5px;", html: '<b>' + events[i].name + '</b>'})
+                ).appendTo(semester);
+            }
+
+
+            $('.slide').hide();
+            $('.semester').hide();            
+        };
 
 
 
+        //Sub functions
+        getThisIsMeImages = function (name, number) {
+            var i, ret, div, scale;
+            var imageBase = url+"thisIsMeImages"+"/"+encodeURIComponent(name)+"/Slide";
+            scale = 2;
+            ret = $('<span>', {text: ', '});
+            $('<a>', {href:"#", text:"This is me"}).click(thisIsMeClick).appendTo(ret);
+            div = $('<div>', {class: "slide", style: "border:2px solid black;width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto', id:'slideContent'}).appendTo(ret);
+            for (i = 1; i <= number; i += 1) {
+                $('<img>', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", src: imageBase + i + '.jpg'}).click(i === number ? slideClickLast : slideClick).appendTo(div);
+            }
+            return ret;
+        };
 
-
-    //Sub functions
-    getThisIsMeImages = function (name, number) {
-        var i, ret, div, scale;
-        var imageBase = url+"thisIsMeImages"+"/"+encodeURIComponent(name)+"/Slide";
-        scale = 2;
-        ret = $('<span>', {text: ', '});
-        $('<a>', {href:"#", text:"This is me"}).click(thisIsMeClick).appendTo(ret);
-        div = $('<div>', {class: "slide", style: "border:2px solid black;width:" + 702 / scale + "px;height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto', id:'slideContent'}).appendTo(ret);
-        for (i = 1; i <= number; i += 1) {
-            $('<img>', {'class': 'slideIMG', alt: '#', title: 'Click for next slide.', style: "display:block;position:relative;height:" + 540 / scale + 'px;width:' + 702 / scale + "px;", src: imageBase + i + '.jpg'}).click(i === number ? slideClickLast : slideClick).appendTo(div);
-        }
-        return ret;
-    };
-
-    thisIsMeClick = function (evt) {
+        thisIsMeClick = function (evt) {
             var text;
             evt.preventDefault();
 
@@ -248,30 +280,41 @@ var getImportantDates, importantDates;
             }
         };
 
-    slideClick = function (evt) {
-            evt.preventDefault();
-            $(this).hide('slow');
-        };
-    slideClickLast = function (evt) {
-            evt.preventDefault();
-            $('.slideIMG').show('slow');
-        };
+        slideClick = function (evt) {
+                evt.preventDefault();
+                $(this).hide('slow');
+            };
+        slideClickLast = function (evt) {
+                evt.preventDefault();
+                $('.slideIMG').show('slow');
+            };
 
-    sortByLastName = function (a, b) {
-        var aSurname, bSurname;
-        aSurname = a.name.split(/\s+/).pop();
-        bSurname = b.name.split(/\s+/).pop();
-        if (aSurname > bSurname) {
-            return 1;
-        }
-        if (aSurname < bSurname) {
+        sortByLastName = function (a, b) {
+            var aSurname, bSurname;
+            aSurname = a.name.split(/\s+/).pop();
+            bSurname = b.name.split(/\s+/).pop();
+            if (aSurname > bSurname) {
+                return 1;
+            }
+            if (aSurname < bSurname) {
+                return -1;
+            }
+            if (a.name > b.name) {
+                return 1;
+            }
             return -1;
         }
-        if (a.name > b.name) {
-            return 1;
-        }
-        return -1;
-    }
+
+        semesterClick = function (evt) {
+        var text;
+        evt.preventDefault();
+        text = $($(this).parent().children('div')[0]);
+        if (text.is(":visible")) {
+            text.hide('slow');
+        } else {
+            $('.semester').hide('slow');
+            text.show('slow');
+       };
 
 
     };
