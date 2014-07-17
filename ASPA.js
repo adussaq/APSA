@@ -219,7 +219,7 @@ var getImportantDates, importantDates;
 
         updatePastEvents = function (events) {
             //Sort by date
-            var semester, i, semStr = "", div;
+            var semester, i, semStr = "", div, evData;
             events = events.sort(function (a, b) {
                 if (new Date(a.date) >= new Date(b.date)) {
                     return 1;
@@ -241,12 +241,23 @@ var getImportantDates, importantDates;
                         )
                     );
                 }
+                evData = '<b>' + events[i].name + '</b>';
+                if (events[i].type) {
+                    evData += "<br />This event focused on " + events[i].type + "."
+                }
+                if (events[i].leaders) {
+                    evData += "<br />This event was led by " + events[i].leaders + "."
+                }
+                evData = $('<td>', {style: "width:75%;padding:5px;", html: evData})
+                if (events[i].images) {
+                    evData.html(evData.html() + "<br />" );
+                    evData.append($('<a>', {href: '#', text: 'Images'}));
+                }
+
                 //Now that the semester is build add events, ignore pictures for now
                 $('<tr>', {style: "width:100%;padding:5px;"}).append(
                     $('<td>', {style: "width:25%;padding:5px;", text: (new Date(events[i].date)).toDateString()})
-                ).append(
-                    $('<td>', {style: "width:75%;padding:5px;", html: '<b>' + events[i].name + '</b>'})
-                ).appendTo(semester);
+                ).append(evData).appendTo(semester);
             }
 
 
