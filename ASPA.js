@@ -238,7 +238,7 @@ var getImportantDates, importantDates;
                             $('<div>').append(
                                 $('<a>', {text: semStr, href: '#'}).click(semesterClick)
                             ).appendTo(div)
-                        );
+                        )
                     );
                 }
                 //Now that the semester is build add events, ignore pictures for now
