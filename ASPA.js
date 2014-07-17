@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.0.13");
+console.log("v2.0.14");
 //Tracking
 ///*
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -231,10 +231,11 @@ var getImportantDates, importantDates;
             //Start creating list of events, tab
             for (i = 0; i < events.length; i += 1) {
                 if (events[i].semester !== semStr) {
+                    semStr = events[i].semester
                     //<a href="#" id="tab5">Important Links</a><div class= "hide" style="margin-left:10px">
                     semester = $('<table>', {'class': 'semester', style: 'margin-left:10px'}).appendTo(
                         $('<div>').append(
-                            $('<a>', {href: '#'}).click(semesterClick)
+                            $('<a>', {text: semStr, href: '#'}).click(semesterClick)
                         ).appendTo(div)
                     );
                 }
@@ -307,6 +308,7 @@ var getImportantDates, importantDates;
         semesterClick = function (evt) {
             var text;
             evt.preventDefault();
+            consle.log('semesterClick');
             text = $($(this).parent().children('div')[0]);
             if (text.is(":visible")) {
                 text.hide('slow');
