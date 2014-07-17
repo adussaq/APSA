@@ -251,8 +251,7 @@ var getImportantDates, importantDates;
                 evData = $('<td>', {style: "width:75%;padding:5px;", html: evData})
                 if (events[i].images) {
                     imgHolder = getEventImages(events[i].images);
-                    evData.append(imgHolder)
-                    );
+                    evData.append(imgHolder);
                 }
 
                 //Now that the semester is build add events, ignore pictures for now
