@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.1.0");
+console.log("v2.1.1");
 //Tracking
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -44,9 +44,9 @@ var getImportantDates, importantDates;
     //Officers
     $('<div />', {html: '<a href="#" id="tab2">Officers</a><div class= "hide" style="margin-left:10px"><table><tr>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Weaver_Alice.jpg"></img><br /><b>President</b><br />Alice Weaver</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/     "></img><br /><b>Vice President</b><br />Tyler McCaw</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/     "></img><br /><b>Secretary</b><br />Muhan Hu</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/     "></img><br /><b>Treasurer</b><br />Nick Eustace</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/TylerMcCaw.jpg"></img><br /><b>Vice President</b><br />Tyler McCaw</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Hu_Muhan.jpg"></img><br /><b>Secretary</b><br />Muhan Hu</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Eustace_nicholas.JPG"></img><br /><b>Treasurer</b><br />Nick Eustace</td>' +
                         '</tr><tr>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Dussaq_Alex.jpg"></img><br /><b>Webmaster</b><br />Alex Dussaq</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/      "></img><br /><b>SOM Representative MS1/2</b><br />Andrew Headrick</td>' +
