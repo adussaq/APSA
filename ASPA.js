@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.0.15");
+console.log("v2.0.16");
 //Tracking
 ///*
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -233,8 +233,8 @@ var getImportantDates, importantDates;
                 if (events[i].semester !== semStr) {
                     semStr = events[i].semester;
                     //<a href="#" id="tab5">Important Links</a><div class= "hide" style="margin-left:10px">
-                    semester = $('<table>', {'class': 'semester', style: 'margin-left:10px'}).appendTo(
-                        $('<div>').appendTo(
+                    semester = $('<table>').appendTo(
+                        $('<div>', {'class': 'semester', style: 'margin-left:10px'}).appendTo(
                             $('<div>').append(
                                 $('<a>', {text: semStr, href: '#'}).click(semesterClick)
                             ).appendTo(div)
