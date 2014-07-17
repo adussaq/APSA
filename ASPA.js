@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.0.18");
+console.log("v2.0.19");
 //Tracking
 ///*
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -251,10 +251,7 @@ var getImportantDates, importantDates;
                 evData = $('<td>', {style: "width:75%;padding:5px;", html: evData})
                 if (events[i].images) {
                     imgHolder = getEventImages(events[i].images);
-                    evData.append(
-                        $('<div>').append(
-                            $('<a>', {href: '#', text: 'Images'})
-                        ).append(imgHolder)
+                    evData.append(imgHolder)
                     );
                 }
 
@@ -290,7 +287,7 @@ var getImportantDates, importantDates;
             var imageArr = images.split(';');
             if (!imageArr.length) {imageArr[0] = images}
             imageArr = imageArr.map(function(x){return x.replace(/^\s*|\s*$/g, "")});
-            ret = $('<span>', {text: '<br />'});
+            ret = $('<span>', {html: '<br />'});
             $('<a>', {href: "#", text: "Event Images"}).click(thisIsMeClick).appendTo(ret);
             div = $('<div>', {'class': "slide", style: "border:2px solid black;" + "height:" + 540 / scale + 'px;overflow: hidden;margin-left: auto;margin-right: auto;display: inline-block;', id: 'slideContent'}).appendTo(ret);
             for (i = 0; i < imageArr.length; i += 1) {
