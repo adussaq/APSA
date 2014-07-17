@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.0.14");
+console.log("v2.0.15");
 //Tracking
 ///*
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -234,9 +234,10 @@ var getImportantDates, importantDates;
                     semStr = events[i].semester
                     //<a href="#" id="tab5">Important Links</a><div class= "hide" style="margin-left:10px">
                     semester = $('<table>', {'class': 'semester', style: 'margin-left:10px'}).appendTo(
-                        $('<div>').append(
-                            $('<a>', {text: semStr, href: '#'}).click(semesterClick)
-                        ).appendTo(div)
+                        $('<div>').appendTo(
+                            $('<div>').append (
+                                $('<a>', {text: semStr, href: '#'}).click(semesterClick)
+                            )).appendTo(div)  
                     );
                 }
                 //Now that the semester is build add events, ignore pictures for now
