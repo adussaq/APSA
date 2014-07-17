@@ -75,6 +75,7 @@ var getImportantDates, importantDates;
     //Important Links
     $('<div />', {html: '<a href="#" id="tab5">Important Links</a><div class= "hide" style="margin-left:10px"><a href="http://www.physicianscientists.org">ASPA National Chapter</a><br />' +
                         'Image courtesy of <a href="http://genomicscience.energy.gov">U.S. Department of Energy Genomic Science program</a><br />' +
+                        'This page was created using javascript and html by <a href="http://alexdussaq.info">Alex Dussaq</a><br />'
                         '<br /></div>'}).appendTo(main);
 
     //Add some javascript properties to above tabs
