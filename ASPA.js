@@ -228,6 +228,7 @@ var getImportantDates, importantDates;
                 return -1;
             });
             div = $('#pastEvents');
+            div.text("");
             //Start creating list of events, tab
             for (i = 0; i < events.length; i += 1) {
                 if (events[i].semester != semStr) {
