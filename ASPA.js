@@ -231,13 +231,14 @@ var getImportantDates, importantDates;
             //Start creating list of events, tab
             for (i = 0; i < events.length; i += 1) {
                 if (events[i].semester !== semStr) {
-                    semStr = events[i].semester
+                    semStr = events[i].semester;
                     //<a href="#" id="tab5">Important Links</a><div class= "hide" style="margin-left:10px">
                     semester = $('<table>', {'class': 'semester', style: 'margin-left:10px'}).appendTo(
                         $('<div>').appendTo(
-                            $('<div>').append (
+                            $('<div>').append(
                                 $('<a>', {text: semStr, href: '#'}).click(semesterClick)
-                            )).appendTo(div)  
+                            ).appendTo(div)
+                        );
                     );
                 }
                 //Now that the semester is build add events, ignore pictures for now
