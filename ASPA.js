@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.0.8");
+console.log("v2.0.9");
 //Tracking
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -207,7 +207,7 @@ var getImportantDates, importantDates;
                 $('<tr>').append(
                     $('<td>', {text: dates[i].name})
                 ).append(
-                    $('<td>', {html: new Date(dates[i].date).toLocaleString() + '<br />' + date[i].location + date[i].description ? "<br />" + date[i].description : "" })
+                    $('<td>', {html: new Date(dates[i].date).toLocaleString() + '<br />' + dates[i].location + dates[i].description ? "<br />" + dates[i].description : "" })
                 ).appendTo(div);
             }            
 
