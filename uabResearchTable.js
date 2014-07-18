@@ -56,10 +56,10 @@ var table = (function () {
 
         width = 100/options.visible.order.length;
         data = JSON.parse(x);
-        table = $("<table>").appendTo(div);
+        table = $("<table>", {style: "width:100%"}).appendTo(div);
 
         //make table header
-        row = $("<tr>", {style: "width:100%"}).appendTo(div);
+        row = $("<tr>", {style: "width:100%"}).appendTo(table);
 
         for (i = 0; i < options.visible.order.length; i += 1) {
             $("<td>", {style: "width:"+options.visible.order[i][1], text: options.visible.order[i][0]}).appendTo(row);
