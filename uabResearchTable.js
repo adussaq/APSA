@@ -10,7 +10,7 @@ var table = (function () {
     main = {};
     options = {
         visible: {
-            order: ["Audience", "RType", "ProjectSummary", "Department", "Site", "PostDate"],
+            order: [["Audience", "15%"], ["RType", "15%"], ["ProjectSummary", "30%"], ["Department", "15%"], ["Site", "15%"], ["PostDate", "10%"]],
             Audience: ["Undergraduate Student - Summer", "Undergraduate Student - Academic Year", "Medical Student - Summer", "Medical Student - Scholarly Activity", "Graduate or MD/PhD Student", "Resident"],
             RType: ["Basic science", "Translational science", "Clinical Research", "Behavioral Research", "Chart Review", "Community-based", "Education", "Public Health/Epidemiology", "Health Outcomes", "Other"],
             Summary: wordSearch,
@@ -36,11 +36,12 @@ var table = (function () {
         //variable declarations
 
         //check input
-        if (typeof jQuery !== "object") {
+        if (typeof jQuery !== "function") {
             console.error('jQuery must be defined to continue.');
         } else {
             $ = jQuery;
             div = $('#' + divID);
+            div.text("");
             if (div.length < 1) {
                 console.error('Could not find div that was indicated, make sure one exists with id=[divID].');
             } else {
@@ -51,16 +52,17 @@ var table = (function () {
 
     startBuilding = function (x) {
         //variable
-        var object, table, i, row, cat;
+        var object, table, i, row, cat, width;
 
+        width = 100/options.visible.order.length;
         data = JSON.parse(x);
         table = $("<table>").appendTo(div);
 
         //make table header
-        row = $("<tr>").appendTo(div);
+        row = $("<tr>", {style: "width:100%"}).appendTo(div);
 
         for (i = 0; i < options.visible.order.length; i += 1) {
-            $("<td>", {text: options.visible.order[i]}).appendTo(row);
+            $("<td>", {style: "width:"+options.visible.order[i][1], text: options.visible.order[i][0]}).appendTo(row);
         }
 
     };
