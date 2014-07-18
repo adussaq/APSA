@@ -96,7 +96,7 @@ var getImportantDates, importantDates;
             updateDates, updatePastEvents, getEventImages;
         url = 'https://3fb447c8ea45275c3e71dc49d678c53d6b103efb.googledrive.com/host/0BwdB5oEiQBYWZFk2ZkRNM1d3ZXc/';
         jQuery.get(url + '?' + (Math.random()).toString().replace('0.', ''), function (x) {
-            eval("webData = " + x);
+            webData = JSON.parse(x);
             editAllSections();
         });
         editAllSections = function () {
