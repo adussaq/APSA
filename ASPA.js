@@ -111,8 +111,6 @@ var getImportantDates, importantDates;
             //update past events
             updatePastEvents(webData.pastEvents);
 
-            //update research at uab table
-
             //Hide all divs
             $('.hide').hide();
 
