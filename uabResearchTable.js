@@ -2,7 +2,7 @@
 var table = (function () {
     'use strict';
     //variables
-    var options, main, makeTable, $, div, data, startBuilding, wordSearch, order;
+    var options, main, makeTable, makeTableBody, $, div, data, startBuilding, wordSearch, order;
 
     //variable declaration
     wordSearch = function () {};
@@ -52,19 +52,31 @@ var table = (function () {
 
     startBuilding = function (x) {
         //variable
-        var object, table, i, row, cat, width;
+        var table, i, row, length;
 
-        width = 100/options.visible.order.length;
+        length = options.visible.order.length;
         data = JSON.parse(x);
         table = $("<table>", {style: "width:100%"}).appendTo(div);
 
         //make table header
         row = $("<tr>", {style: "width:100%"}).appendTo(table);
 
-        for (i = 0; i < options.visible.order.length; i += 1) {
-            $("<td>", {style: "width:"+options.visible.order[i][1], text: options.visible.order[i][0]}).appendTo(row);
+        for (i = 0; i < length; i += 1) {
+            $("<td>", {style: "width:" + options.visible.order[i][1], text: options.visible.order[i][0]}).appendTo(row);
         }
+        makeTableBody(table);
+    };
 
+
+    makeTableBody = function (table) {
+        var dataArr, tableRows = [], i, j;
+        for (i = 0; i < 10; i += 1) {
+            tableRows[i].row = $('<tr>', {style: "width:100%"}).appendTo(table);
+            for (j = 0; j < options.visible.order.length; j += 1) {
+                tableRows[i][options.visible.order[i][0]] = $("<td>", {style: "width:" + options.visible.order[i][1], text: i + " / " + j}).appendTo(tableRows[i].row);
+            }
+        }
+        console.log(tableRows);
     };
 
     return main;
