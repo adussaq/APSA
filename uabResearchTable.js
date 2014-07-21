@@ -1,9 +1,9 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.0.1");
+    console.log("v0.0.2");
     //variables
-    var dict, options, main, makeTable, makeTableBody, $, div, data, startBuilding, wordSearch, order;
+    var getList, dict, options, main, makeTable, makeTableBody, $, div, data, startBuilding, wordSearch, order;
 
     //variable declaration
     wordSearch = function () {};
@@ -62,10 +62,10 @@ var table = (function () {
         table = $("<table>", {style: "width:100%"}).appendTo(div);
 
         //make table header
-        row = $("<tr>", {style: "width:100%"}).appendTo(table);
+        row = $("<tr>", {style: "width:100%;padding:5px"}).appendTo(table);
 
         for (i = 0; i < length; i += 1) {
-            $("<td>", {style: "width:" + options.visible.order[i][1], text: options.visible.order[i][0]}).appendTo(row);
+            $("<td>", {style: "padding:5px;width:" + options.visible.order[i][1], text: options.visible.order[i][0]}).appendTo(row);
         }
         makeTableBody(table);
     };
@@ -75,13 +75,23 @@ var table = (function () {
         var tableRows = [], i, j, cat;
         for (i = 0; i < 10; i += 1) {
             tableRows[i] = {};
-            tableRows[i].row = $('<tr>', {style: "width:100%"}).appendTo(table);
+            tableRows[i].row = $('<tr>', {style: "padding:5px;width:100%"}).appendTo(table);
             for (j = 0; j < options.visible.order.length; j += 1) {
                 cat = options.visible.order[j][0];
-                tableRows[i][cat] = $("<td>", {style: "width:" + options.visible.order[j][1], text: data[i][cat]}).appendTo(tableRows[i].row);
+                tableRows[i][cat] = $("<td>", {style: "width:" + options.visible.order[j][1], text: getList(data[i][cat])}).appendTo(tableRows[i].row);
             }
         }
         console.log(tableRows);
+    };
+
+    getList = function (arr) {
+        var ret = "";
+        if (typeof arr === 'string') {
+            ret = arr;
+        } else {
+            arr.map(function (x) {ret = ret + ", " + x; });
+        }
+        return ret;
     };
 
     return main;
