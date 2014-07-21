@@ -1,9 +1,9 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.0.0")
+    console.log("v0.0.1");
     //variables
-    var options, main, makeTable, makeTableBody, $, div, data, startBuilding, wordSearch, order;
+    var dict, options, main, makeTable, makeTableBody, $, div, data, startBuilding, wordSearch, order;
 
     //variable declaration
     wordSearch = function () {};
@@ -57,6 +57,8 @@ var table = (function () {
 
         length = options.visible.order.length;
         data = JSON.parse(x);
+        dict = data.dict;
+        data = data.data;
         table = $("<table>", {style: "width:100%"}).appendTo(div);
 
         //make table header
@@ -76,7 +78,7 @@ var table = (function () {
             tableRows[i].row = $('<tr>', {style: "width:100%"}).appendTo(table);
             for (j = 0; j < options.visible.order.length; j += 1) {
                 cat = options.visible.order[j][0];
-                tableRows[i][cat] = $("<td>", {style: "width:" + options.visible.order[j][1], text: data[i].cat}).appendTo(tableRows[i].row);
+                tableRows[i][cat] = $("<td>", {style: "width:" + options.visible.order[j][1], text: data[i][cat]}).appendTo(tableRows[i].row);
             }
         }
         console.log(tableRows);
