@@ -1,6 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
+    console.log("v0.0.0")
     //variables
     var options, main, makeTable, makeTableBody, $, div, data, startBuilding, wordSearch, order;
 
