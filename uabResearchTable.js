@@ -69,11 +69,13 @@ var table = (function () {
 
 
     makeTableBody = function (table) {
-        var dataArr, tableRows = [], i, j;
+        var tableRows = [], i, j, cat;
         for (i = 0; i < 10; i += 1) {
+            tableRows[i] = {};
             tableRows[i].row = $('<tr>', {style: "width:100%"}).appendTo(table);
             for (j = 0; j < options.visible.order.length; j += 1) {
-                tableRows[i][options.visible.order[i][0]] = $("<td>", {style: "width:" + options.visible.order[i][1], text: i + " / " + j}).appendTo(tableRows[i].row);
+                cat = options.visible.order[j][0];
+                tableRows[i][cat] = $("<td>", {style: "width:" + options.visible.order[j][1], text: data[i].cat}).appendTo(tableRows[i].row);
             }
         }
         console.log(tableRows);
