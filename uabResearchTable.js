@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.1.2");
+    console.log("v0.1.3");
     //variables
     var tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order;
 
@@ -101,7 +101,7 @@ var table = (function () {
                         "class": "tableButton", html: '&#10140;'}).appendTo(pager).click(leftClick);
         pageText.appendTo(pager);
         $('<button>', {"class": "tableButton", html: '&#10140;'}).appendTo(pager).click(rightClick);
-
+        updateData();
         console.log(tableRows);
     };
 
@@ -137,11 +137,15 @@ var table = (function () {
         var i, j, add, cat;
         console.log("updating");
         add = (cPage - 1) * 10;
-        for (i = 0; i < 10 && i + add < dataArr.length; i += 1) {
-            tableRows[i].row.show();
-            for (j = 0; j < options.visible.order.length; j += 1) {
-                cat = options.visible.order[j][0];
-                tableRows[i][cat].text(getList(dataArr[i + add][cat]));
+        for (i = 0; i < 10; i += 1) {
+            if (i + add < dataArr.length) {
+                tableRows[i].row.show();
+                for (j = 0; j < options.visible.order.length; j += 1) {
+                    cat = options.visible.order[j][0];
+                    tableRows[i][cat].text(getList(dataArr[i + add][cat]));
+                }
+            } else {
+                tableRows[i].hide();
             }
         }
     };
