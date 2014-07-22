@@ -3,7 +3,7 @@ var table = (function () {
     'use strict';
     console.log("v0.0.9");
     //variables
-    var getList, dict, options, main, makeTable, makeTableBody, $, div, data, startBuilding, wordSearch, order;
+    var updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order;
 
     //variable declaration
     wordSearch = function () {};
@@ -63,7 +63,7 @@ var table = (function () {
         length = options.visible.order.length;
         data = JSON.parse(x);
         dict = data.dict;
-        data = data.data.sort(function (a, b) {
+        dataArr = data.data.sort(function (a, b) {
             var ret = 1;
             if (new Date(a.date) > new Date(b.date)) {
                 ret = -1;
@@ -89,14 +89,18 @@ var table = (function () {
             tableRows[i].row = $('<tr>', {style: "padding:5px;width:100%"}).appendTo(table);
             for (j = 0; j < options.visible.order.length; j += 1) {
                 cat = options.visible.order[j][0];
-                tableRows[i][cat] = $("<td>", {style: "width:" + options.visible.order[j][1], text: getList(data[i][cat])}).appendTo(tableRows[i].row);
+                tableRows[i][cat] = $("<td>", {style: "width:" + options.visible.order[j][1]}).hide().appendTo(tableRows[i].row);
             }
         }
-        pager = $('<td>', {colspan: 6, style: "padding:5px;width:100%"}).appendTo($('<tr>', {style: "padding:5px;width:100%"}).appendTo(table));
+        pager = $('<td>', {colspan: 6, style: "text-align: center;padding:5px;width:100%"}).appendTo($('<tr>', {style: "padding:5px;width:100%"}).appendTo(table));
+        cPage = 1;
+        maxPage = Math.ceil(dataArr.length / 10);
+        pageText = $('<span>', {text: 'Page ' + cPage + ' of ' + maxPage, style: "padding:15px"});
         $('<button>', {style: '-moz-transform: rotate(-180deg);-webkit-transform: rotate(-180deg);transform: rotate(-180deg);filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2)',
-                        "class": "tableButton", html: '&#10140;'}).appendTo(pager);
-        $('<span>', {text: 'Page x of y', style: "padding:5px"}).appendTo(pager);
-        $('<button>', {"class": "tableButton", html: '&#10140;'}).appendTo(pager);
+                        "class": "tableButton", html: '&#10140;'}).appendTo(pager).click(leftClick);
+        pageText.appendTo(pager);
+        $('<button>', {"class": "tableButton", html: '&#10140;'}).appendTo(pager).click(rightClick);
+
         console.log(tableRows);
     };
 
@@ -108,6 +112,26 @@ var table = (function () {
             arr.map(function (x) {ret = ret ? ret + ", " + x : x; });
         }
         return ret;
+    };
+
+    leftClick = function (evt) {
+        evt.preventDefault();
+        if (cPage > 1) {
+            cPage -= 1;
+            updateData();
+        }
+    };
+
+    rightClick = function (evt) {
+        evt.preventDefault();
+        if (cPage < maxPage) {
+            cPage += 1;
+            updateData();
+        }
+    };
+
+    updateData = function () {
+        console.log("updating");
     };
 
     return main;
