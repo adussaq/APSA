@@ -96,7 +96,7 @@ var table = (function () {
         $('<button>', {style: '-moz-transform: rotate(-180deg);-webkit-transform: rotate(-180deg);transform: rotate(-180deg);filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2)',
                         "class": "tableButton", html: '&#10140;'}).appendTo(pager);
         $('<span>', {text: 'Page x of y'}).appendTo(pager);
-        $('<button>', {html: '&#10140;'}).appendTo(pager);
+        $('<button>', {"class": "tableButton", html: '&#10140;'}).appendTo(pager);
         console.log(tableRows);
     };
 
