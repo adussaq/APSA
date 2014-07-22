@@ -11,7 +11,7 @@ var table = (function () {
     main = {};
     options = {
         visible: {
-            order: [["Audience", "15%", "Audience"], ["RType", "15%", "Research Type"], ["Summary", "30%", "Research Summary"], ["Department", "15%", "Department"], ["Site", "15%", "Research Site"], ["date", "10%", "Date Posted/Edited"]],
+            order: [["Audience", "22.5%", "Audience"], ["RType", "10%", "Research Type"], ["Summary", "37.5%", "Research Summary"], ["Department", "10%", "Department"], ["Site", "10%", "Research Site"], ["date", "10%", "Date Posted/Edited"]],
             Audience: ["Undergraduate Student - Summer", "Undergraduate Student - Academic Year", "Medical Student - Summer", "Medical Student - Scholarly Activity", "Graduate or MD/PhD Student", "Resident"],
             RType: ["Basic science", "Translational science", "Clinical Research", "Behavioral Research", "Chart Review", "Community-based", "Education", "Public Health/Epidemiology", "Health Outcomes", "Other"],
             Summary: wordSearch,
