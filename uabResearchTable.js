@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.0.5");
+    console.log("v0.0.6");
     //variables
     var getList, dict, options, main, makeTable, makeTableBody, $, div, data, startBuilding, wordSearch, order;
 
@@ -62,9 +62,9 @@ var table = (function () {
         data = JSON.parse(x);
         dict = data.dict;
         data = data.data.sort(function (a, b) {
-            var ret = -1;
+            var ret = 1;
             if (new Date(a.date) > new Date(b.date)) {
-                ret = 1;
+                ret = -1;
             }
             return ret;
         });
@@ -91,6 +91,9 @@ var table = (function () {
             }
         }
         pager = $('<tr>', {style: "padding:5px;width:100%"}).appendTo(table);
+        $('<button>', {text:'l',}).appendTo(pager);
+        $('<span>', {text:'Page x of y',}).appendTo(pager);
+        $('<button>', {text:'r',}).appendTo(pager);
         console.log(tableRows);
     };
 
