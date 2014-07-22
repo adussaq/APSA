@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.0.4");
+    console.log("v0.0.5");
     //variables
     var getList, dict, options, main, makeTable, makeTableBody, $, div, data, startBuilding, wordSearch, order;
 
@@ -11,7 +11,7 @@ var table = (function () {
     main = {};
     options = {
         visible: {
-            order: [["Audience", "15%"], ["RType", "15%"], ["Summary", "30%"], ["Department", "15%"], ["Site", "15%"], ["date", "10%"]],
+            order: [["Audience", "15%", "Audience"], ["RType", "15%", "Research Type"], ["Summary", "30%", "Research Summary"], ["Department", "15%", "Department"], ["Site", "15%", "Research Site"], ["date", "10%", "Date Posted/Edited"]],
             Audience: ["Undergraduate Student - Summer", "Undergraduate Student - Academic Year", "Medical Student - Summer", "Medical Student - Scholarly Activity", "Graduate or MD/PhD Student", "Resident"],
             RType: ["Basic science", "Translational science", "Clinical Research", "Behavioral Research", "Chart Review", "Community-based", "Education", "Public Health/Epidemiology", "Health Outcomes", "Other"],
             Summary: wordSearch,
@@ -61,21 +61,27 @@ var table = (function () {
         length = options.visible.order.length;
         data = JSON.parse(x);
         dict = data.dict;
-        data = data.data;
+        data = data.data.sort(function (a, b) {
+            var ret = -1;
+            if (new Date(a.date) > new Date(b.date)) {
+                ret = 1;
+            }
+            return ret;
+        });
         table = $("<table>", {"class": "uabR-table", style: "width:100%"}).appendTo(div);
 
         //make table header
         row = $("<tr>", {style: "width:100%;padding:5px"}).appendTo(table);
 
         for (i = 0; i < length; i += 1) {
-            $("<td>", {style: "padding:5px;width:" + options.visible.order[i][1], text: options.visible.order[i][0]}).appendTo(row);
+            $("<td>", {style: "padding:5px;width:" + options.visible.order[i][1], text: options.visible.order[i][2]}).appendTo(row);
         }
         makeTableBody(table);
     };
 
 
     makeTableBody = function (table) {
-        var tableRows = [], i, j, cat;
+        var tableRows = [], i, j, cat, pager;
         for (i = 0; i < 10; i += 1) {
             tableRows[i] = {};
             tableRows[i].row = $('<tr>', {style: "padding:5px;width:100%"}).appendTo(table);
@@ -84,6 +90,7 @@ var table = (function () {
                 tableRows[i][cat] = $("<td>", {style: "width:" + options.visible.order[j][1], text: getList(data[i][cat])}).appendTo(tableRows[i].row);
             }
         }
+        pager = $('<tr>', {style: "padding:5px;width:100%"}).appendTo(table);
         console.log(tableRows);
     };
 
