@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.1.0");
+    console.log("v0.1.1");
     //variables
     var updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order;
 
@@ -118,6 +118,7 @@ var table = (function () {
         evt.preventDefault();
         if (cPage > 1) {
             cPage -= 1;
+            pageText.text('Page ' + cPage + ' of ' + maxPage);
             updateData();
         }
     };
@@ -126,6 +127,7 @@ var table = (function () {
         evt.preventDefault();
         if (cPage < maxPage) {
             cPage += 1;
+            pageText.text('Page ' + cPage + ' of ' + maxPage);
             updateData();
         }
     };
