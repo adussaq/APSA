@@ -1,14 +1,15 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.1.3");
+    console.log("v0.1.4");
     //variables
-    var tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order;
+    var tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
     //variable declaration
     wordSearch = function () {};
     order = function () {};
     main = {};
+    perPage = 5;
     options = {
         visible: {
             order: [["Audience", "22.5%", "Audience"], ["RType", "10%", "Research Type"], ["Summary", "37.5%", "Research Summary"], ["Department", "10%", "Department"], ["Site", "10%", "Research Site"], ["date", "10%", "Date Posted/Edited"]],
@@ -85,7 +86,7 @@ var table = (function () {
     makeTableBody = function (table) {
         var i, j, cat, pager;
         tableRows = [];
-        for (i = 0; i < 10; i += 1) {
+        for (i = 0; i < perPage; i += 1) {
             tableRows[i] = {};
             tableRows[i].row = $('<tr>', {style: "padding:5px;width:100%"}).hide().appendTo(table);
             for (j = 0; j < options.visible.order.length; j += 1) {
@@ -95,7 +96,7 @@ var table = (function () {
         }
         pager = $('<td>', {colspan: 6, style: "text-align: center;padding:5px;width:100%"}).appendTo($('<tr>', {style: "padding:5px;width:100%"}).appendTo(table));
         cPage = 1;
-        maxPage = Math.ceil(dataArr.length / 10);
+        maxPage = Math.ceil(dataArr.length / perPage);
         pageText = $('<span>', {text: 'Page ' + cPage + ' of ' + maxPage, style: "padding:15px"});
         $('<button>', {style: '-moz-transform: rotate(-180deg);-webkit-transform: rotate(-180deg);transform: rotate(-180deg);filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2)',
                         "class": "tableButton", html: '&#10140;'}).appendTo(pager).click(leftClick);
@@ -105,8 +106,8 @@ var table = (function () {
         console.log(tableRows);
     };
 
-    getList = function (arr) {
-        var ret = "";
+    getList = function (obj, cat) {
+        var ret = "", arr = obj[cat];
         if (typeof arr === 'string' || !arr) {
             ret = arr;
         } else {
@@ -136,16 +137,16 @@ var table = (function () {
     updateData = function () {
         var i, j, add, cat;
         console.log("updating");
-        add = (cPage - 1) * 10;
-        for (i = 0; i < 10; i += 1) {
+        add = (cPage - 1) * perPage;
+        for (i = 0; i < perPage; i += 1) {
             if (i + add < dataArr.length) {
                 tableRows[i].row.show();
                 for (j = 0; j < options.visible.order.length; j += 1) {
                     cat = options.visible.order[j][0];
-                    tableRows[i][cat].text(getList(dataArr[i + add][cat]));
+                    tableRows[i][cat].text(getList(dataArr[i + add], cat));
                 }
             } else {
-                tableRows[i].hide();
+                tableRows[i].row.hide();
             }
         }
     };
