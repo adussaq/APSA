@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.1.4");
+    console.log("v0.1.5");
     //variables
     var tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -111,7 +111,12 @@ var table = (function () {
         if (typeof arr === 'string' || !arr) {
             ret = arr;
         } else {
-            arr.map(function (x) {ret = ret ? ret + ", " + x : x; });
+            arr.map(function (x) {
+                if (x.match(/other/i)) {
+                    console.log('Other', obj, cat);
+                }
+                ret = ret ? ret + ", " + x : x;
+            });
         }
         return ret;
     };
