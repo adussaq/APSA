@@ -92,10 +92,10 @@ var table = (function () {
                 tableRows[i][cat] = $("<td>", {style: "width:" + options.visible.order[j][1], text: getList(data[i][cat])}).appendTo(tableRows[i].row);
             }
         }
-        pager = $('<td>', {style: "padding:5px;width:100%"}).appendTo($('<tr>', {style: "padding:5px;width:100%"}).appendTo(table));
+        pager = $('<td>', {colspan: 6, style: "padding:5px;width:100%"}).appendTo($('<tr>', {style: "padding:5px;width:100%"}).appendTo(table));
         $('<button>', {style: '-moz-transform: rotate(-180deg);-webkit-transform: rotate(-180deg);transform: rotate(-180deg);filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2)',
                         "class": "tableButton", html: '&#10140;'}).appendTo(pager);
-        $('<span>', {text: 'Page x of y'}).appendTo(pager);
+        $('<span>', {text: 'Page x of y', style: "padding:5px"}).appendTo(pager);
         $('<button>', {"class": "tableButton", html: '&#10140;'}).appendTo(pager);
         console.log(tableRows);
     };
