@@ -3,7 +3,7 @@ var table = (function () {
     'use strict';
     console.log("v0.1.1");
     //variables
-    var updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order;
+    var tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order;
 
     //variable declaration
     wordSearch = function () {};
@@ -83,13 +83,14 @@ var table = (function () {
 
 
     makeTableBody = function (table) {
-        var tableRows = [], i, j, cat, pager;
+        var i, j, cat, pager;
+        tableRows = [];
         for (i = 0; i < 10; i += 1) {
             tableRows[i] = {};
-            tableRows[i].row = $('<tr>', {style: "padding:5px;width:100%"}).appendTo(table);
+            tableRows[i].row = $('<tr>', {style: "padding:5px;width:100%"}).hide().appendTo(table);
             for (j = 0; j < options.visible.order.length; j += 1) {
                 cat = options.visible.order[j][0];
-                tableRows[i][cat] = $("<td>", {style: "width:" + options.visible.order[j][1]}).hide().appendTo(tableRows[i].row);
+                tableRows[i][cat] = $("<td>", {style: "width:" + options.visible.order[j][1]}).appendTo(tableRows[i].row);
             }
         }
         pager = $('<td>', {colspan: 6, style: "text-align: center;padding:5px;width:100%"}).appendTo($('<tr>', {style: "padding:5px;width:100%"}).appendTo(table));
@@ -133,7 +134,16 @@ var table = (function () {
     };
 
     updateData = function () {
+        var i, j, add, cat;
         console.log("updating");
+        add = (cPage - 1) * 10;
+        for (i = 0; i < 10 && i + add < dataArr.length; i += 1) {
+            tableRows[i].row.show();
+            for (j = 0; j < options.visible.order.length; j += 1) {
+                cat = options.visible.order[j][0];
+                tableRows[i][cat].text(getList(dataArr[i + add][cat]));
+            }
+        }
     };
 
     return main;
