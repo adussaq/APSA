@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.0.3");
+    console.log("v0.0.4");
     //variables
     var getList, dict, options, main, makeTable, makeTableBody, $, div, data, startBuilding, wordSearch, order;
 
@@ -11,7 +11,7 @@ var table = (function () {
     main = {};
     options = {
         visible: {
-            order: [["Audience", "15%"], ["RType", "15%"], ["Summary", "30%"], ["Department", "15%"], ["Site", "15%"], ["PostDate", "10%"]],
+            order: [["Audience", "15%"], ["RType", "15%"], ["Summary", "30%"], ["Department", "15%"], ["Site", "15%"], ["date", "10%"]],
             Audience: ["Undergraduate Student - Summer", "Undergraduate Student - Academic Year", "Medical Student - Summer", "Medical Student - Scholarly Activity", "Graduate or MD/PhD Student", "Resident"],
             RType: ["Basic science", "Translational science", "Clinical Research", "Behavioral Research", "Chart Review", "Community-based", "Education", "Public Health/Epidemiology", "Health Outcomes", "Other"],
             Summary: wordSearch,
