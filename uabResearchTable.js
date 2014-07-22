@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.0.8");
+    console.log("v0.0.9");
     //variables
     var getList, dict, options, main, makeTable, makeTableBody, $, div, data, startBuilding, wordSearch, order;
 
@@ -93,7 +93,8 @@ var table = (function () {
             }
         }
         pager = $('<td>', {style: "padding:5px;width:100%"}).appendTo($('<tr>', {style: "padding:5px;width:100%"}).appendTo(table));
-        $('<button>', {style: 'direction:rtl', "class": "tableButton", html: '&#10140;'}).appendTo(pager);
+        $('<button>', {style: '-moz-transform: rotate(-180deg);-webkit-transform: rotate(-180deg);transform: rotate(-180deg);filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2)',
+                        "class": "tableButton", html: '&#10140;'}).appendTo(pager);
         $('<span>', {text: 'Page x of y'}).appendTo(pager);
         $('<button>', {html: '&#10140;'}).appendTo(pager);
         console.log(tableRows);
