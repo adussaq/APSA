@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.1.13");
+    console.log("v0.1.14");
     //variables
     var filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -68,13 +68,6 @@ var table = (function () {
         length = options.visible.order.length;
         data = JSON.parse(x);
         dict = data.dict;
-        dataArr = data.data.sort(function (a, b) {
-            var ret = 1;
-            if (new Date(a.date) > new Date(b.date)) {
-                ret = -1;
-            }
-            return ret;
-        });
         table = $("<table>", {"class": "uabR-table", style: "width:100%"}).appendTo(div);
 
         //make table header
@@ -123,7 +116,10 @@ var table = (function () {
                 $('<option>', {value: options.visible[cat][i], text: options.visible[cat][i]}).appendTo(ret);
             }
         } else {
-            ret = $('<input>');
+            ret = $('<input>').keyup(function (evt) {
+                evt.preventDefault();
+                console.log(evt.target.value);
+            });
         }
         return ret;
     };
@@ -196,6 +192,14 @@ var table = (function () {
         } else {
             pageText.text('Page ' + cPage + ' of ' + maxPage);
         }
+
+        dataArr = data.data.sort(function (a, b) {
+            var ret = 1;
+            if (new Date(a.date) > new Date(b.date)) {
+                ret = -1;
+            }
+            return ret;
+        });
 
         add = (cPage - 1) * perPage;
         for (i = 0; i < perPage; i += 1) {
