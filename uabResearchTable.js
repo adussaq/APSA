@@ -102,7 +102,7 @@ var table = (function () {
                 }
             });
             for (i = 0; i < options.visible[cat].length; i += 1) {
-                $("<select>").append($('<option>', {value: options.visible[cat][i], text: options.visible[cat][i]})).appendTo(ret);
+                $('<option>', {value: options.visible[cat][i], text: options.visible[cat][i]}).appendTo(ret);
             }
         } else {
             ret = $('<input>');
