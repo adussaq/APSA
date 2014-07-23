@@ -1,14 +1,14 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.2.2");
+    console.log("v0.2.3");
     //variables
     var searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
     //variable declaration
-    wordSearch = function (evt) {
+    wordSearch = function (evt, elem) {
         var main, search, i, j, searchArr, regex, found = [], keep = {}, removed = [];
-        main = function (evt) {
+        main = function (evt, elem) {
             search = evt.target.value;
             searchArr = search.split(/\s/);
             if (search.length > 0) {
@@ -32,21 +32,25 @@ var table = (function () {
                     }
                 }
                 if (removed.length > 0) {
-                    wordSearch = function (evt) {
+                    wordSearch = function (evt, elem) {
                         var k;
                         for (k = 0; k < removed.length; k += 1) {
                             dataArr.push(removed[k]);
                         }
                         removed = [];
-                        main(evt);
+                        main(evt, elem);
                     };
                 } else {
                     wordSearch = main;
                 }
+                elem.keyup(function (evt) {
+                    evt.preventDefault();
+                    wordSearch(evt, elem);
+                });
             }
             updateData();
         };
-        main(evt);
+        main(evt, elem);
     };
     order = function () {
         console.log('other');
@@ -159,7 +163,7 @@ var table = (function () {
         } else {
             ret = $('<input>').keyup(function (evt) {
                 evt.preventDefault();
-                options.visible[cat](evt);
+                options.visible[cat](evt, ret);
             });
         }
         return ret;
