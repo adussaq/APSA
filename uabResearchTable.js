@@ -1,14 +1,15 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.2.4");
+    console.log("v0.2.5");
     //variables
     var searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
     //variable declaration
-    wordSearch = function (evt, elem) {
-        var main, search, i, j, searchArr, regex, found = [], keep = {}, removed = [];
-        main = function (evt, elem) {
+    wordSearch = function (evt) {
+        var mini, main, search, i, j, searchArr, regex, found = [], keep = {}, removed = [];
+        main = function (evt) {
+            evt.preventDefault();
             search = evt.target.value;
             searchArr = search.split(/\s/);
             if (search.length > 0) {
@@ -32,26 +33,28 @@ var table = (function () {
                     }
                 }
                 if (removed.length > 0) {
-                    wordSearch = function (evt, elem) {
+                    mini = function (evt) {
                         var k;
                         for (k = 0; k < removed.length; k += 1) {
                             dataArr.push(removed[k]);
                         }
                         removed = [];
-                        main(evt, elem);
+                        main(evt);
                     };
                 } else {
-                    wordSearch = main;
+                    mini = function (evt) {
+                        main(evt);
+                    };
                 }
-                elem.keyup(function (evt) {
-                    evt.preventDefault();
-                    wordSearch(evt, elem);
-                });
             }
             updateData();
         };
-        main(evt, elem);
+        mini = function (evt) {
+            main(evt);
+        };
+        mini(evt);
     };
+
     order = function () {
         console.log('other');
     };
@@ -161,10 +164,7 @@ var table = (function () {
                 $('<option>', {value: options.visible[cat][i], text: options.visible[cat][i]}).appendTo(ret);
             }
         } else {
-            ret = $('<input>').keyup(function (evt) {
-                evt.preventDefault();
-                options.visible[cat](evt, ret);
-            });
+            ret = $('<input>').keyup(options.visible[cat]);
         }
         return ret;
     };
