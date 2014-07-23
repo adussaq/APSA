@@ -1,13 +1,46 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.2.0");
+    console.log("v0.2.1");
     //variables
     var searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
     //variable declaration
-    wordSearch = function () {
-        console.log('wordSearch');
+    wordSearch = function (evt) {
+        var main, search, i, j, searchArr, regex, found = [], keep = {}, removed = [];
+        main = function (evt) {
+            search = evt.target.value;
+            searchArr = search.split(/\s/);
+            for (i = 0; i < searchArr.length; i += 1) {
+                regex = new RegExp('\s*\S*' + searchArr[i] + '\S*\s*', 'ig');
+                found = found.concat(searchStr.match(regex));
+            }
+            for (i = 0; i < found.length; i += 1) {
+                for (j = 0; j < dict[found[i]].length; j += 1) {
+                    keep[dict[found[i][j]]] = 1;
+                }
+            }
+            for (i = 0; i < dataArr.length; i += 1) {
+                if (!keep.hasOwnProperty(dataArr[i].uuid)) {
+                    removed.push(dataArr.splice(i, 1)[0]);
+                    i -= 1;
+                }
+            }
+            if (removed.length > 0) {
+                wordSearch = function (evt) {
+                    var k;
+                    for (k = 0; k < removed.length; k += 1) {
+                        dataArr.push(removed[k]);
+                    }
+                    removed = [];
+                    main(evt);
+                };
+            } else {
+                wordSearch = main;
+            }
+            updateData();
+        };
+        main(evt);
     };
     order = function () {
         console.log('other');
@@ -120,7 +153,7 @@ var table = (function () {
         } else {
             ret = $('<input>').keyup(function (evt) {
                 evt.preventDefault();
-                console.log(evt.target.value);
+                options.visible[cat](evt);
             });
         }
         return ret;
