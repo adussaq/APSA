@@ -88,19 +88,35 @@ var table = (function () {
     };
 
     filterMaker = function (cat) {
-        var ret, i;
-        if (typeof options.visible[cat] !== 'function') {
-            ret = $("<select>").append($('<option>', {value: "", text: 'filter'})).change(function (evt) {
-                var j, that;
-                that = this;
-                evt.preventDefault();
-                if (that.value) {
-                    console.log(that.value);
-                    // for (j = 0; j < dataArr.length; j += 1) {
-                        
-                    // }
+        var ret, i, changeFunc, mainFunc;
+
+        mainFunc = function (evt) {
+            var j, that, removed = [];
+            that = this;
+            evt.preventDefault();
+            if (that.value) {
+                console.log(that.value);
+                for (j = 0; j < dataArr.length; j += 1) {
+                    if (!dataArr[j][cat].join(',').match(that.value)) {
+                        removed.push(dataArr.splice(j, 1));
+                    }
                 }
-            });
+            }
+            if (removed.length > 0) {
+                changeFunc = function (evt) {
+                    var k;
+                    for (k = 0; k < removed.length; k += 1) {
+                        dataArr.push(removed[k]);
+                    }
+                    mainFunc(evt);
+                };
+            }
+            updateData();
+        };
+        changeFunc = mainFunc;
+
+        if (typeof options.visible[cat] !== 'function') {
+            ret = $("<select>").append($('<option>', {style: "width:100%;", value: "", text: 'filter'})).change(changeFunc);
             for (i = 0; i < options.visible[cat].length; i += 1) {
                 $('<option>', {value: options.visible[cat][i], text: options.visible[cat][i]}).appendTo(ret);
             }
