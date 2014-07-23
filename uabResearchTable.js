@@ -90,9 +90,19 @@ var table = (function () {
     filterMaker = function (cat) {
         var ret, i;
         if (typeof options.visible[cat] !== 'function') {
-            ret = $("<select>").append($('<option>', {value: "", text: 'filter'}));
+            ret = $("<select>").append($('<option>', {value: "", text: 'filter'})).change(function (evt) {
+                var j, that;
+                that = this;
+                evt.preventDefault();
+                if(that.value) {
+                    console.log(that.value);
+                    // for (j = 0; j < dataArr.length; j += 1) {
+                        
+                    // }
+                }
+            });
             for (i = 0; i < options.visible[cat].length; i += 1) {
-                $("<select>").append($('<option>', {value: options.visible[cat][i], text: options.visible[cat][i]}));
+                $("<select>").append($('<option>', {value: options.visible[cat][i], text: options.visible[cat][i]})).appendTo(ret);
             }
         } else {
             ret = $('<input>');
