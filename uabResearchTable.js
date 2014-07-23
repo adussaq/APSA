@@ -93,13 +93,15 @@ var table = (function () {
         mainFunc = function (evt) {
             var j, that, removed = [];
             console.log("Main func call");
+            console.log("Evt", evt);
             that = this;
             evt.preventDefault();
             if (that.value) {
                 console.log(that.value);
                 for (j = 0; j < dataArr.length; j += 1) {
                     if (!dataArr[j][cat].join(',').match(that.value)) {
-                        removed.push(dataArr.splice(j, 1));
+                        removed.push(dataArr.splice(j, 1)[0]);
+                        j -= 1;
                     }
                 }
             }
@@ -107,11 +109,13 @@ var table = (function () {
                 changeFunc = function (evt) {
                     var k;
                     console.log("change func call");
+                    console.log("evt2", evt);
                     for (k = 0; k < removed.length; k += 1) {
                         dataArr.push(removed[k]);
                     }
                     mainFunc(evt);
                 };
+                ret.change(changeFunc);
             }
             updateData();
         };
@@ -172,7 +176,6 @@ var table = (function () {
         evt.preventDefault();
         if (cPage > 1) {
             cPage -= 1;
-            pageText.text('Page ' + cPage + ' of ' + maxPage);
             updateData();
         }
     };
@@ -181,7 +184,6 @@ var table = (function () {
         evt.preventDefault();
         if (cPage < maxPage) {
             cPage += 1;
-            pageText.text('Page ' + cPage + ' of ' + maxPage);
             updateData();
         }
     };
@@ -189,6 +191,7 @@ var table = (function () {
     updateData = function () {
         var i, j, add, cat;
         maxPage = Math.ceil(dataArr.length / perPage);
+        pageText.text('Page ' + cPage + ' of ' + maxPage);
         add = (cPage - 1) * perPage;
         for (i = 0; i < perPage; i += 1) {
             if (i + add < dataArr.length) {
