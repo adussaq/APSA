@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.1.10");
+    console.log("v0.1.11");
     //variables
     var filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -92,6 +92,7 @@ var table = (function () {
 
         mainFunc = function (evt) {
             var j, that, removed = [];
+            console.log("Main func call");
             that = this;
             evt.preventDefault();
             if (that.value) {
@@ -105,6 +106,7 @@ var table = (function () {
             if (removed.length > 0) {
                 changeFunc = function (evt) {
                     var k;
+                    console.log("change func call");
                     for (k = 0; k < removed.length; k += 1) {
                         dataArr.push(removed[k]);
                     }
@@ -116,7 +118,7 @@ var table = (function () {
         changeFunc = mainFunc;
 
         if (typeof options.visible[cat] !== 'function') {
-            ret = $("<select>").append($('<option>', {style: "width:100%;", value: "", text: 'filter'})).change(changeFunc);
+            ret = $("<select>", {style: "width:100%"}).append($('<option>', {style: "width:100%;", value: "", text: 'filter'})).change(changeFunc);
             for (i = 0; i < options.visible[cat].length; i += 1) {
                 $('<option>', {value: options.visible[cat][i], text: options.visible[cat][i]}).appendTo(ret);
             }
@@ -186,6 +188,7 @@ var table = (function () {
 
     updateData = function () {
         var i, j, add, cat;
+        maxPage = Math.ceil(dataArr.length / perPage);
         add = (cPage - 1) * perPage;
         for (i = 0; i < perPage; i += 1) {
             if (i + add < dataArr.length) {
