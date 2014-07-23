@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.1.8");
+    console.log("v0.1.9");
     //variables
     var filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -94,7 +94,7 @@ var table = (function () {
                 var j, that;
                 that = this;
                 evt.preventDefault();
-                if(that.value) {
+                if (that.value) {
                     console.log(that.value);
                     // for (j = 0; j < dataArr.length; j += 1) {
                         
