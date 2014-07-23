@@ -1,9 +1,9 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.1.7");
+    console.log("v0.1.8");
     //variables
-    var tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
+    var filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
     //variable declaration
     wordSearch = function () {
@@ -58,7 +58,7 @@ var table = (function () {
 
     startBuilding = function (x) {
         //variable
-        var table, i, row, length, temp;
+        var table, i, row1, row2, length;
 
         //set css
         $('<style type="text/css">.uabR-table{margin:0;padding:0;width:100%;border:1px solid #1e6b52;-moz-border-radius-bottomleft:0;-webkit-border-radius:0;border-radius:0;-moz-border-radius-bottomright:0;-moz-border-radius-topright:0;-moz-border-radius-topleft:0}.uabR-table table{border-collapse:collapse;border-spacing:0;width:100%;height:100%;margin:0;padding:0}.uabR-table tr:last-child td:last-child{-moz-border-radius-bottomright:0;-webkit-border-bottom-right-radius:0;border-bottom-right-radius:0}.uabR-table table tr:first-child td:first-child{-moz-border-radius-topleft:0;-webkit-border-top-left-radius:0;border-top-left-radius:0}.uabR-table table tr:first-child td:last-child{-moz-border-radius-topright:0;-webkit-border-top-right-radius:0;border-top-right-radius:0}.uabR-table tr:last-child td:first-child{-moz-border-radius-bottomleft:0;-webkit-border-bottom-left-radius:0;border-bottom-left-radius:0}.uabR-table tr:nth-child(odd){background-color:#a4d363}.uabR-table tr:nth-child(even){background-color:#fff}.uabR-table td{vertical-align:middle;border:1px solid #1e6b52;border-width:0 1px 1px 0;text-align:left;padding:5px;font-size:14px;font-family:Times New Roman;font-weight:400;color:#000}.uabR-table tr:last-child td{border-width:0 1px 0 0}.uabR-table tr td:last-child{border-width:0 0 1px}.uabR-table tr:last-child td:last-child{border-width:0}.uabR-table tr:first-child td{background:#1e6b52 -webkit-gradient(linear,left top,left bottom,color-stop(0.05,#1e6b52),color-stop(1,#a3d55d));background:#1e6b52 -moz-linear-gradient(center top,#1e6b52 5%,#a3d55d 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#1e6b52", endColorstr="#a3d55d");background:#1e6b52 -o-linear-gradient(top,#1e6b52,a3d55d);border:0 solid #1e6b52;text-align:center;border-width:0 0 1px 1px;font-size:18px;font-family:Times New Roman;font-weight:700;color:#fff}.uabR-table tr:first-child:hover td{background:#1e6b52 -webkit-gradient(linear,left top,left bottom,color-stop(0.05,#1e6b52),color-stop(1,#a3d55d));background:#1e6b52 -moz-linear-gradient(center top,#1e6b52 5%,#a3d55d 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#1e6b52", endColorstr="#a3d55d");background:#1e6b52 -o-linear-gradient(top,#1e6b52,a3d55d)}.uabR-table tr:first-child td:first-child{border-width:0 0 1px}.uabR-table tr:first-child td:last-child{border-width:0 0 1px 1px}</style>').appendTo(div);
@@ -78,12 +78,26 @@ var table = (function () {
         table = $("<table>", {"class": "uabR-table", style: "width:100%"}).appendTo(div);
 
         //make table header
-        row = $("<tr>", {style: "width:100%;padding:5px"}).appendTo(table);
-
+        row1 = $("<tr>", {style: "width:100%;padding:5px"}).appendTo(table);
+        row2 = $("<tr>", {style: "width:100%;padding:5px"}).appendTo(table);
         for (i = 0; i < length; i += 1) {
-            temp = $("<td>", {style: "padding:5px;width:" + options.visible.order[i][1], text: options.visible.order[i][2]}).appendTo(row);
+            $("<td>", {style: "padding:5px;width:" + options.visible.order[i][1], text: options.visible.order[i][2]}).appendTo(row1);
+            $("<td>", {style: "padding:5px;width:" + options.visible.order[i][1]}).append(filterMaker(options.visible.order[i][0])).appendTo(row2);
         }
         makeTableBody(table);
+    };
+
+    filterMaker = function (cat) {
+        var ret, i;
+        if (typeof options.visible[cat] !== 'function') {
+            ret = $("<select>").append($('<option>', {value: "", text: 'filter'}));
+            for (i = 0; i < options.visible[cat].length; i += 1) {
+                $("<select>").append($('<option>', {value: options.visible[cat][i], text: options.visible[cat][i]}));
+            }
+        } else {
+            ret = $('<input>');
+        }
+        return ret;
     };
 
 
