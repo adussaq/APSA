@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.1.11");
+    console.log("v0.1.12");
     //variables
     var filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -94,7 +94,7 @@ var table = (function () {
             var j, that, removed = [];
             console.log("Main func call");
             console.log("Evt", evt);
-            that = this;
+            that = evt.target;
             evt.preventDefault();
             if (that.value) {
                 console.log(that.value);
@@ -191,7 +191,12 @@ var table = (function () {
     updateData = function () {
         var i, j, add, cat;
         maxPage = Math.ceil(dataArr.length / perPage);
-        pageText.text('Page ' + cPage + ' of ' + maxPage);
+        if (maxPage === 0) {
+            pageText.text('Page ' + cPage + ' of ' + 1);
+        } else {
+            pageText.text('Page ' + cPage + ' of ' + maxPage);
+        }
+
         add = (cPage - 1) * perPage;
         for (i = 0; i < perPage; i += 1) {
             if (i + add < dataArr.length) {
