@@ -21,8 +21,8 @@ var table = (function () {
                     console.log(found[i]);
                     if (found[i]) {
                         for (j = 0; j < dict[found[i]].length; j += 1) {
-                            keep[dict[found[i][j]]] = 1;
-                            console.log("keep", dict[found[i][j]]);
+                            keep[dict[found[i]][j]] = 1;
+                            console.log("keep", dict[found[i]][j]);
                         }
                     }
                 }
@@ -32,26 +32,17 @@ var table = (function () {
                         i -= 1;
                     }
                 }
-                if (removed.length > 0) {
-                    mini = function (evt) {
-                        var k;
-                        for (k = 0; k < removed.length; k += 1) {
-                            dataArr.push(removed[k]);
-                        }
-                        removed = [];
-                        main(evt);
-                    };
-                } else {
-                    mini = function (evt) {
-                        main(evt);
-                    };
-                }
             }
             updateData();
         };
         mini = function (evt) {
+            while (removed.length) {
+                dataArr.push(removed.pop());
+            }
             main(evt);
         };
+        evt.target.unbind("keyup", wordSearch);
+        evt.target.keyup(mini);
         mini(evt);
     };
 
