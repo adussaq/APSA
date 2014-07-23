@@ -1,14 +1,16 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.2.6");
+    console.log("v0.2.7");
     //variables
     var searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
     //variable declaration
     wordSearch = function (evt) {
-        var mini, main, search, i, j, searchArr, regex, found = [], keep = {}, removed = [];
+        var mini, main, removed = [];
         main = function (evt) {
+            var search, i, j, searchArr, regex, found = [], keep = {};
+            console.log("main");
             evt.preventDefault();
             search = evt.target.value;
             searchArr = search.split(/\s/);
@@ -18,11 +20,11 @@ var table = (function () {
                     found = found.concat(searchStr.match(regex));
                 }
                 for (i = 0; i < found.length; i += 1) {
-                    console.log(found[i]);
+                    //console.log(found[i]);
                     if (found[i]) {
                         for (j = 0; j < dict[found[i]].length; j += 1) {
                             keep[dict[found[i]][j]] = 1;
-                            console.log("keep", dict[found[i]][j]);
+                            //console.log("keep", dict[found[i]][j]);
                         }
                     }
                 }
@@ -33,16 +35,18 @@ var table = (function () {
                     }
                 }
             }
+            console.log(dataArr.length);
             updateData();
         };
         mini = function (evt) {
+            console.log('mini');
             while (removed.length) {
                 dataArr.push(removed.pop());
             }
             main(evt);
         };
-        evt.target.unbind("keyup", wordSearch);
-        evt.target.keyup(mini);
+        $(evt.target).unbind("keyup", wordSearch);
+        $(evt.target).keyup(mini);
         mini(evt);
     };
 
