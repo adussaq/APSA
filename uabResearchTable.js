@@ -11,33 +11,38 @@ var table = (function () {
         main = function (evt) {
             search = evt.target.value;
             searchArr = search.split(/\s/);
-            for (i = 0; i < searchArr.length; i += 1) {
-                regex = new RegExp('\\S*' + searchArr[i] + '\\S*', 'ig');
-                found = found.concat(searchStr.match(regex));
-            }
-            for (i = 0; i < found.length; i += 1) {
-                console.log(found[i]);
-                for (j = 0; j < dict[found[i]].length; j += 1) {
-                    keep[dict[found[i][j]]] = 1;
+            if (search.length > 0) {
+                for (i = 0; i < searchArr.length; i += 1) {
+                    regex = new RegExp('\\S*' + searchArr[i] + '\\S*', 'ig');
+                    found = found.concat(searchStr.match(regex));
                 }
-            }
-            for (i = 0; i < dataArr.length; i += 1) {
-                if (!keep.hasOwnProperty(dataArr[i].uuid)) {
-                    removed.push(dataArr.splice(i, 1)[0]);
-                    i -= 1;
-                }
-            }
-            if (removed.length > 0) {
-                wordSearch = function (evt) {
-                    var k;
-                    for (k = 0; k < removed.length; k += 1) {
-                        dataArr.push(removed[k]);
+                for (i = 0; i < found.length; i += 1) {
+                    console.log(found[i]);
+                    if (found[i]) {
+                        for (j = 0; j < dict[found[i]].length; j += 1) {
+                            keep[dict[found[i][j]]] = 1;
+                            console.log("keep", dict[found[i][j]]);
+                        }
                     }
-                    removed = [];
-                    main(evt);
-                };
-            } else {
-                wordSearch = main;
+                }
+                for (i = 0; i < dataArr.length; i += 1) {
+                    if (!keep.hasOwnProperty(dataArr[i].uuid)) {
+                        removed.push(dataArr.splice(i, 1)[0]);
+                        i -= 1;
+                    }
+                }
+                if (removed.length > 0) {
+                    wordSearch = function (evt) {
+                        var k;
+                        for (k = 0; k < removed.length; k += 1) {
+                            dataArr.push(removed[k]);
+                        }
+                        removed = [];
+                        main(evt);
+                    };
+                } else {
+                    wordSearch = main;
+                }
             }
             updateData();
         };
