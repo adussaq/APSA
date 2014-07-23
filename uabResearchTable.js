@@ -1,9 +1,9 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.1.14");
+    console.log("v0.2.0");
     //variables
-    var filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
+    var searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
     //variable declaration
     wordSearch = function () {
@@ -16,7 +16,7 @@ var table = (function () {
     perPage = 5;
     options = {
         visible: {
-            order: [["Audience", "22.5%", "Audience"], ["RType", "10%", "Research Type"], ["Summary", "37.5%", "Research Summary"], ["Department", "10%", "Department"], ["Site", "10%", "Research Site"], ["date", "10%", "Date Posted/Edited"]],
+            order: [["Audience", "22%", "Audience"], ["RType", "10%", "Research Type"], ["Summary", "43%", "Research Summary"], ["Department", "9%", "Department"], ["Site", "10%", "Research Site"], ["date", "7%", "Date Posted/Edited"]],
             Audience: ["Undergraduate Student - Summer", "Undergraduate Student - Academic Year", "Medical Student - Summer", "Medical Student - Scholarly Activity", "Graduate or MD/PhD Student", "Resident"],
             RType: ["Basic science", "Translational science", "Clinical Research", "Behavioral Research", "Chart Review", "Community-based", "Education", "Public Health/Epidemiology", "Health Outcomes", "Other"],
             Summary: wordSearch,
@@ -68,6 +68,8 @@ var table = (function () {
         length = options.visible.order.length;
         data = JSON.parse(x);
         dict = data.dict;
+        dataArr = data.data;
+        searchStr = data.str;
         table = $("<table>", {"class": "uabR-table", style: "width:100%"}).appendTo(div);
 
         //make table header
