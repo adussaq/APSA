@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.2.1");
+    console.log("v0.2.2");
     //variables
     var searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -12,10 +12,11 @@ var table = (function () {
             search = evt.target.value;
             searchArr = search.split(/\s/);
             for (i = 0; i < searchArr.length; i += 1) {
-                regex = new RegExp('\s*\S*' + searchArr[i] + '\S*\s*', 'ig');
+                regex = new RegExp('\\S*' + searchArr[i] + '\\S*', 'ig');
                 found = found.concat(searchStr.match(regex));
             }
             for (i = 0; i < found.length; i += 1) {
+                console.log(found[i]);
                 for (j = 0; j < dict[found[i]].length; j += 1) {
                     keep[dict[found[i][j]]] = 1;
                 }
