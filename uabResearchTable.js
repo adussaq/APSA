@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.1.12");
+    console.log("v0.1.13");
     //variables
     var filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -92,12 +92,9 @@ var table = (function () {
 
         mainFunc = function (evt) {
             var j, that, removed = [];
-            console.log("Main func call");
-            console.log("Evt", evt);
             that = evt.target;
             evt.preventDefault();
             if (that.value) {
-                console.log(that.value);
                 for (j = 0; j < dataArr.length; j += 1) {
                     if (!dataArr[j][cat].join(',').match(that.value)) {
                         removed.push(dataArr.splice(j, 1)[0]);
@@ -108,11 +105,10 @@ var table = (function () {
             if (removed.length > 0) {
                 changeFunc = function (evt) {
                     var k;
-                    console.log("change func call");
-                    console.log("evt2", evt);
                     for (k = 0; k < removed.length; k += 1) {
                         dataArr.push(removed[k]);
                     }
+                    removed = [];
                     mainFunc(evt);
                 };
                 ret.change(changeFunc);
@@ -191,7 +187,11 @@ var table = (function () {
     updateData = function () {
         var i, j, add, cat;
         maxPage = Math.ceil(dataArr.length / perPage);
+        if (cPage > maxPage) {
+            cPage = maxPage;
+        }
         if (maxPage === 0) {
+            cPage = 1;
             pageText.text('Page ' + cPage + ' of ' + 1);
         } else {
             pageText.text('Page ' + cPage + ' of ' + maxPage);
