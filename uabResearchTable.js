@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.2.12");
+    console.log("v0.2.13");
     //variables
     var searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -273,6 +273,9 @@ var table = (function () {
                 for (j = 0; j < options.visible.order.length; j += 1) {
                     cat = options.visible.order[j][0];
                     tableRows[i][cat].text(getList(dataArr[i + add], cat));
+                    if (cat === 'Summary') {
+                        tableRows[i][cat].text(getList(dataArr[i + add], cat) + "Score = " + dataArr[i + add].score);
+                    }
                 }
             } else {
                 tableRows[i].row.hide();
