@@ -257,7 +257,7 @@ var table = (function () {
             var ret = 1;
             a.score = a.score || 0;
             b.score = b.score || 0;
-            if (a.score < b.score) {
+            if (a.score > b.score) {
                 ret = -1;
             }
             if (a.score === b.score && new Date(a.date) > new Date(b.date)) {
