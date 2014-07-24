@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.2.11");
+    console.log("v0.2.12");
     //variables
     var searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -34,7 +34,7 @@ var table = (function () {
                                     } else if (checked[dict[found[k]][j]] < math) {
                                         keep[dict[found[k]][j]] -= checked[dict[found[k]][j]];
                                         keep[dict[found[k]][j]] += math;
-                                        keep[dict[found[k]][j]] = math;
+                                        checked[dict[found[k]][j]] = math;
                                     }
                                 }
                             }
