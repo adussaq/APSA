@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.2.10");
+    console.log("v0.2.11");
     //variables
     var searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -9,7 +9,7 @@ var table = (function () {
     wordSearch = function (evt) {
         var mini, main, removed = [];
         main = function (evt) {
-            var checked, search, i, j, k, searchArr, regex, found = [], keep = {};
+            var checked, search, i, j, k, searchArr, math, regex, found = [], keep = {};
             console.log("main");
             evt.preventDefault();
             search = evt.target.value;
@@ -23,11 +23,18 @@ var table = (function () {
                         for (k = 0; k < found.length; k += 1) {
                             if (found[k] && found[k] !== "") {
                                 for (j = 0; j < dict[found[k]].length; j += 1) {
-                                    if (!keep[dict[found[k]][j]] && !checked.hasOwnProperty(dict[found[k]][j])) {
-                                        keep[dict[found[k]][j]] = searchArr[i].length / found[k].length;
-                                        checked[dict[found[k]][j]] = 1;
-                                    } else if (keep[dict[found[k]][j]] < searchArr[i].length / found[k].length) {
-                                        keep[dict[found[k]][j]] = searchArr[i].length / found[k].length;
+                                    math = searchArr[i].length * searchArr[i].length / found[k].length;
+                                    if (!checked.hasOwnProperty(dict[found[k]][j])) {
+                                        if (!keep[dict[found[k]][j]]) {
+                                            keep[dict[found[k]][j]] = math;
+                                        } else {
+                                            keep[dict[found[k]][j]] += math;
+                                        }
+                                        checked[dict[found[k]][j]] = math;
+                                    } else if (checked[dict[found[k]][j]] < math) {
+                                        keep[dict[found[k]][j]] -= checked[dict[found[k]][j]];
+                                        keep[dict[found[k]][j]] += math;
+                                        keep[dict[found[k]][j]] = math;
                                     }
                                 }
                             }
