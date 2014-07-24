@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.2.9");
+    console.log("v0.2.10");
     //variables
     var searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -16,17 +16,19 @@ var table = (function () {
             searchArr = search.split(/\s/);
             if (search.length > 0) {
                 for (i = 0; i < searchArr.length; i += 1) {
-                    checked = {};
-                    regex = new RegExp('\\S*' + searchArr[i] + '\\S*', 'ig');
-                    found = searchStr.match(regex);
-                    for (k = 0; k < found.length; k += 1) {
-                        if (found[k] && found[k] !== "") {
-                            for (j = 0; j < dict[found[k]].length; j += 1) {
-                                if (!keep[dict[found[k]][j]] && !checked.hasOwnProperty(dict[found[k]][j])) {
-                                    keep[dict[found[k]][j]] = searchArr[i].length / found[k].length;
-                                    checked[dict[found[k]][j]] = 1;
-                                } else if (keep[dict[found[k]][j]] < searchArr[i].length / found[k].length) {
-                                    keep[dict[found[k]][j]] = searchArr[i].length / found[k].length;
+                    if (searchArr[i] && searchArr[i] !== "") {
+                        checked = {};
+                        regex = new RegExp('\\S*' + searchArr[i] + '\\S*', 'ig');
+                        found = searchStr.match(regex);
+                        for (k = 0; k < found.length; k += 1) {
+                            if (found[k] && found[k] !== "") {
+                                for (j = 0; j < dict[found[k]].length; j += 1) {
+                                    if (!keep[dict[found[k]][j]] && !checked.hasOwnProperty(dict[found[k]][j])) {
+                                        keep[dict[found[k]][j]] = searchArr[i].length / found[k].length;
+                                        checked[dict[found[k]][j]] = 1;
+                                    } else if (keep[dict[found[k]][j]] < searchArr[i].length / found[k].length) {
+                                        keep[dict[found[k]][j]] = searchArr[i].length / found[k].length;
+                                    }
                                 }
                             }
                         }
