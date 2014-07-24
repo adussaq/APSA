@@ -23,7 +23,11 @@ var table = (function () {
                     //console.log(found[i]);
                     if (found[i]) {
                         for (j = 0; j < dict[found[i]].length; j += 1) {
-                            keep[dict[found[i]][j]] = 1;
+                            if (keep[dict[found[i]][j]]) {
+                                keep[dict[found[i]][j]] += 1;
+                            } else {
+                                keep[dict[found[i]][j]] = 1;
+                            }
                             //console.log("keep", dict[found[i]][j]);
                         }
                     }
@@ -32,6 +36,8 @@ var table = (function () {
                     if (!keep.hasOwnProperty(dataArr[i].uuid)) {
                         removed.push(dataArr.splice(i, 1)[0]);
                         i -= 1;
+                    } else {
+                        dataArr[i].score = keep[dataArr[i].uuid];
                     }
                 }
             }
@@ -39,9 +45,12 @@ var table = (function () {
             updateData();
         };
         mini = function (evt) {
+            var putBack;
             console.log('mini');
             while (removed.length) {
-                dataArr.push(removed.pop());
+                putBack = removed.pop();
+                putBack.score = 0;
+                dataArr.push(putBack);
             }
             main(evt);
         };
@@ -235,7 +244,12 @@ var table = (function () {
 
         dataArr = data.data.sort(function (a, b) {
             var ret = 1;
-            if (new Date(a.date) > new Date(b.date)) {
+            a.score = a.score || 0;
+            b.score = b.score || 0;
+            if (a.score < b.score) {
+                ret = -1;
+            }
+            if (a.score === b.score && new Date(a.date) > new Date(b.date)) {
                 ret = -1;
             }
             return ret;
