@@ -21,12 +21,12 @@ var table = (function () {
                 }
                 for (i = 0; i < found.length; i += 1) {
                     //console.log(found[i]);
-                    if (found[i]) {
+                    if (found[i] && found[i] !== "") {
                         for (j = 0; j < dict[found[i]].length; j += 1) {
                             if (keep[dict[found[i]][j]]) {
-                                keep[dict[found[i]][j]] += search.length / found[i].length;
+                                keep[dict[found[i]][j]] += search.length * search.length / found[i].length;
                             } else {
-                                keep[dict[found[i]][j]] = search.length / found[i].length;
+                                keep[dict[found[i]][j]] = search.length * search.length / found[i].length;
                             }
                             //console.log("keep", dict[found[i]][j]);
                         }
