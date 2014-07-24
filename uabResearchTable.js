@@ -9,7 +9,7 @@ var table = (function () {
     wordSearch = function (evt) {
         var mini, main, removed = [];
         main = function (evt) {
-            var checked, search, i, j, k, searchArr, math, regex, found = [], keep = {};
+            var checked, search, i, j, k, searchArr, newScore, regex, found = [], keep = {}, previousScore, totalScore;
             console.log("main");
             evt.preventDefault();
             search = evt.target.value;
@@ -23,18 +23,20 @@ var table = (function () {
                         for (k = 0; k < found.length; k += 1) {
                             if (found[k] && found[k] !== "") {
                                 for (j = 0; j < dict[found[k]].length; j += 1) {
-                                    math = searchArr[i].length * searchArr[i].length / found[k].length;
-                                    if (!checked.hasOwnProperty(dict[found[k]][j])) {
-                                        if (!keep[dict[found[k]][j]]) {
-                                            keep[dict[found[k]][j]] = math;
+                                    newScore = searchArr[i].length * searchArr[i].length / found[k].length;
+                                    previousScore = checked[dict[found[k]][j]];
+                                    totalScore = keep[dict[found[k]][j]];
+                                    if (!previousScore) {
+                                        if (!totalScore) {
+                                            keep[dict[found[k]][j]] = newScore; // Set total score to new score 
                                         } else {
-                                            keep[dict[found[k]][j]] += math;
+                                            keep[dict[found[k]][j]] += newScore; // Add new score to total score
                                         }
-                                        checked[dict[found[k]][j]] = math;
-                                    } else if (checked[dict[found[k]][j]] < math) {
-                                        keep[dict[found[k]][j]] -= checked[dict[found[k]][j]];
-                                        keep[dict[found[k]][j]] += math;
-                                        checked[dict[found[k]][j]] = math;
+                                        checked[dict[found[k]][j]] = newScore; // save previous score
+                                    } else if (previousScore < newScore) {
+                                        keep[dict[found[k]][j]] -= previousScore; // remove previous score from total
+                                        keep[dict[found[k]][j]] += newScore; // add new score
+                                        checked[dict[found[k]][j]] = newScore; // set new previous score
                                     }
                                 }
                             }
