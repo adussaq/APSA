@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.2.7");
+    console.log("v0.2.8");
     //variables
     var searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -24,9 +24,9 @@ var table = (function () {
                     if (found[i]) {
                         for (j = 0; j < dict[found[i]].length; j += 1) {
                             if (keep[dict[found[i]][j]]) {
-                                keep[dict[found[i]][j]] += 1;
+                                keep[dict[found[i]][j]] += search.length / found[i].length;
                             } else {
-                                keep[dict[found[i]][j]] = 1;
+                                keep[dict[found[i]][j]] = search.length / found[i].length;
                             }
                             //console.log("keep", dict[found[i]][j]);
                         }
