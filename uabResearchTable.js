@@ -298,8 +298,8 @@ var table = (function () {
                                         "<br />Location: " + obj.Site +
                                         "<br />Type of research: " + obj.RType.join(', ') +
                                         '<br />' + "Stipend: " + obj.Stipend +
-                                        (obj.urlToAddRes ? "<br /> URL for more information: <a href=" + obj.urlToAddRes + "target='_blank'>" + obj.urlToAddRes + "</a>" : "") +
-                                        (obj.file ? "<br />File for more information: <a href=" + obj.file[0] + "target='_blank'>" + obj.file[1] + "</a>" : "") +
+                                        (obj.urlToAddRes ? "<br /> URL for more information: <a href=" + obj.urlToAddRes + " target='_blank'>" + obj.urlToAddRes + "</a>" : "") +
+                                        (obj.file ? "<br />File for more information: <a href=" + obj.file[0] + " target='_blank'>" + obj.file[1] + "</a>" : "") +
                                         "<br /><h4>Contact Information</h4>" +
                                         obj.cName +
                                         "<br />" + obj.cEmail +
