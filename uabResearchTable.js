@@ -188,7 +188,7 @@ var table = (function () {
                 $('<option>', {value: options.visible[cat][i], text: options.visible[cat][i]}).appendTo(ret);
             }
         } else if (cat !== 'date') {
-            ret = $('<input>', {style: 'width:100%'}).keyup(options.visible[cat]);
+            ret = $('<input>', {style: 'width:95%'}).keyup(options.visible[cat]);
         }
         return ret;
     };
