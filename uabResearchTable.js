@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.4.0");
+    console.log("v0.4.1");
     //variables
     var myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -291,9 +291,9 @@ var table = (function () {
                                 modalBody.html(
                                     obj.description +
                                         "<br />" +
-                                        "<h5>Basic Information</h5>" +
+                                        "<h4>Basic Information</h4>" +
                                         "Type of research: " + obj.RType.join(', ') +
-                                        '<br />' + "Stipend: " + obj.stipend +
+                                        '<br />' + "Stipend: " + obj.Stipend +
                                         (obj.urlToAddRes ? "<br /> URL for more information: <a href=" + obj.urlToAddRes + ">" + obj.urlToAddRes + "</a>" : "") +
                                         (obj.file ? "<br />File for more information: <a href=" + obj.file[0] + ">" + obj.file[1] + "</a>" : "")
                                         // Department Site date "cPN", "cEmail", "cName", "PI"
