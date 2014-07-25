@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.4.1");
+    console.log("v0.4.2");
     //variables
     var myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -292,11 +292,18 @@ var table = (function () {
                                     obj.description +
                                         "<br />" +
                                         "<h4>Basic Information</h4>" +
-                                        "Type of research: " + obj.RType.join(', ') +
+                                        "Principle Investigator: " + obj.PI +
+                                        "<br />Department(s) Involved: " + getList(obj, "Department") +
+                                        "<br />Date Posted: " + obj.date +
+                                        "<br />Location: " + obj.Site +
+                                        "<br />Type of research: " + obj.RType.join(', ') +
                                         '<br />' + "Stipend: " + obj.Stipend +
-                                        (obj.urlToAddRes ? "<br /> URL for more information: <a href=" + obj.urlToAddRes + ">" + obj.urlToAddRes + "</a>" : "") +
-                                        (obj.file ? "<br />File for more information: <a href=" + obj.file[0] + ">" + obj.file[1] + "</a>" : "")
-                                        // Department Site date "cPN", "cEmail", "cName", "PI"
+                                        (obj.urlToAddRes ? "<br /> URL for more information: <a href=" + obj.urlToAddRes + "target='_blank'>" + obj.urlToAddRes + "</a>" : "") +
+                                        (obj.file ? "<br />File for more information: <a href=" + obj.file[0] + "target='_blank'>" + obj.file[1] + "</a>" : "") +
+                                        "<br /><h4>Contact Information</h4>" +
+                                        obj.cName +
+                                        "<br />" + obj.cEmail +
+                                        "<br />" + obj.cPN
                                 );
                             });
                         }(tableRows[i], dataArr[i + add], cat));
