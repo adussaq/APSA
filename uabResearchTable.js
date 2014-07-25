@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.3.0");
+    console.log("v0.4.0");
     //variables
     var myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -187,7 +187,7 @@ var table = (function () {
             for (i = 0; i < options.visible[cat].length; i += 1) {
                 $('<option>', {value: options.visible[cat][i], text: options.visible[cat][i]}).appendTo(ret);
             }
-        } else if (cat !== 'date'){
+        } else if (cat !== 'date') {
             ret = $('<input>').keyup(options.visible[cat]);
         }
         return ret;
@@ -285,10 +285,19 @@ var table = (function () {
                     if (cat === 'Summary') {
                         tableRows[i][cat].text("");
                         (function (loc, obj, cat) {
-                            tableRows[i][cat].append($('<a>', {href: "#", 'data-toggle':"modal", 'data-target': "#myModal", text: getList(obj, cat)})).click(function(evt) {
+                            tableRows[i][cat].append($('<a>', {href: "#", 'data-toggle': "modal", 'data-target': "#myModal", text: getList(obj, cat)})).click(function(evt) {
                                 evt.preventDefault();
                                 myModalLabel.text(obj[cat]);
-                                modalBody.text("This will be the description");
+                                modalBody.html(
+                                    obj.description +
+                                        "<br />" +
+                                        "<h5>Basic Information</h5>" +
+                                        "Type of research: " + obj.RType.join(', ') +
+                                        '<br />' + "Stipend: " + obj.stipend +
+                                        (obj.urlToAddRes ? "<br /> URL for more information: <a href=" + obj.urlToAddRes + ">" + obj.urlToAddRes + "</a>" : "") +
+                                        (obj.file ? "<br />File for more information: <a href=" + obj.file[0] + ">" + obj.file[1] + "</a>" : "")
+                                        // Department Site date "cPN", "cEmail", "cName", "PI"
+                                );
                             });
                         }(tableRows[i], dataArr[i + add], cat));
                     }
