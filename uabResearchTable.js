@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v0.4.2");
+    console.log("v1.0.0");
     //variables
     var myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -188,7 +188,7 @@ var table = (function () {
                 $('<option>', {value: options.visible[cat][i], text: options.visible[cat][i]}).appendTo(ret);
             }
         } else if (cat !== 'date') {
-            ret = $('<input>').keyup(options.visible[cat]);
+            ret = $('<input>', {style: 'width:100%'}).keyup(options.visible[cat]);
         }
         return ret;
     };
@@ -290,7 +290,7 @@ var table = (function () {
                                 myModalLabel.text(obj[cat]);
                                 modalBody.html(
                                     obj.description +
-                                        "<br />" +
+                                        "<br /><br />" +
                                         "<h4>Basic Information</h4>" +
                                         "Principle Investigator: " + obj.PI +
                                         "<br />Department(s) Involved: " + getList(obj, "Department") +
@@ -300,7 +300,7 @@ var table = (function () {
                                         '<br />' + "Stipend: " + obj.Stipend +
                                         (obj.urlToAddRes ? "<br /> URL for more information: <a href=" + obj.urlToAddRes + " target='_blank'>" + obj.urlToAddRes + "</a>" : "") +
                                         (obj.file ? "<br />File for more information: <a href=" + obj.file[1] + " target='_blank'>" + obj.file[0] + "</a>" : "") +
-                                        "<br /><h4>Contact Information</h4>" +
+                                        "<br /><br /><h4>Contact Information</h4>" +
                                         obj.cName +
                                         "<br />" + obj.cEmail +
                                         "<br />" + obj.cPN
