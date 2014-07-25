@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var table = (function () {
     'use strict';
-    console.log("v1.0.0");
+    console.log("v1.0.1");
     //variables
     var myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -20,7 +20,7 @@ var table = (function () {
                         checked = {};
                         regex = new RegExp('\\S*' + searchArr[i] + '\\S*', 'ig');
                         found = searchStr.match(regex);
-                        for (k = 0; k < found.length; k += 1) {
+                        for (k = 0; found && k < found.length; k += 1) {
                             if (found[k] && found[k] !== "") {
                                 for (j = 0; j < dict[found[k]].length; j += 1) {
                                     newScore = searchArr[i].length * searchArr[i].length / found[k].length;
