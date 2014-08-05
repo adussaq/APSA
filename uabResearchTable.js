@@ -284,7 +284,8 @@ var table = (function () {
                     tableRows[i][cat].text(getList(dataArr[i + add], cat));
                     if (cat === 'Summary') {
                         tableRows[i][cat].text("");
-                        (function (loc, obj, cat) {
+                        (function (obj, cat) {
+                        //(function (loc, obj, cat) {
                             tableRows[i][cat].append($('<a>', {href: "#", 'data-toggle': "modal", 'data-target': "#myModal", text: getList(obj, cat)})).click(function(evt) {
                                 evt.preventDefault();
                                 myModalLabel.text(obj[cat]);
@@ -306,7 +307,8 @@ var table = (function () {
                                         "<br />" + obj.cPN
                                 );
                             });
-                        }(tableRows[i], dataArr[i + add], cat));
+                        //}(tableRows[i], dataArr[i + add], cat));
+                        }(dataArr[i + add], cat));
                     }
                 }
             } else {
