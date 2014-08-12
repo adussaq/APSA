@@ -50,7 +50,7 @@ var getImportantDates, importantDates;
                         '</tr><tr>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Dussaq_Alex.jpg"></img><br /><b>Webmaster</b><br />Alex Dussaq</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/      "></img><br /><b>SOM Representative MS1/2</b><br />Andrew Headrick</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/      "></img><br /><b>SOM Representative MS3/4</b><br />Quinn Dunlap</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Dunlap_Quinn.jpeg"></img><br /><b>SOM Representative MS3/4</b><br />Quinn Dunlap</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td>' +
                         '</tr><tr>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Redmond_Nicole.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Nicole Redmond</td>' +
