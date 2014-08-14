@@ -1,5 +1,5 @@
 /*global console, $, jQuery */
-var table = (function () {
+var APSAtable = (function () {
     'use strict';
     console.log("v1.0.1");
     //variables

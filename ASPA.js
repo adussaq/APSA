@@ -90,7 +90,7 @@ var getImportantDates, importantDates;
     $('#tab8').click(tabClick);
 
 
-    //Update with new data
+    //Update with new data - all but the research table
     updateChanges = function () {
         var webData = {}, editAllSections, updateRoster, sortByLastName, semesterClick, getThisIsMeImages, url, thisIsMeClick, slideClick, slideClickLast,
             updateDates, updatePastEvents, getEventImages;
@@ -110,6 +110,7 @@ var getImportantDates, importantDates;
 
             //update past events
             updatePastEvents(webData.pastEvents);
+
 
             //Hide all divs
             $('.hide').hide();
@@ -225,7 +226,7 @@ var getImportantDates, importantDates;
             $('.semester').hide();
         };
 
-
+        
 
         //Sub functions
         getThisIsMeImages = function (name, number) {
@@ -272,6 +273,7 @@ var getImportantDates, importantDates;
             evt.preventDefault();
             $(this).hide('slow');
         };
+
         slideClickLast = function (evt) {
             evt.preventDefault();
             $('.slideIMG').show('slow');
@@ -305,6 +307,12 @@ var getImportantDates, importantDates;
             }
         };
     };
+
+    //Add in research table stuff
+    $.get('', function (x) {
+        
+    });
+
 
     updateChanges();
 }());
