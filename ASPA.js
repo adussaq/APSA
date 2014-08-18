@@ -309,9 +309,10 @@ var getImportantDates, importantDates;
     };
 
     //Add in research table stuff
-    $.get('', function (x) {
-        
-    });
+    $('<script>', {src: 'https://uab-apsa.googlecode.com/git/uabResearchTable.js', onload: function (x) {
+        //researchOps
+        console.log('Loaded')
+    }});
 
 
     updateChanges();
