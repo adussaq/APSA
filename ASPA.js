@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.2.3");
+console.log("v2.2.4");
 //Tracking
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -310,7 +310,7 @@ var getImportantDates, importantDates;
 
     //Add in research table stuff
     $('<script>', {src: 'https://uab-apsa.googlecode.com/git/uabResearchTable.js', 
-        onload: "function (x) {APSAtable.makeTable('researchOps');}"})
+        onload: "APSAtable.makeTable('researchOps');"})
     .appendTo($('#ASPAmain'));
 
 
