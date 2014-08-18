@@ -312,7 +312,7 @@ var getImportantDates, importantDates;
     $('<script>', {src: 'https://uab-apsa.googlecode.com/git/uabResearchTable.js'}).ready(function (x) {
         //researchOps
         console.log('Loaded')
-    }).appendTo($('#researchOps'));
+    }).appendTo($('#ASPAmain'));
 
 
     updateChanges();
