@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.1.1");
+console.log("v2.2.0");
 //Tracking
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -312,7 +312,7 @@ var getImportantDates, importantDates;
     $('<script>', {src: 'https://uab-apsa.googlecode.com/git/uabResearchTable.js'}).load(function (x) {
         //researchOps
         console.log('Loaded')
-    });
+    }).appendTo($('#researchOps'));
 
 
     updateChanges();
