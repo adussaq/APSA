@@ -1,4 +1,4 @@
-var main, form, warnTitle, list, ilist, listArr;
+var main, form, warnTitle, list, ilist, listArr, oldEditKey;
 var main = $("#main");
 var submitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run.withSuccessHandler(formResp).processForm(this.parentNode)";
 var resubmitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run.withSuccessHandler(formResp).reprocessForm(this.parentNode)";
@@ -51,6 +51,7 @@ var oldResp = function(resp) {
             }
         }
         $('#secondSub').remove();
+        oldEditKey = $('#keyForEdit').val();
         $('#lookUpOld').html("<h2><b>"+$('#keyForEdit').val()+" was found, please make any edits below, submission date will be updated to today's date</b></h2>");
 //        $('[name=Summary]').val("Does it work?");
         $('#rest').append($('<input>', {name: "ftID", type: "hidden", val:resp.ftID}));
@@ -70,7 +71,7 @@ var oldResp = function(resp) {
 //Delete function
 var deleteResp = function (res) {
    if(res) {
-      main.text("Successfully Deleted File: " + $('#keyForEdit').val() + ". Thank you. To complete another submission, please refresh the page.");
+      main.text("Successfully Deleted File: " + oldEditKey + ". Thank you. To complete another submission, please refresh the page.");
    } else {
       $('#dwarn').text("Delete failed due to a database error, if this problem occurs again please email us at <a href='mailto:UAB.APSA@gmail.com'>UAB.APSA@gmail.com</a>.").attr('style', "color:red;font-weight:bold;");
    }

@@ -218,6 +218,7 @@ var APSAtable = (function () {
         $('<button>', {"class": "tableButton", html: '&#10140;'}).appendTo(pager).click(rightClick);
         updateData();
         console.log(tableRows);
+        div.append($('<div>', {html: "This table is powered by <a href='http://www.uab.edu/medicine/mstp/academics/mstp/uab-apsa-chapter'>UAB APSA</a>. <a href='https://script.google.com/macros/s/AKfycbx5bv2SQtwYvwAxs0NYTkjuypDXgsotKjESKAf1uOwRijXCMELb/exec'>Click here</a> to edit your entry or submit a new project."}))
     };
 
     getList = function (obj, cat) {
