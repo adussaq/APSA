@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.2.5");
+console.log("v2.2.6");
 //Tracking
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -309,9 +309,10 @@ var getImportantDates, importantDates;
     };
 
     //Add in research table stuff
-    // $('<script>', {src: 'https://uab-apsa.googlecode.com/git/uabResearchTable.js', 
-    //     onload: "APSAtable.makeTable('researchOps');"})
-    // .appendTo($('#ASPAmain'));
+    jQuery.getScript('https://uab-apsa.googlecode.com/git/uabResearchTable.js', function (x) {
+        APSAtable.makeTable('researchOps');
+    });
+
 
 
     updateChanges();
