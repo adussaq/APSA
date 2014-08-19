@@ -134,7 +134,7 @@ var APSAtable = (function () {
 
         myModalLabel = $('#myModalLabel');
         modalBody = $('#modalBody');
-        editButton = $('#editButton').click(function (evt) {
+        $('#editButton').click(function (evt) {
             window.open('https://script.google.com/macros/s/AKfycbx5bv2SQtwYvwAxs0NYTkjuypDXgsotKjESKAf1uOwRijXCMELb/exec','_blank');
         });
 
