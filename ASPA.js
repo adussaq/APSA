@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.2.9");
+console.log("v2.2.10");
 //Tracking
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -122,7 +122,7 @@ var getImportantDates, importantDates;
             updatePastEvents(webData.pastEvents);
 
             //update researchPrograms
-            $('#researchPrograms').html(webData.medStudentResearch);
+            $('#researchPrograms').html(webData.medStudentResearch.replace(/[\r\n]{1,2}/, '</br>'));
 
 
             //Hide all divs
