@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.2.8");
+console.log("v2.2.9");
 //Tracking
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -78,6 +78,9 @@ var getImportantDates, importantDates;
                         'This page was created using javascript and html by <a href="http://alexdussaq.info">Alex Dussaq</a><br />' +
                         '<br /></div>'}).appendTo(main);
 
+    //Medical Student Research Programs at UAB
+    $('<div />', {html: '<a href="#" id="tab8">Medical Student Research Programs at UAB</a><div id="researchPrograms" style="margin-left:10px">Coming Soon!</div><br />'}).appendTo(main);
+
     //Research Opportunities -create the section
     $('<div />', {html: '<a href="#" id="tab8">Research Opportunities</a><div id="researchOps" style="margin-left:10px">Coming Soon!</div><br />'}).appendTo(main);
 
@@ -91,7 +94,7 @@ var getImportantDates, importantDates;
     $('#tab5').click(tabClick);
     $('#tab6').click(tabClick);
     $('#tab7').click(tabClick);
-    $('#tab8').click(function (evt) {evt.preventDefault()});
+    $('#tab8').click(function (evt) {evt.preventDefault(); });
     $('#tab9').click(tabClick);
 
     //Update with new data - all but the research table
@@ -117,6 +120,9 @@ var getImportantDates, importantDates;
 
             //update past events
             updatePastEvents(webData.pastEvents);
+
+            //update researchPrograms
+            $('#researchPrograms').html(webData.medStudentResearch);
 
 
             //Hide all divs
@@ -263,7 +269,6 @@ var getImportantDates, importantDates;
             $('.semester').hide();
         };
 
-        
 
         //Sub functions
         getThisIsMeImages = function (name, number) {
@@ -346,9 +351,10 @@ var getImportantDates, importantDates;
     };
 
     //Add in research table stuff
-     jQuery.getScript('https://uab-apsa.googlecode.com/git/uabResearchTable.js', function (x) {
-    //     APSAtable.makeTable('researchOps');
-     });
+    jQuery.getScript('https://uab-apsa.googlecode.com/git/uabResearchTable.js', function (x) {
+        //APSAtable.makeTable('researchOps');
+        return x;
+    });
 
 
 
