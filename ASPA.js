@@ -63,8 +63,8 @@ var getImportantDates, importantDates;
     //Important Dates - create the section
     $('<div />', {html: '<a href="#" id="tab6">Important Dates</a><div id="importantDates" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
 
-    //Research Opportunities -create the section
-    $('<div />', {html: '<a href="#" id="tab8">Research Opportunities</a><div id="researchOps" class= "hide" style="margin-left:10px">Coming Soon!</div><br />'}).appendTo(main);
+    //Dates at uab - create the section
+    $('<div />', {html: '<a href="#" id="tab9">Important Dates</a><div id="eventsAtUAB" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
 
     //Events section
     $('<div />', {html: '<a href="#" id="tab4">Past Events</a><div id=pastEvents class= "hide" style="margin-left:10px"></div>'}).appendTo(main);
@@ -78,6 +78,10 @@ var getImportantDates, importantDates;
                         'This page was created using javascript and html by <a href="http://alexdussaq.info">Alex Dussaq</a><br />' +
                         '<br /></div>'}).appendTo(main);
 
+    //Research Opportunities -create the section
+    $('<div />', {html: '<a href="#" id="tab8">Research Opportunities</a><div id="researchOps" style="margin-left:10px">Coming Soon!</div><br />'}).appendTo(main);
+
+
     //Add some javascript properties to above tabs
     $('.hide').hide();
     $('#tab1').click(tabClick);
@@ -87,8 +91,8 @@ var getImportantDates, importantDates;
     $('#tab5').click(tabClick);
     $('#tab6').click(tabClick);
     $('#tab7').click(tabClick);
-    $('#tab8').click(tabClick);
-
+    $('#tab8').click(function (evt) {evt.preventDefault()});
+    $('#tab9').click(tabClick);
 
     //Update with new data - all but the research table
     updateChanges = function () {
@@ -107,6 +111,9 @@ var getImportantDates, importantDates;
 
             //update important dates
             updateDates(webData.importantDates);
+
+            //update other dates
+            updateOtherDates(webData.eventsAroundUAB);
 
             //update past events
             updatePastEvents(webData.pastEvents);
@@ -158,6 +165,36 @@ var getImportantDates, importantDates;
 
             //update actual elements
             div = $('#importantDates');
+            div.text("");
+            div = $('<table>').appendTo(div);
+
+            for (i = 0; i < dates.length; i += 1) {
+                $('<tr>').append(
+                    new Date(dates[i].endTime) - new Date(dates[i].date) > 60 * 60 * 1000 ?
+                            $('<td>', {style: "width:25%;padding:5px;", text: (new Date(dates[i].date)).toLocaleString() + " - " + (new Date(dates[i].endTime)).toLocaleString() })
+                        :
+                                $('<td>', {style: "width:25%;padding:5px;", text: (new Date(dates[i].date)).toLocaleString()})
+                ).append(
+                    $('<td>', {style: "padding:5px;", html: "<b>" + dates[i].name + '</b><br />' + dates[i].location + (dates[i].description ? "<br />" + dates[i].description : "") })
+                ).appendTo(div);
+            }
+        };
+
+
+        updateOtherDates = function (dates) {
+            //variables
+            var div, i;
+
+            //sort dates
+            dates = dates.sort(function (a, b) {
+                if (new Date(a.date) >= new Date(b.date)) {
+                    return 1;
+                }
+                return -1;
+            });
+
+            //update actual elements
+            div = $('#eventsAtUAB');
             div.text("");
             div = $('<table>').appendTo(div);
 
