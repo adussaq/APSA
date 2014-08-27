@@ -79,7 +79,7 @@ var getImportantDates, importantDates;
                         '<br /></div>'}).appendTo(main);
 
     //Medical Student Research Programs at UAB
-    $('<div />', {html: '<a href="#" id="tab8">Medical Student Research Programs at UAB</a><div id="researchPrograms" style="margin-left:10px">Coming Soon!</div><br />'}).appendTo(main);
+    $('<div />', {html: '<a href="#" id="tab10">Medical Student Research Programs at UAB</a><div class= "hide" id="researchPrograms" style="margin-left:10px">Coming Soon!</div><br />'}).appendTo(main);
 
     //Research Opportunities -create the section
     $('<div />', {html: '<a href="#" id="tab8">Research Opportunities</a><div id="researchOps" style="margin-left:10px">Coming Soon!</div><br />'}).appendTo(main);
@@ -96,6 +96,7 @@ var getImportantDates, importantDates;
     $('#tab7').click(tabClick);
     $('#tab8').click(function (evt) {evt.preventDefault(); });
     $('#tab9').click(tabClick);
+    $('#tab10').click(tabClick);
 
     //Update with new data - all but the research table
     updateChanges = function () {
