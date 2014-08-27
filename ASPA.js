@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.2.7");
+console.log("v2.2.8");
 //Tracking
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -64,7 +64,7 @@ var getImportantDates, importantDates;
     $('<div />', {html: '<a href="#" id="tab6">Important Dates</a><div id="importantDates" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
 
     //Dates at uab - create the section
-    $('<div />', {html: '<a href="#" id="tab9">Important Dates</a><div id="eventsAtUAB" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
+    $('<div />', {html: '<a href="#" id="tab9">Events around UAB</a><div id="eventsAtUAB" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
 
     //Events section
     $('<div />', {html: '<a href="#" id="tab4">Past Events</a><div id=pastEvents class= "hide" style="margin-left:10px"></div>'}).appendTo(main);
@@ -97,7 +97,7 @@ var getImportantDates, importantDates;
     //Update with new data - all but the research table
     updateChanges = function () {
         var webData = {}, editAllSections, updateRoster, sortByLastName, semesterClick, getThisIsMeImages, url, thisIsMeClick, slideClick, slideClickLast,
-            updateDates, updatePastEvents, getEventImages;
+            updateDates, updatePastEvents, getEventImages, updateOtherDates;
         url = 'https://3fb447c8ea45275c3e71dc49d678c53d6b103efb.googledrive.com/host/0BwdB5oEiQBYWZFk2ZkRNM1d3ZXc/';
         jQuery.get(url + '?' + (Math.random()).toString().replace('0.', ''), function (x) {
             webData = JSON.parse(x);
