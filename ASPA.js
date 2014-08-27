@@ -123,8 +123,7 @@ var getImportantDates, importantDates;
             updatePastEvents(webData.pastEvents);
 
             //update researchPrograms
-            $('#researchPrograms').html(webData.medStudentResearch.replace(/[\r\n]{1,2}/, '</br>'));
-
+            $('#researchPrograms').html(webData.medStudentResearch.replace(/[\n\r]{1,2}/g, '<br />'));
 
             //Hide all divs
             $('.hide').hide();
