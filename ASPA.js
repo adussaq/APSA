@@ -352,8 +352,7 @@ var getImportantDates, importantDates;
 
     //Add in research table stuff
     jQuery.getScript('https://uab-apsa.googlecode.com/git/uabResearchTable.js', function (x) {
-        //APSAtable.makeTable('researchOps');
-        return x;
+        APSAtable.makeTable('researchOps');
     });
 
 
