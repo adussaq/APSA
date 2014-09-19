@@ -302,7 +302,6 @@ var APSAtable = (function () {
                                         "<br />Date Posted: " + obj.date +
                                         "<br />Location: " + obj.Site +
                                         "<br />Type of research: " + obj.RType.join(', ') +
-                                        '<br />' + "Stipend: " + obj.Stipend +
                                         (obj.urlToAddRes ? "<br /> URL for more information: <a href=" + obj.urlToAddRes + " target='_blank'>" + obj.urlToAddRes + "</a>" : "") +
                                         (obj.file ? "<br />File for more information: <a href=" + obj.file[1] + " target='_blank'>" + obj.file[0] + "</a>" : "") +
                                         "<br /><br /><h4>Contact Information</h4>" +
