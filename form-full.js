@@ -20,8 +20,11 @@ var submitFunc = function (evt) {
 var resubmitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run('reprocessForm', this.parentNode, 'formResp')";
 var google = {script: {}};
 google.script.run = function (gscript, data, callback) {
-  $.post("https://script.google.com/macros/s/AKfycbwaaNIG1tZXJz26-7FWZIQG1HeMnyPPlRs4D0S6hx-JXoN9bVo/exec?callback=" + callback, {'func': gscript, 'data': data});
+  data = $(data).serializeArray();
+  data.push({name; funcToCall, value: gscript});
+  $.post("https://script.google.com/macros/s/AKfycbwaaNIG1tZXJz26-7FWZIQG1HeMnyPPlRs4D0S6hx-JXoN9bVo/exec?callback=" + callback, data);
 }
+
 
 $('<h1>', {text: "Submit Research Project"}).appendTo(main);
 var form = $('<form>', {id:"lookUpOld"}).appendTo(main);
