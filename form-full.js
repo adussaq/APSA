@@ -1,3 +1,5 @@
+//Disclaimer: this is some of the worst code I have ever written, it will be rewritten given tool use.
+
 var main, form, warnTitle, list, ilist, listArr, oldEditKey;
 var main = $("#main");
 var files = {};
@@ -27,8 +29,7 @@ google.script.run = function (gscript, data, callback) {
   data = $(data).serializeArray();
   data.push({name: 'funcToCall', value: gscript});
   $.each(files, function(key, value) {
-     data.push({name:file, value:value});
-     data.push({name:fileName, value:key});
+     data.push({name:'file', value:value});
   });
   console.log(data);
   $.post("https://script.google.com/macros/s/AKfycbwaaNIG1tZXJz26-7FWZIQG1HeMnyPPlRs4D0S6hx-JXoN9bVo/exec?callback=" + callback, data);
@@ -392,3 +393,4 @@ $('input[type=file]').on('change', prepareUpload);
 function prepareUpload(event) {
   files = event.target.files;
 }
+
