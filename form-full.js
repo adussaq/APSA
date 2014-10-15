@@ -1,7 +1,6 @@
 var main, form, warnTitle, list, ilist, listArr, oldEditKey;
 var main = $("#main");
 var files = {};
-
 //?$$$$$
 //tempFunc = function(x) {console.log(x,"temp");}
 //$.post("https://script.google.com/macros/s/AKfycbwaaNIG1tZXJz26-7FWZIQG1HeMnyPPlRs4D0S6hx-JXoN9bVo/exec?callback=tempFunc",{data:'hi'})
@@ -15,6 +14,15 @@ var files = {};
 
 //var submitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run('processForm', this.parentNode, 'formResp')";
 var submitFunc = function (evt) {
+  evt.preventDefault();
+
+  $('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');
+  google.script.run('processForm', this.parentNode, 'formResp');
+  return;
+}
+var resubmitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run('reprocessForm', this.parentNode, 'formResp')";
+var google = {script: {}};
+google.script.run = function (gscript, data, callback) {
   console.log(data, $(data));
   data = $(data).serializeArray();
   data.push({name: 'funcToCall', value: gscript});
@@ -23,14 +31,6 @@ var submitFunc = function (evt) {
      data.push({name:fileName, value:key});
   });
   console.log(data);
-  $.post("https://script.google.com/macros/s/AKfycbwaaNIG1tZXJz26-7FWZIQG1HeMnyPPlRs4D0S6hx-JXoN9bVo/exec?callback=" + callback, data);
-}
-
-var resubmitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run('reprocessForm', this.parentNode, 'formResp')";
-var google = {script: {}};
-google.script.run = function (gscript, data, callback) {
-  data = $(data).serializeArray();
-  data.push({name: funcToCall, value: gscript});
   $.post("https://script.google.com/macros/s/AKfycbwaaNIG1tZXJz26-7FWZIQG1HeMnyPPlRs4D0S6hx-JXoN9bVo/exec?callback=" + callback, data);
 }
 
