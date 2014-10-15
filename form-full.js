@@ -10,7 +10,13 @@ var main = $("#main");
 //?$$$$$
 //?$$$$$
 
-var submitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run('processForm', this.parentNode, 'formResp')";
+//var submitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run('processForm', this.parentNode, 'formResp')";
+var submitFunc = function (evt) {
+  evt.preventDefault();
+  $('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');
+  google.script.run('processForm', this.parentNode, 'formResp');
+  return;
+}
 var resubmitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run('reprocessForm', this.parentNode, 'formResp')";
 var google = {script: {}};
 google.script.run = function (gscript, data, callback) {
@@ -333,7 +339,7 @@ $('<span>', {text: "I understand the above statement"}).appendTo(form);
 $('<br>').appendTo(form);$('<br>').appendTo(form);
 
 //Submit Button
-$('<input>', {id: 'mainSub', class: "login login-submit", type:"submit", style:"width:100%", onclick: submitFunc, value:"Submit"}).appendTo(form);
+$('<input>', {id: 'mainSub', class: "login login-submit", type:"submit", style:"width:100%" value:"Submit"}).appendTo(form).click(submitFunc);
 
 $('<h2>', {id:"submitText"}).appendTo(form);
 
