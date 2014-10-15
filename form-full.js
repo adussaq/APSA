@@ -1,5 +1,6 @@
 var main, form, warnTitle, list, ilist, listArr, oldEditKey;
 var main = $("#main");
+var files = {};
 
 //?$$$$$
 //tempFunc = function(x) {console.log(x,"temp");}
@@ -10,12 +11,20 @@ var main = $("#main");
 //?$$$$$
 //?$$$$$
 
+
+
 //var submitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run('processForm', this.parentNode, 'formResp')";
 var submitFunc = function (evt) {
-  evt.preventDefault();
-  $('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');
-  google.script.run('processForm', this.parentNode, 'formResp');
-  return;
+  console.log(data, $(data));
+  data = $(data).serializeArray();
+  data.push({name: 'funcToCall', value: gscript});
+  $.each(files, function(key, value) {
+     data.push({name:file, value:value});
+     data.push({name:fileName, value:key});
+  });
+  console.log(data);
+  $.post("https://script.google.com/macros/s/AKfycbwaaNIG1tZXJz26-7FWZIQG1HeMnyPPlRs4D0S6hx-JXoN9bVo/exec?callback=" + callback, data);
+}
 }
 var resubmitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run('reprocessForm', this.parentNode, 'formResp')";
 var google = {script: {}};
@@ -374,4 +383,12 @@ var formResp = function(resp) {
     if(good) {
         main.html("<h2>Thank you for submitting, within 30 minutes you will be able to find your project here <a href='http://bit.ly/UABapsa'> UAB APSA</a>. Your personal key for editing this research submission is: " + resp.uuid + ". This information has been sent to your contact email as well.<br />To complete another submission, please refresh the page.</h2>");
     }
+}
+
+//deal with files for submit...
+$('input[type=file]').on('change', prepareUpload);
+ 
+// Grab the files and set them to our variable
+function prepareUpload(event) {
+  files = event.target.files;
 }
