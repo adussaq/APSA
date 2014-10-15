@@ -1,7 +1,21 @@
 var main, form, warnTitle, list, ilist, listArr, oldEditKey;
 var main = $("#main");
-var submitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run.withSuccessHandler(formResp).processForm(this.parentNode)";
-var resubmitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run.withSuccessHandler(formResp).reprocessForm(this.parentNode)";
+
+//?$$$$$
+//tempFunc = function(x) {console.log(x,"temp");}
+//$.post("https://script.google.com/macros/s/AKfycbwaaNIG1tZXJz26-7FWZIQG1HeMnyPPlRs4D0S6hx-JXoN9bVo/exec?callback=tempFunc",{data:'hi'})
+//?$$$$$
+//?$$$$$
+//?$$$$$
+//?$$$$$
+//?$$$$$
+
+var submitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run('processForm', this.parentNode, 'formResp')";
+var resubmitFunc = "$('#submitText').text('Loading, please wait - this may take a while especially if you are submitting a file.').attr('style','color:black;font-weight:normal;');google.script.run('reprocessForm', this.parentNode, 'formResp')";
+var google.script.run = function (gscript, data, callback) {
+  $.post("https://script.google.com/macros/s/AKfycbwaaNIG1tZXJz26-7FWZIQG1HeMnyPPlRs4D0S6hx-JXoN9bVo/exec?callback=" + callback, {'func': gscript, 'data': data});
+}
+
 $('<h1>', {text: "Submit Research Project"}).appendTo(main);
 var form = $('<form>', {id:"lookUpOld"}).appendTo(main);
 $('<h2>', {text: "* - indicates required field"}).appendTo(form);
@@ -12,6 +26,10 @@ list = $('<select>', {name:'formtype', id:'formtype'}).appendTo(form).change(fun
    if($('#formtype option:selected').val() === 'Previous') {
       $('<div>', {text:'Enter your editing key:'}).appendTo(forID);
       $('<input>', {type:'text',id:'keyForEdit'}).appendTo(forID);
+//?$$$$$
+//?$$$$$
+//?$$$$$
+//?$$$$$
       $('<input>', {value: "submit", class: "login login-submit", id: "secondSub",style:"width:100%", onclick: "$('#findText').text('Looking up your project, give this a minute.');google.script.run.withSuccessHandler(oldResp).findOld($('#keyForEdit').val())"}).appendTo(forID);
       $('<span>', {id: 'findText'}).appendTo(forID);
       $('#rest').hide();
@@ -59,6 +77,14 @@ var oldResp = function(resp) {
         var button = $('<button>', {class: "login login-submit", style:"width:100%;background-color:red;", text:"Delete this entry."}).click(function(evt) {
            evt.preventDefault();
            if(window.confirm("Are you sure you would like to delete this entry?")) {
+//?$$$$$
+//?$$$$$//?$$$$$
+//?$$$$$
+//?$$$$$
+//?$$$$$
+//?$$$$$
+//?$$$$$
+
               google.script.run.withSuccessHandler(deleteResp).deleteEntry(resp.ftID);
            }
         });
