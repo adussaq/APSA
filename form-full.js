@@ -339,7 +339,7 @@ $('<span>', {text: "I understand the above statement"}).appendTo(form);
 $('<br>').appendTo(form);$('<br>').appendTo(form);
 
 //Submit Button
-$('<input>', {id: 'mainSub', class: "login login-submit", type:"submit", style:"width:100%" value:"Submit"}).appendTo(form).click(submitFunc);
+$('<input>', {id: 'mainSub', class: "login login-submit", type:"submit", style:"width:100%", value:"Submit"}).click(submitFunc).appendTo(form);
 
 $('<h2>', {id:"submitText"}).appendTo(form);
 
