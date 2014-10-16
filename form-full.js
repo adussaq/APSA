@@ -28,9 +28,9 @@ google.script.run = function (gscript, data, callback) {
   console.log(data, $(data));
   data = $(data).serializeArray();
   data.push({name: 'funcToCall', value: gscript});
-  $.each(files, function(key, value) {
-     data.push({name:'file', value:value});
-  });
+  // $.each(files, function(key, value) {
+  //    data.push({name:'file', value:value});
+  // });
   console.log(data);
   $.post("https://script.google.com/macros/s/AKfycbwaaNIG1tZXJz26-7FWZIQG1HeMnyPPlRs4D0S6hx-JXoN9bVo/exec?callback=" + callback, data);
 }
@@ -272,18 +272,18 @@ $('<input>', {id: "Other-RType", name: "RType", type: "checkbox", value: "Other"
 var tempRType = $('<span>', {html:'<span style="display: inline-block;width:60px;">Other</span>'}).appendTo(ilist);
 
 
-//Stipend
-$('<h2>', {text: "Does this research include a stipend"}).appendTo(form);
-list = $('<ul>').appendTo(form);
-ilist = $('<li>').appendTo(list);
-$('<input>', {name: "Stipend", type: "radio", value: "Yes"}).appendTo(ilist);
-$('<span>', {text:"Yes"}).appendTo(ilist);
-ilist = $('<li>').appendTo(list);
-$('<input>', {name: "Stipend", type: "radio", value: "No"}).appendTo(ilist);
-$('<span>', {text:"No"}).appendTo(ilist);
-ilist = $('<li>').appendTo(list);
-$('<input>', {name: "Stipend", type: "radio", value: "Contact for more details"}).appendTo(ilist);
-$('<span>', {text:"Contact for more details"}).appendTo(ilist);
+// //Stipend
+// $('<h2>', {text: "Does this research include a stipend"}).appendTo(form);
+// list = $('<ul>').appendTo(form);
+// ilist = $('<li>').appendTo(list);
+// $('<input>', {name: "Stipend", type: "radio", value: "Yes"}).appendTo(ilist);
+// $('<span>', {text:"Yes"}).appendTo(ilist);
+// ilist = $('<li>').appendTo(list);
+// $('<input>', {name: "Stipend", type: "radio", value: "No"}).appendTo(ilist);
+// $('<span>', {text:"No"}).appendTo(ilist);
+// ilist = $('<li>').appendTo(list);
+// $('<input>', {name: "Stipend", type: "radio", value: "Contact for more details"}).appendTo(ilist);
+// $('<span>', {text:"Contact for more details"}).appendTo(ilist);
 
 
 //Primary Investigator
@@ -337,10 +337,10 @@ warnDesc = $('<div>', {id: "warnTitle", class: "warn"}).appendTo(form);
 $('<h2>', {text: "URL to additional information or online application"}).appendTo(form);
 $('<input>', {name: "urlToAddRes", type: 'text'}).appendTo(form);
 
-//File for additional information
-$('<h2>', {text: "Attach a document with more information"}).appendTo(form);
-$('<span>', {id:'additionalInfoForFile'}).appendTo(form);
-$('<input>', {name: "file", type: 'file'}).appendTo(form);
+// //File for additional information
+// $('<h2>', {text: "Attach a document with more information"}).appendTo(form);
+// $('<span>', {id:'additionalInfoForFile'}).appendTo(form);
+// $('<input>', {name: "file", type: 'file'}).appendTo(form);
 
 //Checkbox
 $('<br>').appendTo(form);
