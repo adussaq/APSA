@@ -357,8 +357,6 @@ $('<input>', {id: 'mainSub', class: "login login-submit", type:"submit", style:"
 $('<h2>', {id:"submitText"}).appendTo(form);
 
 var formResp = function(resp) {
-    console.log(resp);
-    return;
     var good = true;
     if (!resp) {
        good = false;
