@@ -294,7 +294,7 @@ var APSAtable = (function () {
                                 evt.preventDefault();
                                 myModalLabel.text(obj[cat]);
                                 modalBody.html(
-                                    obj.description +
+                                    obj.description.replace(/\n/g, "<br />") +
                                         "<br /><br />" +
                                         "<h4>Basic Information</h4>" +
                                         "Principle Investigator: " + obj.PI +
