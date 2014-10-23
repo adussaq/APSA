@@ -351,7 +351,7 @@ var getImportantDates, importantDates;
     };
 
     //Add in research table stuff
-    jQuery('#researchOps').html('<iframe src="https://uab-apsa.googlecode.com/git/table.html" "border: 0" width="100%" height="640" frameborder="0" scrolling="no">')
+    jQuery('#researchOps').html('<iframe src="https://uab-apsa.googlecode.com/git/table.html" "border: 0" width="100%" height="1250" frameborder="0" scrolling="no">')
 
 
 
