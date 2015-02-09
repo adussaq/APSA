@@ -236,7 +236,7 @@ var APSAtable = (function () {
         }
       });
     }
-    if (cat === 'Audience') {
+    if (cat === 'Audience' && len === 'short') {
       ret = ret.replace(/student\s|\sstudent/ig, '');
     }
     if (len === 'short' && ret.length > 120) {
