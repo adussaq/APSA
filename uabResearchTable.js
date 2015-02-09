@@ -222,7 +222,7 @@ var APSAtable = (function () {
         // div.append($('<div>', {html: "This table is powered by <a href='http://www.uab.edu/medicine/mstp/academics/mstp/uab-apsa-chapter' target='_parent'>UAB APSA</a>. <a target='_parent' href='https://script.google.com/macros/s/AKfycbx5bv2SQtwYvwAxs0NYTkjuypDXgsotKjESKAf1uOwRijXCMELb/exec'>Click here</a> to edit your entry or submit a new project."}))
     };
 
-    getList = function (obj, cat) {
+    getList = function (obj, cat, len) {
         var ret = "", arr = obj[cat];
         if (typeof arr === 'string' || !arr) {
             ret = arr;
@@ -234,6 +234,9 @@ var APSAtable = (function () {
                     ret = ret ? ret + ", " + x : x;
                 }
             });
+        }
+        if (len === 'short' && ret.length > 120) {
+            ret = "Multiple."
         }
         return ret;
     };
@@ -286,12 +289,12 @@ var APSAtable = (function () {
                 tableRows[i].row.show();
                 for (j = 0; j < options.visible.order.length; j += 1) {
                     cat = options.visible.order[j][0];
-                    tableRows[i][cat].text(getList(dataArr[i + add], cat));
+                    tableRows[i][cat].text(getList(dataArr[i + add], cat, 'short'));
                     if (cat === 'Summary') {
                         tableRows[i][cat].text("");
                         (function (obj, cat) {
                         //(function (loc, obj, cat) {
-                            tableRows[i][cat].append($('<a>', {href: "#", 'data-toggle': "modal", 'data-target': "#myModal", text: getList(obj, cat)})).click(function(evt) {
+                            tableRows[i][cat].append($('<a>', {href: "#", 'data-toggle': "modal", 'data-target': "#myModal", text: getList(obj, cat, 'long')})).click(function(evt) {
                                 evt.preventDefault();
                                 myModalLabel.text(obj[cat]);
                                 modalBody.html(
@@ -299,7 +302,7 @@ var APSAtable = (function () {
                                         "<br /><br />" +
                                         "<h4>Basic Information</h4>" +
                                         "Principle Investigator: " + obj.PI +
-                                        "<br />Department(s) Involved: " + getList(obj, "Department") +
+                                        "<br />Department(s) Involved: " + getList(obj, "Department", 'long') +
                                         "<br />Date Posted: " + obj.date +
                                         "<br />Location: " + obj.Site +
                                         "<br />Type of research: " + obj.RType.join(', ') +
