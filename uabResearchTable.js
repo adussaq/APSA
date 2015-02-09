@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var APSAtable = (function () {
     'use strict';
-    console.log("v1.0.2");
+    console.log("v1.0.3");
     //variables
     var myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
