@@ -236,7 +236,7 @@ var APSAtable = (function () {
             });
         }
         if (len === 'short' && ret.length > 120) {
-            ret = "Multiple."
+            ret = "Multiple"
         }
         return ret;
     };
