@@ -1,7 +1,7 @@
 /*global console, $, jQuery, window */
 var APSAtable = (function () {
   'use strict';
-  console.log("v1.0.6");
+  console.log("v1.0.7");
   //variables
   var myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -237,7 +237,7 @@ var APSAtable = (function () {
       });
     }
     if (cat === 'Audience') {
-      ret.replace(/student\s|\sstudent/ig, '');
+      ret = ret.replace(/student\s|\sstudent/ig, '');
     }
     if (len === 'short' && ret.length > 120) {
       ret = "Multiple";
