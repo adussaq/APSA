@@ -1,7 +1,7 @@
 /*global console, $, jQuery, window */
 var APSAtable = (function () {
   'use strict';
-  console.log("v1.0.4");
+  console.log("v1.0.6");
   //variables
   var myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -144,7 +144,7 @@ var APSAtable = (function () {
     dict = data.dict;
     dataArr = data.data;
     searchStr = data.str;
-    div.append($('<div>', {html: "This table is powered by <a href='http://www.uab.edu/medicine/mstp/academics/mstp/uab-apsa-chapter' target='_parent'>UAB APSA</a>. <a target='_parent' href='https://script.google.com/macros/s/AKfycbx5bv2SQtwYvwAxs0NYTkjuypDXgsotKjESKAf1uOwRijXCMELb/exec'>Click here</a> to edit your entry or submit a new project."}));
+    div.append($('<div>', {style: "font-size:110%", html: "This table is powered by <a href='http://www.uab.edu/medicine/mstp/academics/mstp/uab-apsa-chapter' target='_parent'>UAB APSA</a>. <a target='_parent' href='https://script.google.com/macros/s/AKfycbx5bv2SQtwYvwAxs0NYTkjuypDXgsotKjESKAf1uOwRijXCMELb/exec'>Click here</a> to edit your entry or submit a new project."}));
     table = $("<table>", {"class": "uabR-table", style: "width:100%"}).appendTo(div);
 
     //make table header
@@ -235,6 +235,9 @@ var APSAtable = (function () {
           ret = ret ? ret + ", " + x : x;
         }
       });
+    }
+    if (cat === 'Audience') {
+      ret.replace(/student\s|\sstudent/ig, '');
     }
     if (len === 'short' && ret.length > 120) {
       ret = "Multiple";
