@@ -143,6 +143,7 @@ var APSAtable = (function () {
         dict = data.dict;
         dataArr = data.data;
         searchStr = data.str;
+        div.append($('<div>', {html: "This table is powered by <a href='http://www.uab.edu/medicine/mstp/academics/mstp/uab-apsa-chapter' target='_parent'>UAB APSA</a>. <a target='_parent' href='https://script.google.com/macros/s/AKfycbx5bv2SQtwYvwAxs0NYTkjuypDXgsotKjESKAf1uOwRijXCMELb/exec'>Click here</a> to edit your entry or submit a new project."}));
         table = $("<table>", {"class": "uabR-table", style: "width:100%"}).appendTo(div);
 
         //make table header
@@ -218,7 +219,7 @@ var APSAtable = (function () {
         $('<button>', {"class": "tableButton", html: '&#10140;'}).appendTo(pager).click(rightClick);
         updateData();
         console.log(tableRows);
-        div.append($('<div>', {html: "This table is powered by <a href='http://www.uab.edu/medicine/mstp/academics/mstp/uab-apsa-chapter' target='_parent'>UAB APSA</a>. <a target='_parent' href='https://script.google.com/macros/s/AKfycbx5bv2SQtwYvwAxs0NYTkjuypDXgsotKjESKAf1uOwRijXCMELb/exec'>Click here</a> to edit your entry or submit a new project."}))
+        // div.append($('<div>', {html: "This table is powered by <a href='http://www.uab.edu/medicine/mstp/academics/mstp/uab-apsa-chapter' target='_parent'>UAB APSA</a>. <a target='_parent' href='https://script.google.com/macros/s/AKfycbx5bv2SQtwYvwAxs0NYTkjuypDXgsotKjESKAf1uOwRijXCMELb/exec'>Click here</a> to edit your entry or submit a new project."}))
     };
 
     getList = function (obj, cat) {
