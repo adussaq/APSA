@@ -1,7 +1,7 @@
 /*global console, $, jQuery, window */
 var APSAtable = (function () {
   'use strict';
-  console.log("v1.0.3");
+  console.log("v1.0.4");
   //variables
   var myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
 
@@ -302,7 +302,7 @@ var APSAtable = (function () {
                   obj.description.replace(/\n/g, "<br />") +
                     "<br /><br />" +
                     "<h3>Basic Information</h3>" +
-                    "<b>Principle Investigator: " + obj.PI +
+                    "<b>Principle Investigator</b>: " + obj.PI +
                     "<br /><b>Department(s) Involved</b>: " + getList(obj, "Department", 'long') +
                     "<br /><b>Date Posted</b>: " + obj.date +
                     "<br /><b>Location</b>: " + obj.Site +
