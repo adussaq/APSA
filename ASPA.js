@@ -64,13 +64,13 @@ var getImportantDates, importantDates;
     $('<div />', {html: '<a href="#" id="tab6">Upcoming APSA Events</a><div id="importantDates" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
 
     //Dates at uab - create the section
-    $('<div />', {html: '<a href="#" id="tab9">Events around UAB</a><div id="eventsAtUAB" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
+    // $('<div />', {html: '<a href="#" id="tab9">Events around UAB</a><div id="eventsAtUAB" class= "hide" style="margin-left:10px"></div><br />'}).appendTo(main);
 
     //Events section
     $('<div />', {html: '<a href="#" id="tab4">Past APSA Events</a><div id=pastEvents class= "hide" style="margin-left:10px"></div>'}).appendTo(main);
 
     //Medical Student Research Programs at UAB
-    $('<div />', {html: '<a href="#" id="tab10">Medical Student Research Programs at UAB</a><div class= "hide" id="researchPrograms" style="margin-left:10px">Coming Soon!</div><br />'}).appendTo(main);
+    // $('<div />', {html: '<a href="#" id="tab10">Medical Student Research Programs at UAB</a><div class= "hide" id="researchPrograms" style="margin-left:10px">Coming Soon!</div><br />'}).appendTo(main);
 
     //Contact Us
     $('<div />', {html: '<a href="#" id="tab7">Contact Us</a><div class= "hide" style="margin-left:10px"><a  href="mailto:UAB.APSA@gmail.com">UAB.APSA@gmail.com</a><br /><br /></div>'}).appendTo(main);
@@ -96,7 +96,7 @@ var getImportantDates, importantDates;
     $('#tab7').click(tabClick);
     $('#tab8').click(function (evt) {evt.preventDefault(); });
     $('#tab9').click(tabClick);
-    $('#tab10').click(tabClick);
+    // $('#tab10').click(tabClick);
 
     //Update with new data - all but the research table
     updateChanges = function () {
@@ -117,7 +117,7 @@ var getImportantDates, importantDates;
             updateDates(webData.importantDates);
 
             //update other dates
-            updateOtherDates(webData.eventsAroundUAB);
+            // updateOtherDates(webData.eventsAroundUAB);
 
             //update past events
             updatePastEvents(webData.pastEvents);
