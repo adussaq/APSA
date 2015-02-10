@@ -43,7 +43,7 @@ var APSAtable = (function () {
   };
 
   var receiver = function (evt) {
-    console.log('evt');
+    console.log(evt, 'mainPost');
     if (evt.origin === curl) {
       var h = Number(evt.data);
       frame.height(h + 20);
