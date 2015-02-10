@@ -3,14 +3,14 @@ var APSAtable = (function () {
   'use strict';
 
   console.log('https://uab-apsa.googlecode.com/git/buildUABresearchTable.js ' + 
-    'v1.0.0');
+    'v1.0.1');
 
   //variables
   var curl, url, $, main, makeTable, frame, div;
 
   //variable declaration
-  curl = 'https://uab-apsa.googlecode.com/git';
-  url = curl + '/table.html#' + encodeURIComponent(document.location.href);
+  curl = 'https://uab-apsa.googlecode.com';
+  url = curl + '/git/table.html#' + encodeURIComponent(document.location.href);
   main = {};
   //Global functions
   //Actual table maker
