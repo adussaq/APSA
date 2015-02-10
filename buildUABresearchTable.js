@@ -37,7 +37,7 @@ var APSAtable = (function () {
         console.error('Could not find div that was indicated, make sure one exists with id=[divID].');
       } else {
         div.empty();
-        frame = $('<iframe>', {seamless: "", frameborder: 0, allowTransparency:'true', width: '100%', src: url}).appendTo(div);
+        frame = $('<iframe>', {scrolling: 'no', seamless: "", frameborder: 0, allowTransparency:'true', width: '100%', src: url}).appendTo(div);
       }
     }
   };
