@@ -3,7 +3,7 @@ var APSAtable = (function () {
   'use strict';
 
   console.log('https://uab-apsa.googlecode.com/git/buildUABresearchTable.js ' + 
-    'v1.1.0');
+    'v1.1.1');
 
   //variables
   var curl, url, $, main, makeTable, frame, div;

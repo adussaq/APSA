@@ -1,7 +1,7 @@
 /*global console, $, jQuery */
 var updateChanges;
 console.log('https://uab-apsa.googlecode.com/git/buildUABresearchTable.js ' +
-    "v2.3.0");
+    "v2.4.0");
 //Tracking
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

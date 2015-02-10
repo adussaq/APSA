@@ -2,7 +2,7 @@
 var APSAtable = (function () {
   'use strict';
   console.log('https://uab-apsa.googlecode.com/git/uabResearchTable.js ' +
-    'v2.1.1');
+    'v2.1.2');
 
   //variables
   var makeActualTable, parent_url, updateSize, setUpSizing, madeBy, table, myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
