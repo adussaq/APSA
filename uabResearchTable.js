@@ -2,7 +2,7 @@
 var APSAtable = (function () {
   'use strict';
   console.log('https://uab-apsa.googlecode.com/git/uabResearchTable.js ' +
-    'v2.1.0');
+    'v2.1.1');
 
   //variables
   var makeActualTable, parent_url, updateSize, setUpSizing, madeBy, table, myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
@@ -162,7 +162,6 @@ var APSAtable = (function () {
     //make table header
     var i, row1, row2, length;
     table.empty();
-    console.log('attemping this new function');
     if (window.document.body.clientWidth > 600) {
       options.visible.order = [["Audience", "22%", "Audience"], ["RType", "10%", "Research Type"], ["Summary", "60%", "Research Summary"], ["Department", "9%", "Department"], ["Site", "10%", "Research Site"], ["date", "8%", "Date Posted"]];
       madeBy.html("This table is powered by <a href='http://www.uab.edu/medicine/mstp/academics/mstp/uab-apsa-chapter' target='_parent'>UAB APSA</a>. <a target='_parent' href='https://script.google.com/macros/s/AKfycbx5bv2SQtwYvwAxs0NYTkjuypDXgsotKjESKAf1uOwRijXCMELb/exec'>Click here</a> to edit your entry or submit a new project.")
@@ -193,7 +192,7 @@ var APSAtable = (function () {
     window.addEventListener('message',
       function (evt) {
         if (evt.data === 'height') {
-          makeActualTable();
+          //makeActualTable();
           updateSize();
         }
       }, false);
@@ -340,9 +339,8 @@ var APSAtable = (function () {
             tableRows[i][cat].text("");
             (function (obj, cat) {
             //(function (loc, obj, cat) {
-              tableRows[i][cat].append($('<a>', {href: "#", 'data-toggle': "modal", 'data-target': "#myModal", text: getList(obj, cat, 'long')})).click(function (evt) {
+              tableRows[i][cat].append($('<a>', {href: "#", style: "font-weight:bold;", 'data-toggle': "modal", 'data-target': "#myModal", text: getList(obj, cat, 'long')})).click(function (evt) {
                 evt.preventDefault();
-                console.log('clicked...');
                 myModalLabel.text(obj[cat]);
                 modalBody.html(
                   obj.description.replace(/\n/g, "<br />") +
