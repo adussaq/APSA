@@ -1,6 +1,7 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log("v2.2.16");
+console.log('https://uab-apsa.googlecode.com/git/buildUABresearchTable.js ' +
+    "v2.3.0");
 //Tracking
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -351,8 +352,10 @@ var getImportantDates, importantDates;
     };
 
     //Add in research table stuff
-    jQuery('#researchOps').html('<iframe src="https://uab-apsa.googlecode.com/git/table.html" "border: 0" width="100%" height="900" frameborder="0" scrolling="no">')
-
+    // jQuery('#researchOps').html('<iframe src="https://uab-apsa.googlecode.com/git/table.html" "border: 0" width="100%" height="900" frameborder="0" scrolling="no">')
+    jQuery.getScript('https://uab-apsa.googlecode.com/git/buildUABResearchTable.js', function (x) {
+         APSAtable.makeTable('researchOps');
+     });
 
 
     updateChanges();
