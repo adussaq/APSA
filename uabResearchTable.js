@@ -1,9 +1,13 @@
 /*global console, $, jQuery, window */
 var APSAtable = (function () {
   'use strict';
-  console.log("v1.0.7");
+  console.log('https://uab-apsa.googlecode.com/git/uabResearchTable.js ' + 
+    'v2.0.0');
+
   //variables
-  var myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
+  var parent_url, updateSize, setUpSizing, renderModal, madeBy, table, frame, myModalLabel, modalBody, searchStr, filterMaker, tableRows, updateData, pageText, rightClick, leftClick, cPage, maxPage, getList, dict, options, main, makeTable, makeTableBody, $, div, data, dataArr, startBuilding, wordSearch, order, perPage;
+
+  parent_url = decodeURIComponent(document.location.hash.replace(/^#/, '')) || undefined;
 
   //variable declaration
   wordSearch = function (evt) {
@@ -52,12 +56,12 @@ var APSAtable = (function () {
           }
         }
       }
-      console.log(dataArr.length);
+      // console.log(dataArr.length);
       updateData();
     };
     mini = function (evt) {
       var putBack;
-      console.log('mini');
+      // console.log('mini');
       while (removed.length) {
         putBack = removed.pop();
         putBack.score = 0;
@@ -71,7 +75,7 @@ var APSAtable = (function () {
   };
 
   order = function () {
-    console.log('other');
+    // console.log('other');
   };
   main = {};
   perPage = 5;
@@ -91,8 +95,9 @@ var APSAtable = (function () {
   //Global functions
   //Actual table maker
   main.makeTable = function (divID) {
-    //These functions require jQuery and a div id to
-    //be pointed to, all other functionality is built in
+    // These functions require jQuery and a div id to
+    // be pointed to, all other functionality is built in
+    // divID should be a string.
     return makeTable(divID);
   };
 
@@ -108,8 +113,11 @@ var APSAtable = (function () {
     } else {
       $ = jQuery;
       div = $('#' + divID);
-//            div = $("<iframe>", {style:'width:100%'}).appendTo($('#' + divID).text(""));
-  //          div = div.contents().find('body');
+      div.empty();
+      // div = $("<iframe>", {sandbox: "allow-popups allow-same-origin allow-scripts", style:'width:100%;', seamless: ""}).appendTo(div);
+      // frame = div;
+      // div = div.contents().find('body');
+      // div.append('<style>', {html: 'html, body {height:100%}'});
       div.text("");
       if (div.length < 1) {
         console.error('Could not find div that was indicated, make sure one exists with id=[divID].');
@@ -121,7 +129,7 @@ var APSAtable = (function () {
 
   startBuilding = function (x) {
     //variable
-    var table, i, row1, row2, length;
+    var i, row1, row2, length;
 
     //set css and modal functionality
     $('<style type="text/css">.uabR-table{margin:0;padding:0;width:100%;border:1px solid #1e6b52;-moz-border-radius-bottomleft:0;-webkit-border-radius:0;border-radius:0;-moz-border-radius-bottomright:0;-moz-border-radius-topright:0;-moz-border-radius-topleft:0}.uabR-table table{border-collapse:collapse;border-spacing:0;width:100%;height:100%;margin:0;padding:0}.uabR-table tr:last-child td:last-child{-moz-border-radius-bottomright:0;-webkit-border-bottom-right-radius:0;border-bottom-right-radius:0}.uabR-table table tr:first-child td:first-child{-moz-border-radius-topleft:0;-webkit-border-top-left-radius:0;border-top-left-radius:0}.uabR-table table tr:first-child td:last-child{-moz-border-radius-topright:0;-webkit-border-top-right-radius:0;border-top-right-radius:0}.uabR-table tr:last-child td:first-child{-moz-border-radius-bottomleft:0;-webkit-border-bottom-left-radius:0;border-bottom-left-radius:0}.uabR-table tr:nth-child(odd){background-color:#a4d363}.uabR-table tr:nth-child(even){background-color:#fff}.uabR-table td{vertical-align:middle;border:1px solid #1e6b52;border-width:0 1px 1px 0;text-align:left;padding:5px;font-size:14px;font-family:Times New Roman;font-weight:400;color:#000}.uabR-table tr:last-child td{border-width:0 1px 0 0}.uabR-table tr td:last-child{border-width:0 0 1px}.uabR-table tr:last-child td:last-child{border-width:0}.uabR-table tr:first-child td{background:#1e6b52 -webkit-gradient(linear,left top,left bottom,color-stop(0.05,#1e6b52),color-stop(1,#a3d55d));background:#1e6b52 -moz-linear-gradient(center top,#1e6b52 5%,#a3d55d 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#1e6b52", endColorstr="#a3d55d");background:#1e6b52 -o-linear-gradient(top,#1e6b52,a3d55d);border:0 solid #1e6b52;text-align:center;border-width:0 0 1px 1px;font-size:18px;font-family:Times New Roman;font-weight:700;color:#fff}.uabR-table tr:first-child:hover td{background:#1e6b52 -webkit-gradient(linear,left top,left bottom,color-stop(0.05,#1e6b52),color-stop(1,#a3d55d));background:#1e6b52 -moz-linear-gradient(center top,#1e6b52 5%,#a3d55d 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#1e6b52", endColorstr="#a3d55d");background:#1e6b52 -o-linear-gradient(top,#1e6b52,a3d55d)}.uabR-table tr:first-child td:first-child{border-width:0 0 1px}.uabR-table tr:first-child td:last-child{border-width:0 0 1px 1px}</style>').appendTo(div);
@@ -144,7 +152,8 @@ var APSAtable = (function () {
     dict = data.dict;
     dataArr = data.data;
     searchStr = data.str;
-    div.append($('<div>', {style: "font-size:110%", html: "This table is powered by <a href='http://www.uab.edu/medicine/mstp/academics/mstp/uab-apsa-chapter' target='_parent'>UAB APSA</a>. <a target='_parent' href='https://script.google.com/macros/s/AKfycbx5bv2SQtwYvwAxs0NYTkjuypDXgsotKjESKAf1uOwRijXCMELb/exec'>Click here</a> to edit your entry or submit a new project."}));
+    madeBy = $('<div>', {style: "font-size:110%", html: "This table is powered by <a href='http://www.uab.edu/medicine/mstp/academics/mstp/uab-apsa-chapter' target='_parent'>UAB APSA</a>. <a target='_parent' href='https://script.google.com/macros/s/AKfycbx5bv2SQtwYvwAxs0NYTkjuypDXgsotKjESKAf1uOwRijXCMELb/exec'>Click here</a> to edit your entry or submit a new project."});
+    div.append(madeBy);
     table = $("<table>", {"class": "uabR-table", style: "width:100%"}).appendTo(div);
 
     //make table header
@@ -154,7 +163,26 @@ var APSAtable = (function () {
       $("<td>", {style: "padding:5px;width:" + options.visible.order[i][1], text: options.visible.order[i][2]}).appendTo(row1);
       $("<td>", {style: "padding:5px;width:" + options.visible.order[i][1]}).append(filterMaker(options.visible.order[i][0])).appendTo(row2);
     }
+    setUpSizing();
     makeTableBody(table);
+  };
+
+  setUpSizing = function () {
+    updateSize = function () {
+      console.log('updateSize does not do anything outside the context of an iframe');
+      return;
+    }
+    if (parent_url) {
+      updateSize = function () {
+        parent.postMessage(table.height() + madeBy.height(), parent_url);
+      }  
+    }
+    window.addEventListener('message', 
+      function (evt) {
+        if (evt.data === 'height') {
+          updateSize();
+        }
+      }, false);
   };
 
   filterMaker = function (cat) {
@@ -219,7 +247,7 @@ var APSAtable = (function () {
     pageText.appendTo(pager);
     $('<button>', {"class": "tableButton", html: '&#10140;'}).appendTo(pager).click(rightClick);
     updateData();
-    console.log(tableRows);
+    // console.log(tableRows);
     // div.append($('<div>', {html: "This table is powered by <a href='http://www.uab.edu/medicine/mstp/academics/mstp/uab-apsa-chapter' target='_parent'>UAB APSA</a>. <a target='_parent' href='https://script.google.com/macros/s/AKfycbx5bv2SQtwYvwAxs0NYTkjuypDXgsotKjESKAf1uOwRijXCMELb/exec'>Click here</a> to edit your entry or submit a new project."}))
   };
 
@@ -300,6 +328,7 @@ var APSAtable = (function () {
             //(function (loc, obj, cat) {
               tableRows[i][cat].append($('<a>', {href: "#", 'data-toggle': "modal", 'data-target': "#myModal", text: getList(obj, cat, 'long')})).click(function (evt) {
                 evt.preventDefault();
+                console.log('clicked...');
                 myModalLabel.text(obj[cat]);
                 modalBody.html(
                   obj.description.replace(/\n/g, "<br />") +
@@ -328,6 +357,7 @@ var APSAtable = (function () {
         tableRows[i].row.hide();
       }
     }
+    updateSize();
   };
 
   return main;
