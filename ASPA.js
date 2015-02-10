@@ -1,6 +1,6 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log('https://uab-apsa.googlecode.com/git/buildUABresearchTable.js ' +
+console.log('https://uab-apsa.googlecode.com/git/ASPA.js ' +
     "v2.4.0");
 //Tracking
 
@@ -20,7 +20,7 @@ var getImportantDates, importantDates;
     main = $('#ASPAmain');
 
     //actually start making the page, this section creates the interface
-    console.log('Hello from googlecode, source code avaliable at: https://code.google.com/p/uab-apsa/');
+    // console.log('Hello from googlecode, source code avaliable at: https://code.google.com/p/uab-apsa/');
     tabClick = function (evt) {
         var text;
         evt.preventDefault();
