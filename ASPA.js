@@ -1,7 +1,8 @@
 /*global console, $, jQuery */
 var updateChanges;
-console.log('https://uab-apsa.googlecode.com/git/ASPA.js ' +
-    "v2.4.0");
+var urlBase = 'https://uab-apsa.googlecode.com/git/';
+console.log(urlBase + 'ASPA.js ' +
+    "v2.4.1");
 //Tracking
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -18,6 +19,7 @@ var getImportantDates, importantDates;
     var main, tabClick, $;
     $ = jQuery;
     main = $('#ASPAmain');
+
 
     //actually start making the page, this section creates the interface
     // console.log('Hello from googlecode, source code avaliable at: https://code.google.com/p/uab-apsa/');
@@ -41,20 +43,20 @@ var getImportantDates, importantDates;
                         '<br />&nbsp;&nbsp;The UAB APSA local chapter was established in Spring 2013 to promote networking within the physician scientist community at UAB, to organize career development events for physician scientists in training, to expand the role of physician scientists into the Birmingham community through outreach events, and to provide a formal platform through which UAB’s future physician-scientists can have an active voice both locally and nationally.  Since then, we have expanded our roster to include over 60 members from the MD, MD/PhD, and MD/MPH programs.  We have sponsored over 50 events ranging from presentations to local high school students on the real-world applications of basic science principles to a roundtable discussion with the CEO of the American Medical Association to workshops on successful grant writing. Each event we sponsor is proposed, planned, and organized by committees composed of APSA members; last year we had over 30 members who served in an active role on these committees.' +
                         '<br />&nbsp;&nbsp;The UAB APSA chapter has been recognized by locally and nationally for our dedication to physician scientist training.  We have received multiple nominations for the outstanding UAB student group of the year and have a strong history of support from both the UAB School of Medicine and the UAB Medical Scientist Training Program.  We have received several grants from the national APSA office including an institutional travel award to the 2014 APSA Annual Meeting, which was attended by 9 of our members.  We were also recognized at the 2014 Annual Meeting as a local chapter of excellence and had the opportunity to speak at the APSA business meeting on our success as a student group.  In addition, we currently have 7 local members serving on national APSA planning committees, including 3 committee vice-Chairs, making UAB the most well-represented institution in the country within the national APSA organization.' +
                         '<br />&nbsp;&nbsp;As our chapter evolves, we continue to increase our involvement in physician scientist development, both locally and nationally.  Anyone interested in joining UAB APSA is welcome to contact us at UAB.APSA@gmail.com or to attend one of our monthly membership meetings.  Thanks, and we encourage you to get involved!' +
-                        '<br /><br /><a href="https://uab-apsa.googlecode.com/git/APSAConstitution_2013_01_10.pdf">Download Constitution</a><br /><br /></div>'}).appendTo(main);
+                        '<br /><br /><a href=' + urlBase + '"APSAConstitution_2013_01_10.pdf">Download Constitution</a><br /><br /></div>'}).appendTo(main);
     //Officers
     $('<div />', {html: '<a href="#" id="tab2">Officers</a><div class= "hide" style="margin-left:10px"><table><tr>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Weaver_Alice.jpg"></img><br /><b>President</b><br />Alice Weaver</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/TylerMcCaw.jpg"></img><br /><b>Vice President</b><br />Tyler McCaw</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Hu_Muhan.jpg"></img><br /><b>Secretary</b><br />Muhan Hu</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Eustace_nicholas.JPG"></img><br /><b>Treasurer</b><br />Nick Eustace</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src=' + urlBase + '"officerImages/TylerMcCaw.jpg"></img><br /><b>President</b><br />Tyler McCaw</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src=' + urlBase + '"officerImages/Hu_Muhan.jpg"></img><br /><b>Vice President</b><br />Muhan Hu</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src=' + urlBase + '"officerImages/Weaver_Alice.jpg"></img><br /><b></b><br />Alice Weaver</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src=' + urlBase + '"officerImages/Sebastian_Chung.jpg"></img><br /><b>Treasurer</b><br />Sebastian Chung</td>' +
                         '</tr><tr>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Dussaq_Alex.jpg"></img><br /><b>Webmaster</b><br />Alex Dussaq</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/      "></img><br /><b>SOM Representative MS1/2</b><br />Andrew Headrick</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Dunlap_Quinn.jpeg"></img><br /><b>SOM Representative MS3/4</b><br />Quinn Dunlap</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td>' +
-                        '</tr><tr>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="https://uab-apsa.googlecode.com/git/officerImages/Redmond_Nicole.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Nicole Redmond</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src=' + urlBase + '"officerImages/Dussaq_Alex.jpg"></img><br /><b>Webmaster</b><br />Alex Dussaq</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src=' + urlBase + '"officerImages/      "></img><br /><b>SOM Representative MS1/2</b><br />Andrew Headrick</td>' +
+                        // '<td style="text-align:center;width:150px;"><img style="width:140px;" src=' + urlBase + '"officerImages/Dunlap_Quinn.jpeg"></img><br /><b>SOM Representative MS3/4</b><br />Quinn Dunlap</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src=' + urlBase + '"officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td>' +
+                        // '</tr><tr>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src=' + urlBase + '"officerImages/Redmond_Nicole.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Nicole Redmond</td>' +
                         '</tr>' +
                         '</table></div><br />'}).appendTo(main);
 
@@ -353,7 +355,7 @@ var getImportantDates, importantDates;
 
     //Add in research table stuff
     // jQuery('#researchOps').html('<iframe src="https://uab-apsa.googlecode.com/git/table.html" "border: 0" width="100%" height="900" frameborder="0" scrolling="no">')
-    jQuery.getScript('https://uab-apsa.googlecode.com/git/buildUABresearchTable.js', function (x) {
+    jQuery.getScript(urlBase + 'buildUABresearchTable.js', function (x) {
          APSAtable.makeTable('researchOps');
      });
 
