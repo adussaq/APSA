@@ -2,7 +2,7 @@
 var updateChanges;
 var urlBase = 'https://uab-apsa.googlecode.com/git/';
 console.log(urlBase + 'ASPA.js ' +
-    "v2.4.2");
+    "v2.4.3");
 //Tracking
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -51,12 +51,13 @@ var getImportantDates, importantDates;
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="' + urlBase + 'officerImages/         "></img><br /><b>Secretary</b><br />Paige Souder</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="' + urlBase + 'officerImages/Sebastian_Chung.jpg"></img><br /><b>Treasurer</b><br />Sebastian Chung</td>' +
                         '</tr><tr>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="' + urlBase + 'officerImages/Weaver_Alice.jpg"></img><br /><b>Past President</b><br />Alice Weaver</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="' + urlBase + 'officerImages/Dussaq_Alex.jpg"></img><br /><b>Webmaster</b><br />Alex Dussaq</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="' + urlBase + 'officerImages/      "></img><br /><b>SOM Representative MS1/2</b><br />Adam Beg</td>' +
                         // '<td style="text-align:center;width:150px;"><img style="width:140px;" src="' + urlBase + 'officerImages/Dunlap_Quinn.jpeg"></img><br /><b>SOM Representative MS3/4</b><br />Quinn Dunlap</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="' + urlBase + 'officerImages/Weaver_Alice.jpg"></img><br /><b>Past President</b><br />Alice Weaver</td>' +
-                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="' + urlBase + 'officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="' + urlBase + 'officerImages/Corey.jpg"></img><br /><b>Research Database Director</b><br />Corey Duke</td>' +
                         '</tr><tr>' +
+                        '<td style="text-align:center;width:150px;"><img style="width:140px;" src="' + urlBase + 'officerImages/Lorenz_Robin.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Robin Lorenz</td>' +
                         '<td style="text-align:center;width:150px;"><img style="width:140px;" src="' + urlBase + 'officerImages/Redmond_Nicole.jpg"></img><br /><b>Faculty Advisor</b><br />Dr. Nicole Redmond</td>' +
                         '</tr>' +
                         '</table></div><br />'}).appendTo(main);
